@@ -5,18 +5,18 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Lakudkar Gym - Transform Your Fitness Journey</title>
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
-    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@300;400;500;600;700;800&family=Poppins:wght@400;500;600;700&display=swap" rel="stylesheet">
     <style>
         :root {
             --primary: #ff6b6b;
             --secondary: #4ecdc4;
+            --accent: #ff9f1c;
             --dark: #292f36;
             --light: #f7fff7;
-            --accent: #ff9f1c;
-            --transparent-dark: rgba(41, 47, 54, 0.7);
-            --transparent-light: rgba(247, 255, 247, 0.8);
             --matte-black: rgba(20, 20, 20, 0.9);
             --matte-card: rgba(30, 30, 30, 0.95);
+            --transparent-dark: rgba(41, 47, 54, 0.7);
+            --transparent-light: rgba(247, 255, 247, 0.8);
         }
 
         * {
@@ -34,7 +34,7 @@
             perspective: 1000px;
         }
 
-        /* Background with 3D effect */
+        /* 3D Background Effect */
         .bg-container {
             position: fixed;
             top: 0;
@@ -43,6 +43,7 @@
             height: 100%;
             z-index: -2;
             transform-style: preserve-3d;
+            transition: transform 0.5s ease-out;
         }
 
         .bg-image {
@@ -54,9 +55,8 @@
             background-image: url('https://i.pinimg.com/736x/de/8f/57/de8f579651b2e0a6cddbd359182f95ad.jpg');
             background-size: cover;
             background-position: center;
-            background-repeat: no-repeat;
-            filter: brightness(0.5);
-            transform: translateZ(-20px) scale(1.1);
+            filter: brightness(0.6);
+            transform: translateZ(-30px) scale(1.1);
         }
 
         .bg-overlay {
@@ -72,7 +72,7 @@
         /* Navigation */
         .navbar {
             background-color: var(--matte-black);
-            padding: 15px 5%;
+            padding: 20px 5%;
             display: flex;
             justify-content: space-between;
             align-items: center;
@@ -80,13 +80,14 @@
             width: 100%;
             top: 0;
             z-index: 1000;
-            box-shadow: 0 5px 20px rgba(0, 0, 0, 0.3);
+            box-shadow: 0 5px 30px rgba(0, 0, 0, 0.4);
             transform-style: preserve-3d;
             transition: all 0.5s ease;
+            backdrop-filter: blur(10px);
         }
 
         .navbar.scrolled {
-            padding: 10px 5%;
+            padding: 15px 5%;
             background-color: rgba(20, 20, 20, 0.98);
         }
 
@@ -94,45 +95,71 @@
             display: flex;
             align-items: center;
             gap: 15px;
+            transform-style: preserve-3d;
         }
 
         .logo-img {
-            width: 50px;
-            height: 50px;
+            width: 60px;
+            height: 60px;
             border-radius: 50%;
             object-fit: cover;
-            border: 2px solid var(--primary);
-            transition: all 0.3s ease;
+            border: 3px solid var(--primary);
+            transition: all 0.5s ease;
+            transform: translateZ(20px);
+            box-shadow: 0 5px 15px rgba(255, 107, 107, 0.3);
         }
 
         .logo-img:hover {
-            transform: rotate(15deg) scale(1.1);
+            transform: rotate(15deg) scale(1.1) translateZ(30px);
+            box-shadow: 0 8px 25px rgba(255, 107, 107, 0.5);
         }
 
         .logo-text {
             font-size: 36px;
-            font-weight: 700;
+            font-weight: 800;
             color: var(--light);
             text-transform: uppercase;
             letter-spacing: 1px;
+            text-shadow: 0 2px 10px rgba(0, 0, 0, 0.5);
+            transform: translateZ(20px);
         }
 
         .logo-text span {
             color: var(--primary);
+            position: relative;
+        }
+
+        .logo-text span::after {
+            content: '';
+            position: absolute;
+            bottom: -5px;
+            left: 0;
+            width: 100%;
+            height: 3px;
+            background: linear-gradient(to right, var(--primary), var(--secondary));
+            transform-origin: left;
+            transform: scaleX(0);
+            transition: transform 0.5s ease;
+        }
+
+        .logo-container:hover .logo-text span::after {
+            transform: scaleX(1);
         }
 
         .nav-links {
             display: flex;
             gap: 30px;
+            transform-style: preserve-3d;
         }
 
         .nav-link {
             color: var(--light);
             text-decoration: none;
-            font-weight: 500;
+            font-weight: 600;
             font-size: 18px;
             transition: all 0.3s ease;
             position: relative;
+            transform: translateZ(20px);
         }
 
         .nav-link:hover {
@@ -146,7 +173,7 @@
             left: 0;
             width: 0;
             height: 2px;
-            background-color: var(--primary);
+            background: linear-gradient(to right, var(--primary), var(--secondary));
             transition: width 0.3s ease;
         }
 
@@ -159,8 +186,15 @@
             background: none;
             border: none;
             color: var(--light);
-            font-size: 24px;
+            font-size: 28px;
             cursor: pointer;
+            transform: translateZ(20px);
+            transition: all 0.3s ease;
+        }
+
+        .mobile-menu-btn:hover {
+            color: var(--primary);
+            transform: rotate(90deg) translateZ(30px);
         }
 
         /* Hero Section */
@@ -174,6 +208,7 @@
             padding: 0 5%;
             position: relative;
             transform-style: preserve-3d;
+            overflow: hidden;
         }
 
         .hero::before {
@@ -187,30 +222,38 @@
             z-index: -1;
         }
 
+        .hero-content {
+            max-width: 1200px;
+            transform-style: preserve-3d;
+        }
+
         .hero h1 {
-            font-size: 4.5rem;
+            font-size: 5rem;
             font-weight: 800;
-            margin-bottom: 20px;
+            margin-bottom: 25px;
             color: var(--light);
             text-transform: uppercase;
-            letter-spacing: 2px;
-            text-shadow: 0 5px 15px rgba(0, 0, 0, 0.5);
+            letter-spacing: 3px;
+            text-shadow: 0 5px 20px rgba(0, 0, 0, 0.7);
             animation: fadeInUp 1s ease;
+            transform: translateZ(30px);
+            line-height: 1.2;
         }
 
         .hero h1 span {
             color: var(--primary);
             position: relative;
+            display: inline-block;
         }
 
         .hero h1 span::after {
             content: '';
             position: absolute;
-            bottom: -5px;
+            bottom: -10px;
             left: 0;
             width: 100%;
-            height: 3px;
-            background-color: var(--primary);
+            height: 4px;
+            background: linear-gradient(to right, var(--primary), var(--secondary));
             transform-origin: left;
             transform: scaleX(0);
             transition: transform 0.5s ease;
@@ -221,191 +264,197 @@
         }
 
         .hero p {
-            font-size: 1.5rem;
-            margin-bottom: 40px;
+            font-size: 1.8rem;
+            margin-bottom: 50px;
             color: var(--light);
             max-width: 800px;
             animation: fadeInUp 1s ease 0.2s forwards;
             opacity: 0;
+            transform: translateZ(20px);
+            line-height: 1.6;
         }
 
         .hero-btns {
             display: flex;
-            gap: 20px;
+            gap: 25px;
+            justify-content: center;
             animation: fadeInUp 1s ease 0.4s forwards;
             opacity: 0;
+            transform-style: preserve-3d;
         }
 
         .btn {
-            padding: 15px 30px;
+            padding: 18px 35px;
             border-radius: 50px;
-            font-weight: 600;
-            font-size: 1rem;
+            font-weight: 700;
+            font-size: 1.1rem;
             text-transform: uppercase;
             letter-spacing: 1px;
-            transition: all 0.3s ease;
+            transition: all 0.4s ease;
             cursor: pointer;
             border: none;
             outline: none;
+            transform: translateZ(20px);
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.3);
+            position: relative;
+            overflow: hidden;
+        }
+
+        .btn::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: -100%;
+            width: 100%;
+            height: 100%;
+            background: linear-gradient(90deg, transparent, rgba(255, 255, 255, 0.2), transparent);
+            transition: 0.5s;
+        }
+
+        .btn:hover::before {
+            left: 100%;
         }
 
         .btn-primary {
-            background-color: var(--primary);
+            background: linear-gradient(135deg, var(--primary), var(--accent));
             color: var(--dark);
-            box-shadow: 0 5px 15px rgba(255, 107, 107, 0.4);
+            box-shadow: 0 5px 20px rgba(255, 107, 107, 0.5);
         }
 
         .btn-primary:hover {
-            background-color: #ff5252;
-            transform: translateY(-3px);
-            box-shadow: 0 8px 20px rgba(255, 107, 107, 0.6);
+            background: linear-gradient(135deg, #ff5252, #ff8c1c);
+            transform: translateY(-5px) translateZ(30px);
+            box-shadow: 0 10px 25px rgba(255, 107, 107, 0.7);
         }
 
         .btn-secondary {
             background-color: transparent;
             color: var(--light);
             border: 2px solid var(--light);
+            backdrop-filter: blur(5px);
         }
 
         .btn-secondary:hover {
             background-color: var(--light);
             color: var(--dark);
-            transform: translateY(-3px);
+            transform: translateY(-5px) translateZ(30px);
+            box-shadow: 0 10px 25px rgba(247, 255, 247, 0.3);
+        }
+
+        .hero-images {
+            width: 100%;
+            max-width: 1400px;
+            margin: 60px auto 0;
+            display: flex;
+            flex-direction: column;
+            gap: 30px;
+            transform-style: preserve-3d;
         }
 
         .hero-image {
-            width: 100%;
-            max-width: 1200px;
-            margin: 40px auto;
-            border-radius: 10px;
+            border-radius: 15px;
             overflow: hidden;
-            box-shadow: 0 15px 30px rgba(0, 0, 0, 0.5);
-            transform: rotateX(5deg) rotateY(-5deg) translateZ(20px);
-            transition: all 0.5s ease;
+            box-shadow: 0 20px 40px rgba(0, 0, 0, 0.6);
+            transform: rotateX(5deg) rotateY(-5deg) translateZ(30px);
+            transition: all 0.6s ease;
             animation: fadeIn 1s ease 0.6s forwards;
             opacity: 0;
         }
 
         .hero-image:hover {
-            transform: rotateX(0) rotateY(0) translateZ(30px);
-            box-shadow: 0 20px 40px rgba(0, 0, 0, 0.7);
+            transform: rotateX(0) rotateY(0) translateZ(50px);
+            box-shadow: 0 25px 50px rgba(0, 0, 0, 0.8);
         }
 
         .hero-image img {
             width: 100%;
             height: auto;
             display: block;
-            transition: transform 0.5s ease;
+            transition: transform 0.6s ease;
         }
 
         .hero-image:hover img {
             transform: scale(1.05);
         }
 
-        /* About Section */
+        /* Sections */
         .section {
-            padding: 100px 5%;
+            padding: 120px 5%;
             position: relative;
             transform-style: preserve-3d;
         }
 
         .section-title {
-            font-size: 3rem;
-            font-weight: 700;
-            margin-bottom: 50px;
+            font-size: 3.5rem;
+            font-weight: 800;
+            margin-bottom: 70px;
             text-align: center;
             color: var(--light);
             position: relative;
             display: inline-block;
             left: 50%;
-            transform: translateX(-50%);
+            transform: translateX(-50%) translateZ(30px);
+            text-transform: uppercase;
+            letter-spacing: 2px;
         }
 
         .section-title::after {
             content: '';
             position: absolute;
-            bottom: -10px;
+            bottom: -15px;
+            left: 50%;
+            transform: translateX(-50%);
+            width: 80px;
+            height: 5px;
+            background: linear-gradient(to right, var(--primary), var(--secondary));
+            border-radius: 5px;
+        }
+
+        /* Membership Plans Section */
+        .membership-plans {
+            background: linear-gradient(rgba(41, 47, 54, 0.9), rgba(41, 47, 54, 0.95));
+            position: relative;
+            overflow: hidden;
+        }
+
+        .membership-plans::before {
+            content: '';
+            position: absolute;
+            top: 0;
             left: 0;
             width: 100%;
-            height: 3px;
-            background: linear-gradient(to right, var(--primary), var(--secondary));
-            border-radius: 3px;
+            height: 100%;
+            background: url('https://i.pinimg.com/736x/f5/51/48/f55148ad2ef92de8597008b60bcd29a8.jpg') center/cover no-repeat;
+            opacity: 0.1;
+            z-index: -1;
         }
 
-        .about-content {
-            display: flex;
-            align-items: center;
-            gap: 50px;
-            margin-bottom: 50px;
-        }
-
-        .about-text {
-            flex: 1;
-        }
-
-        .about-text h3 {
-            font-size: 2rem;
-            margin-bottom: 20px;
-            color: var(--primary);
-        }
-
-        .about-text p {
-            font-size: 1.1rem;
-            line-height: 1.6;
-            margin-bottom: 20px;
-            color: var(--light);
-        }
-
-        .about-image {
-            flex: 1;
-            border-radius: 10px;
-            overflow: hidden;
-            box-shadow: 0 15px 30px rgba(0, 0, 0, 0.5);
-            transform: rotateY(10deg) translateZ(20px);
-            transition: all 0.5s ease;
-        }
-
-        .about-image:hover {
-            transform: rotateY(0) translateZ(30px);
-            box-shadow: 0 20px 40px rgba(0, 0, 0, 0.7);
-        }
-
-        .about-image img {
-            width: 100%;
-            height: auto;
-            display: block;
-            transition: transform 0.5s ease;
-        }
-
-        .about-image:hover img {
-            transform: scale(1.05);
-        }
-
-        /* Services Section */
-        .services-container {
+        .plans-container {
             display: grid;
             grid-template-columns: repeat(auto-fit, minmax(350px, 1fr));
-            gap: 30px;
-            margin-top: 50px;
+            gap: 40px;
+            margin-top: 60px;
         }
 
-        .service-card {
+        .plan-card {
             background-color: var(--matte-card);
-            border-radius: 15px;
+            border-radius: 20px;
             overflow: hidden;
-            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.3);
-            transition: all 0.5s ease;
+            box-shadow: 0 15px 35px rgba(0, 0, 0, 0.4);
+            transition: all 0.6s ease;
             transform-style: preserve-3d;
             position: relative;
-            transform: translateZ(0);
+            transform: translateZ(20px);
+            border: 1px solid rgba(255, 255, 255, 0.1);
         }
 
-        .service-card:hover {
-            transform: translateY(-10px) translateZ(20px);
-            box-shadow: 0 15px 40px rgba(0, 0, 0, 0.4);
+        .plan-card:hover {
+            transform: translateY(-15px) translateZ(40px);
+            box-shadow: 0 20px 50px rgba(0, 0, 0, 0.6);
+            border-color: var(--primary);
         }
 
-        .service-card::before {
+        .plan-card::before {
             content: '';
             position: absolute;
             top: 0;
@@ -415,107 +464,156 @@
             background: linear-gradient(135deg, rgba(255, 107, 107, 0.1), rgba(78, 205, 196, 0.1));
             z-index: -1;
             opacity: 0;
-            transition: opacity 0.5s ease;
+            transition: opacity 0.6s ease;
         }
 
-        .service-card:hover::before {
+        .plan-card:hover::before {
             opacity: 1;
         }
 
-        .service-img {
+        .plan-img {
             width: 100%;
-            height: 250px;
+            height: 300px;
             object-fit: cover;
-            transition: transform 0.5s ease;
+            transition: transform 0.6s ease;
         }
 
-        .service-card:hover .service-img {
+        .plan-card:hover .plan-img {
             transform: scale(1.05);
         }
 
-        .service-content {
-            padding: 25px;
+        .plan-content {
+            padding: 30px;
         }
 
-        .service-title {
-            font-size: 1.8rem;
-            margin-bottom: 15px;
+        .plan-title {
+            font-size: 2rem;
+            margin-bottom: 20px;
             color: var(--primary);
+            position: relative;
+            padding-bottom: 15px;
         }
 
-        .service-description {
-            font-size: 1rem;
+        .plan-title::after {
+            content: '';
+            position: absolute;
+            bottom: 0;
+            left: 0;
+            width: 50px;
+            height: 3px;
+            background: linear-gradient(to right, var(--primary), var(--secondary));
+        }
+
+        .plan-description {
+            font-size: 1.1rem;
             line-height: 1.6;
             color: var(--light);
-            margin-bottom: 20px;
+            margin-bottom: 25px;
         }
 
-        .service-features {
-            margin-bottom: 20px;
+        .plan-features {
+            margin-bottom: 30px;
         }
 
         .feature-item {
             display: flex;
-            align-items: center;
-            gap: 10px;
-            margin-bottom: 10px;
+            align-items: flex-start;
+            gap: 12px;
+            margin-bottom: 15px;
             color: var(--light);
         }
 
         .feature-item i {
             color: var(--primary);
+            font-size: 1.2rem;
+            margin-top: 3px;
         }
 
-        .service-price {
-            font-size: 1.5rem;
+        .feature-text {
+            flex: 1;
+        }
+
+        .plan-price {
+            font-size: 1.8rem;
             font-weight: 700;
             color: var(--secondary);
-            margin-bottom: 20px;
+            margin-bottom: 25px;
+            display: flex;
+            align-items: center;
+            gap: 10px;
         }
 
-        .service-btn {
+        .plan-price i {
+            font-size: 1.5rem;
+        }
+
+        .plan-btn {
             display: inline-block;
-            padding: 12px 25px;
-            background-color: var(--primary);
+            padding: 15px 30px;
+            background: linear-gradient(135deg, var(--primary), var(--accent));
             color: var(--dark);
             border-radius: 50px;
-            font-weight: 600;
+            font-weight: 700;
             text-decoration: none;
-            transition: all 0.3s ease;
+            transition: all 0.4s ease;
+            box-shadow: 0 5px 15px rgba(255, 107, 107, 0.4);
+            text-transform: uppercase;
+            letter-spacing: 1px;
         }
 
-        .service-btn:hover {
-            background-color: var(--secondary);
-            transform: translateY(-3px);
-            box-shadow: 0 5px 15px rgba(78, 205, 196, 0.4);
+        .plan-btn:hover {
+            background: linear-gradient(135deg, #ff5252, #ff8c1c);
+            transform: translateY(-5px);
+            box-shadow: 0 10px 25px rgba(255, 107, 107, 0.6);
         }
 
         /* Diet Plan Section */
+        .diet-plan {
+            background: linear-gradient(rgba(41, 47, 54, 0.95), rgba(41, 47, 54, 0.9));
+            position: relative;
+            overflow: hidden;
+        }
+
+        .diet-plan::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: url('https://i.pinimg.com/474x/6c/e3/b2/6ce3b2be792cdd262d3bc338f4268687.jpg') center/cover no-repeat;
+            opacity: 0.1;
+            z-index: -1;
+        }
+
         .diet-container {
             display: flex;
             flex-direction: column;
-            gap: 50px;
+            gap: 60px;
         }
 
         .diet-card {
             background-color: var(--matte-card);
-            border-radius: 15px;
+            border-radius: 20px;
             overflow: hidden;
-            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.3);
-            transition: all 0.5s ease;
+            box-shadow: 0 15px 35px rgba(0, 0, 0, 0.4);
+            transition: all 0.6s ease;
             display: flex;
             align-items: center;
             transform-style: preserve-3d;
+            transform: translateZ(20px);
+            border: 1px solid rgba(255, 255, 255, 0.1);
         }
 
         .diet-card:hover {
-            transform: translateY(-10px) translateZ(20px);
-            box-shadow: 0 15px 40px rgba(0, 0, 0, 0.4);
+            transform: translateY(-10px) translateZ(40px);
+            box-shadow: 0 20px 50px rgba(0, 0, 0, 0.6);
+            border-color: var(--secondary);
         }
 
         .diet-img-container {
             flex: 0 0 45%;
-            height: 400px;
+            height: 500px;
             overflow: hidden;
         }
 
@@ -523,7 +621,7 @@
             width: 100%;
             height: 100%;
             object-fit: cover;
-            transition: transform 0.5s ease;
+            transition: transform 0.6s ease;
         }
 
         .diet-card:hover .diet-img {
@@ -532,73 +630,111 @@
 
         .diet-content {
             flex: 1;
-            padding: 40px;
+            padding: 50px;
         }
 
         .diet-title {
-            font-size: 2rem;
-            margin-bottom: 20px;
+            font-size: 2.5rem;
+            margin-bottom: 25px;
             color: var(--primary);
+            position: relative;
+            padding-bottom: 15px;
+        }
+
+        .diet-title::after {
+            content: '';
+            position: absolute;
+            bottom: 0;
+            left: 0;
+            width: 80px;
+            height: 3px;
+            background: linear-gradient(to right, var(--primary), var(--secondary));
         }
 
         .diet-subtitle {
-            font-size: 1.2rem;
-            margin-bottom: 20px;
+            font-size: 1.5rem;
+            margin-bottom: 25px;
             color: var(--secondary);
         }
 
         .diet-features {
-            margin-bottom: 30px;
+            margin-bottom: 35px;
         }
 
         .diet-feature {
             display: flex;
-            align-items: center;
-            gap: 10px;
-            margin-bottom: 15px;
-            font-size: 1.1rem;
+            align-items: flex-start;
+            gap: 15px;
+            margin-bottom: 20px;
+            font-size: 1.2rem;
             color: var(--light);
         }
 
         .diet-feature i {
             color: var(--primary);
-            font-size: 1.2rem;
+            font-size: 1.5rem;
+            min-width: 30px;
         }
 
         .diet-btn {
             display: inline-block;
-            padding: 12px 30px;
-            background-color: var(--primary);
+            padding: 15px 35px;
+            background: linear-gradient(135deg, var(--primary), var(--accent));
             color: var(--dark);
             border-radius: 50px;
-            font-weight: 600;
+            font-weight: 700;
             text-decoration: none;
-            transition: all 0.3s ease;
-            margin-top: 20px;
+            transition: all 0.4s ease;
+            box-shadow: 0 5px 15px rgba(255, 107, 107, 0.4);
+            text-transform: uppercase;
+            letter-spacing: 1px;
+            font-size: 1.1rem;
+            border: none;
+            cursor: pointer;
         }
 
         .diet-btn:hover {
-            background-color: var(--secondary);
-            transform: translateY(-3px);
-            box-shadow: 0 5px 15px rgba(78, 205, 196, 0.4);
+            background: linear-gradient(135deg, #ff5252, #ff8c1c);
+            transform: translateY(-5px);
+            box-shadow: 0 10px 25px rgba(255, 107, 107, 0.6);
         }
 
-        /* Workout Section */
+        /* Workout Routine Section */
+        .workout-routine {
+            background: linear-gradient(rgba(41, 47, 54, 0.9), rgba(41, 47, 54, 0.95));
+            position: relative;
+            overflow: hidden;
+        }
+
+        .workout-routine::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: url('https://i.pinimg.com/474x/7a/1f/02/7a1f0261de4715fd78874ac0d42d55b1.jpg') center/cover no-repeat;
+            opacity: 0.1;
+            z-index: -1;
+        }
+
         .workout-container {
             display: flex;
             flex-direction: column;
-            gap: 50px;
+            gap: 60px;
         }
 
         .workout-card {
             background-color: var(--matte-card);
-            border-radius: 15px;
+            border-radius: 20px;
             overflow: hidden;
-            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.3);
-            transition: all 0.5s ease;
+            box-shadow: 0 15px 35px rgba(0, 0, 0, 0.4);
+            transition: all 0.6s ease;
             display: flex;
             align-items: center;
             transform-style: preserve-3d;
+            transform: translateZ(20px);
+            border: 1px solid rgba(255, 255, 255, 0.1);
         }
 
         .workout-card:nth-child(even) {
@@ -606,13 +742,14 @@
         }
 
         .workout-card:hover {
-            transform: translateY(-10px) translateZ(20px);
-            box-shadow: 0 15px 40px rgba(0, 0, 0, 0.4);
+            transform: translateY(-10px) translateZ(40px);
+            box-shadow: 0 20px 50px rgba(0, 0, 0, 0.6);
+            border-color: var(--primary);
         }
 
         .workout-img-container {
             flex: 0 0 45%;
-            height: 400px;
+            height: 500px;
             overflow: hidden;
         }
 
@@ -620,7 +757,7 @@
             width: 100%;
             height: 100%;
             object-fit: cover;
-            transition: transform 0.5s ease;
+            transition: transform 0.6s ease;
         }
 
         .workout-card:hover .workout-img {
@@ -629,79 +766,117 @@
 
         .workout-content {
             flex: 1;
-            padding: 40px;
+            padding: 50px;
         }
 
         .workout-title {
-            font-size: 2rem;
-            margin-bottom: 20px;
+            font-size: 2.5rem;
+            margin-bottom: 25px;
             color: var(--primary);
+            position: relative;
+            padding-bottom: 15px;
+        }
+
+        .workout-title::after {
+            content: '';
+            position: absolute;
+            bottom: 0;
+            left: 0;
+            width: 80px;
+            height: 3px;
+            background: linear-gradient(to right, var(--primary), var(--secondary));
         }
 
         .workout-subtitle {
-            font-size: 1.2rem;
-            margin-bottom: 20px;
+            font-size: 1.5rem;
+            margin-bottom: 25px;
             color: var(--secondary);
         }
 
         .workout-features {
-            margin-bottom: 30px;
+            margin-bottom: 35px;
         }
 
         .workout-feature {
             display: flex;
-            align-items: center;
-            gap: 10px;
-            margin-bottom: 15px;
-            font-size: 1.1rem;
+            align-items: flex-start;
+            gap: 15px;
+            margin-bottom: 20px;
+            font-size: 1.2rem;
             color: var(--light);
         }
 
         .workout-feature i {
             color: var(--primary);
-            font-size: 1.2rem;
+            font-size: 1.5rem;
+            min-width: 30px;
         }
 
         .workout-btn {
             display: inline-block;
-            padding: 12px 30px;
-            background-color: var(--primary);
+            padding: 15px 35px;
+            background: linear-gradient(135deg, var(--primary), var(--accent));
             color: var(--dark);
             border-radius: 50px;
-            font-weight: 600;
+            font-weight: 700;
             text-decoration: none;
-            transition: all 0.3s ease;
-            margin-top: 20px;
+            transition: all 0.4s ease;
+            box-shadow: 0 5px 15px rgba(255, 107, 107, 0.4);
+            text-transform: uppercase;
+            letter-spacing: 1px;
+            font-size: 1.1rem;
+            border: none;
+            cursor: pointer;
         }
 
         .workout-btn:hover {
-            background-color: var(--secondary);
-            transform: translateY(-3px);
-            box-shadow: 0 5px 15px rgba(78, 205, 196, 0.4);
+            background: linear-gradient(135deg, #ff5252, #ff8c1c);
+            transform: translateY(-5px);
+            box-shadow: 0 10px 25px rgba(255, 107, 107, 0.6);
         }
 
         /* Location Section */
+        .location {
+            background: linear-gradient(rgba(41, 47, 54, 0.95), rgba(41, 47, 54, 0.9));
+            position: relative;
+            overflow: hidden;
+        }
+
+        .location::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: url('https://i.pinimg.com/736x/f7/b0/5d/f7b05d5bb3f523a73aa01efeed5be53d.jpg') center/cover no-repeat;
+            opacity: 0.1;
+            z-index: -1;
+        }
+
         .location-container {
             display: flex;
             flex-direction: column;
-            gap: 50px;
+            gap: 60px;
             align-items: center;
         }
 
         .map-container {
             width: 100%;
-            max-width: 1000px;
-            height: 500px;
-            border-radius: 15px;
+            max-width: 1200px;
+            height: 600px;
+            border-radius: 20px;
             overflow: hidden;
-            box-shadow: 0 15px 30px rgba(0, 0, 0, 0.5);
-            transform: rotateX(5deg) rotateY(-5deg) translateZ(20px);
-            transition: all 0.5s ease;
+            box-shadow: 0 20px 40px rgba(0, 0, 0, 0.6);
+            transform: rotateX(5deg) rotateY(-5deg) translateZ(30px);
+            transition: all 0.6s ease;
+            border: 1px solid rgba(255, 255, 255, 0.1);
         }
 
         .map-container:hover {
-            transform: rotateX(0) rotateY(0) translateZ(30px);
-            box-shadow: 0 20px 40px rgba(0, 0, 0, 0.7);
+            transform: rotateX(0) rotateY(0) translateZ(50px);
+            box-shadow: 0 25px 50px rgba(0, 0, 0, 0.8);
+            border-color: var(--secondary);
         }
 
         .map-container iframe {
@@ -714,30 +889,46 @@
             display: flex;
             justify-content: space-between;
             width: 100%;
-            max-width: 1000px;
-            gap: 30px;
+            max-width: 1200px;
+            gap: 40px;
         }
 
         .hours-card {
             background-color: var(--matte-card);
-            border-radius: 15px;
-            padding: 30px;
+            border-radius: 20px;
+            padding: 40px;
             flex: 1;
-            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.3);
-            transition: all 0.5s ease;
+            box-shadow: 0 15px 35px rgba(0, 0, 0, 0.4);
+            transition: all 0.6s ease;
             transform-style: preserve-3d;
+            transform: translateZ(20px);
+            border: 1px solid rgba(255, 255, 255, 0.1);
         }
 
         .hours-card:hover {
-            transform: translateY(-10px) translateZ(20px);
-            box-shadow: 0 15px 40px rgba(0, 0, 0, 0.4);
+            transform: translateY(-10px) translateZ(40px);
+            box-shadow: 0 20px 50px rgba(0, 0, 0, 0.6);
+            border-color: var(--primary);
         }
 
         .hours-title {
-            font-size: 1.5rem;
-            margin-bottom: 20px;
+            font-size: 1.8rem;
+            margin-bottom: 30px;
             color: var(--primary);
             text-align: center;
+            position: relative;
+            padding-bottom: 15px;
+        }
+
+        .hours-title::after {
+            content: '';
+            position: absolute;
+            bottom: 0;
+            left: 50%;
+            transform: translateX(-50%);
+            width: 60px;
+            height: 3px;
+            background: linear-gradient(to right, var(--primary), var(--secondary));
         }
 
         .hours-list {
@@ -747,10 +938,10 @@
         .hours-item {
             display: flex;
             justify-content: space-between;
-            margin-bottom: 15px;
-            font-size: 1.1rem;
+            margin-bottom: 20px;
+            font-size: 1.2rem;
             color: var(--light);
-            padding-bottom: 10px;
+            padding-bottom: 15px;
             border-bottom: 1px solid rgba(255, 255, 255, 0.1);
         }
 
@@ -764,191 +955,261 @@
 
         .hours-time {
             color: var(--secondary);
+            font-weight: 500;
         }
 
         .parking-container {
             width: 100%;
-            max-width: 1000px;
-            border-radius: 15px;
+            max-width: 1200px;
+            border-radius: 20px;
             overflow: hidden;
-            box-shadow: 0 15px 30px rgba(0, 0, 0, 0.5);
-            transform: rotateX(5deg) rotateY(-5deg) translateZ(20px);
-            transition: all 0.5s ease;
+            box-shadow: 0 20px 40px rgba(0, 0, 0, 0.6);
+            transform: rotateX(5deg) rotateY(-5deg) translateZ(30px);
+            transition: all 0.6s ease;
+            border: 1px solid rgba(255, 255, 255, 0.1);
         }
 
         .parking-container:hover {
-            transform: rotateX(0) rotateY(0) translateZ(30px);
-            box-shadow: 0 20px 40px rgba(0, 0, 0, 0.7);
+            transform: rotateX(0) rotateY(0) translateZ(50px);
+            box-shadow: 0 25px 50px rgba(0, 0, 0, 0.8);
+            border-color: var(--primary);
         }
 
         .parking-container img {
             width: 100%;
             height: auto;
             display: block;
+            transition: transform 0.6s ease;
+        }
+
+        .parking-container:hover img {
+            transform: scale(1.05);
         }
 
         /* Contact Section */
+        .contact {
+            background: linear-gradient(rgba(41, 47, 54, 0.9), rgba(41, 47, 54, 0.95));
+            position: relative;
+            overflow: hidden;
+        }
+
+        .contact::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: url('https://i.pinimg.com/736x/f4/81/51/f48151613d6c1b329c50e38ea78693f0.jpg') center/cover no-repeat;
+            opacity: 0.1;
+            z-index: -1;
+        }
+
         .contact-container {
             display: flex;
-            gap: 50px;
+            gap: 60px;
             align-items: center;
         }
 
         .contact-form {
             flex: 1;
             background-color: var(--matte-card);
-            border-radius: 15px;
-            padding: 40px;
-            box-shadow: 0 15px 30px rgba(0, 0, 0, 0.5);
-            transform: rotateY(10deg) translateZ(20px);
-            transition: all 0.5s ease;
+            border-radius: 20px;
+            padding: 50px;
+            box-shadow: 0 20px 40px rgba(0, 0, 0, 0.6);
+            transform: rotateY(10deg) translateZ(30px);
+            transition: all 0.6s ease;
+            border: 1px solid rgba(255, 255, 255, 0.1);
         }
 
         .contact-form:hover {
-            transform: rotateY(0) translateZ(30px);
-            box-shadow: 0 20px 40px rgba(0, 0, 0, 0.7);
+            transform: rotateY(0) translateZ(50px);
+            box-shadow: 0 25px 50px rgba(0, 0, 0, 0.8);
+            border-color: var(--secondary);
         }
 
         .form-title {
-            font-size: 2rem;
-            margin-bottom: 30px;
+            font-size: 2.5rem;
+            margin-bottom: 40px;
             color: var(--primary);
             text-align: center;
+            position: relative;
+            padding-bottom: 15px;
+        }
+
+        .form-title::after {
+            content: '';
+            position: absolute;
+            bottom: 0;
+            left: 50%;
+            transform: translateX(-50%);
+            width: 80px;
+            height: 3px;
+            background: linear-gradient(to right, var(--primary), var(--secondary));
         }
 
         .form-group {
-            margin-bottom: 25px;
+            margin-bottom: 30px;
         }
 
         .form-label {
             display: block;
-            margin-bottom: 10px;
-            font-size: 1.1rem;
+            margin-bottom: 15px;
+            font-size: 1.2rem;
             color: var(--light);
+            font-weight: 500;
         }
 
         .form-input {
             width: 100%;
-            padding: 15px;
-            border-radius: 8px;
+            padding: 18px;
+            border-radius: 10px;
             border: none;
             background-color: rgba(255, 255, 255, 0.1);
             color: var(--light);
-            font-size: 1rem;
-            transition: all 0.3s ease;
+            font-size: 1.1rem;
+            transition: all 0.4s ease;
+            border: 1px solid rgba(255, 255, 255, 0.1);
         }
 
         .form-input:focus {
             outline: none;
             background-color: rgba(255, 255, 255, 0.2);
-            box-shadow: 0 0 0 2px var(--primary);
+            box-shadow: 0 0 0 3px var(--primary);
+            border-color: var(--primary);
         }
 
         .form-textarea {
-            min-height: 150px;
+            min-height: 200px;
             resize: vertical;
         }
 
         .form-submit {
             width: 100%;
-            padding: 15px;
-            background-color: var(--primary);
+            padding: 18px;
+            background: linear-gradient(135deg, var(--primary), var(--accent));
             color: var(--dark);
             border: none;
-            border-radius: 8px;
-            font-size: 1.1rem;
-            font-weight: 600;
+            border-radius: 10px;
+            font-size: 1.2rem;
+            font-weight: 700;
             cursor: pointer;
-            transition: all 0.3s ease;
+            transition: all 0.4s ease;
+            box-shadow: 0 5px 15px rgba(255, 107, 107, 0.4);
+            text-transform: uppercase;
+            letter-spacing: 1px;
         }
 
         .form-submit:hover {
-            background-color: var(--secondary);
-            transform: translateY(-3px);
-            box-shadow: 0 5px 15px rgba(78, 205, 196, 0.4);
+            background: linear-gradient(135deg, #ff5252, #ff8c1c);
+            transform: translateY(-5px);
+            box-shadow: 0 10px 25px rgba(255, 107, 107, 0.6);
         }
 
         .contact-info {
             flex: 1;
             display: flex;
             flex-direction: column;
-            gap: 30px;
+            gap: 40px;
         }
 
         .info-card {
             background-color: var(--matte-card);
-            border-radius: 15px;
-            padding: 30px;
-            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.3);
-            transition: all 0.5s ease;
+            border-radius: 20px;
+            padding: 40px;
+            box-shadow: 0 15px 35px rgba(0, 0, 0, 0.4);
+            transition: all 0.6s ease;
             transform-style: preserve-3d;
+            transform: translateZ(20px);
+            border: 1px solid rgba(255, 255, 255, 0.1);
         }
 
         .info-card:hover {
-            transform: translateY(-10px) translateZ(20px);
-            box-shadow: 0 15px 40px rgba(0, 0, 0, 0.4);
+            transform: translateY(-10px) translateZ(40px);
+            box-shadow: 0 20px 50px rgba(0, 0, 0, 0.6);
+            border-color: var(--primary);
         }
 
         .info-title {
-            font-size: 1.5rem;
-            margin-bottom: 20px;
+            font-size: 1.8rem;
+            margin-bottom: 30px;
             color: var(--primary);
+            position: relative;
+            padding-bottom: 15px;
+        }
+
+        .info-title::after {
+            content: '';
+            position: absolute;
+            bottom: 0;
+            left: 0;
+            width: 60px;
+            height: 3px;
+            background: linear-gradient(to right, var(--primary), var(--secondary));
         }
 
         .info-item {
             display: flex;
             align-items: center;
-            gap: 15px;
-            margin-bottom: 15px;
+            gap: 20px;
+            margin-bottom: 20px;
             color: var(--light);
-            font-size: 1.1rem;
+            font-size: 1.2rem;
         }
 
         .info-item i {
             color: var(--secondary);
-            font-size: 1.5rem;
+            font-size: 1.8rem;
+            min-width: 30px;
         }
 
         .social-links {
             display: flex;
             gap: 20px;
-            margin-top: 20px;
+            margin-top: 30px;
         }
 
         .social-link {
             display: flex;
             align-items: center;
             justify-content: center;
-            width: 50px;
-            height: 50px;
+            width: 60px;
+            height: 60px;
             border-radius: 50%;
             background-color: rgba(255, 255, 255, 0.1);
             color: var(--light);
-            font-size: 1.5rem;
-            transition: all 0.3s ease;
+            font-size: 1.8rem;
+            transition: all 0.4s ease;
+            transform: translateZ(20px);
         }
 
         .social-link:hover {
-            background-color: var(--primary);
+            background: linear-gradient(135deg, var(--primary), var(--accent));
             color: var(--dark);
-            transform: translateY(-5px);
+            transform: translateY(-5px) translateZ(30px);
+            box-shadow: 0 10px 20px rgba(255, 107, 107, 0.5);
         }
 
         /* Footer */
         .footer {
-            background-color: var(--matte-black);
-            padding: 50px 5% 20px;
+            background-color: rgba(20, 20, 20, 0.5);
+            padding: 80px 5% 30px;
             position: relative;
+            backdrop-filter: blur(10px);
+            border-top: 1px solid rgba(255, 255, 255, 0.1);
         }
 
         .footer-content {
             display: flex;
             justify-content: space-between;
-            margin-bottom: 40px;
+            margin-bottom: 60px;
+            flex-wrap: wrap;
+            gap: 40px;
         }
 
         .footer-column {
             flex: 1;
+            min-width: 250px;
             padding: 0 20px;
         }
 
@@ -956,21 +1217,29 @@
             display: flex;
             align-items: center;
             gap: 15px;
-            margin-bottom: 20px;
+            margin-bottom: 25px;
+            transform-style: preserve-3d;
         }
 
         .footer-logo-img {
-            width: 40px;
-            height: 40px;
+            width: 50px;
+            height: 50px;
             border-radius: 50%;
             object-fit: cover;
             border: 2px solid var(--primary);
+            transform: translateZ(20px);
+            transition: all 0.5s ease;
+        }
+
+        .footer-logo:hover .footer-logo-img {
+            transform: rotate(15deg) scale(1.1) translateZ(30px);
         }
 
         .footer-logo-text {
-            font-size: 1.5rem;
+            font-size: 1.8rem;
             font-weight: 700;
             color: var(--light);
+            transform: translateZ(20px);
         }
 
         .footer-logo-text span {
@@ -978,18 +1247,20 @@
         }
 
         .footer-about {
-            font-size: 1rem;
+            font-size: 1.1rem;
             line-height: 1.6;
             color: var(--light);
-            margin-bottom: 20px;
+            margin-bottom: 25px;
+            transform: translateZ(20px);
         }
 
         .footer-title {
-            font-size: 1.3rem;
-            margin-bottom: 20px;
+            font-size: 1.5rem;
+            margin-bottom: 25px;
             color: var(--primary);
             position: relative;
-            padding-bottom: 10px;
+            padding-bottom: 15px;
+            transform: translateZ(20px);
         }
 
         .footer-title::after {
@@ -998,8 +1269,8 @@
             bottom: 0;
             left: 0;
             width: 50px;
-            height: 2px;
-            background-color: var(--primary);
+            height: 3px;
+            background: linear-gradient(to right, var(--primary), var(--secondary));
         }
 
         .footer-links {
@@ -1008,6 +1279,12 @@
 
         .footer-link-item {
             margin-bottom: 15px;
+            transform: translateZ(20px);
+            transition: all 0.3s ease;
+        }
+
+        .footer-link-item:hover {
+            transform: translateX(10px) translateZ(30px);
         }
 
         .footer-link {
@@ -1016,43 +1293,83 @@
             transition: all 0.3s ease;
             display: flex;
             align-items: center;
-            gap: 10px;
+            gap: 12px;
+            font-size: 1.1rem;
         }
 
         .footer-link i {
             color: var(--secondary);
-            font-size: 0.8rem;
+            font-size: 0.9rem;
+            transition: all 0.3s ease;
         }
 
         .footer-link:hover {
             color: var(--primary);
-            transform: translateX(5px);
+        }
+
+        .footer-link:hover i {
+            color: var(--primary);
+            transform: rotate(90deg);
+        }
+
+        .footer-social-links {
+            display: flex;
+            gap: 15px;
+            margin-top: 25px;
+        }
+
+        .footer-social-link {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            width: 45px;
+            height: 45px;
+            border-radius: 50%;
+            background-color: rgba(255, 255, 255, 0.1);
+            color: var(--light);
+            font-size: 1.3rem;
+            transition: all 0.3s ease;
+            transform: translateZ(20px);
+        }
+
+        .footer-social-link:hover {
+            background: linear-gradient(135deg, var(--primary), var(--accent));
+            color: var(--dark);
+            transform: translateY(-5px) translateZ(30px);
+            box-shadow: 0 8px 20px rgba(255, 107, 107, 0.4);
         }
 
         .footer-bottom {
             text-align: center;
-            padding-top: 20px;
+            padding-top: 30px;
             border-top: 1px solid rgba(255, 255, 255, 0.1);
         }
 
         .footer-text {
             color: var(--light);
-            font-size: 0.9rem;
+            font-size: 1rem;
+            transform: translateZ(20px);
         }
 
         .footer-link-bottom {
             color: var(--primary);
             text-decoration: none;
+            transition: all 0.3s ease;
         }
 
-        /* Modal */
+        .footer-link-bottom:hover {
+            color: var(--secondary);
+            text-decoration: underline;
+        }
+
+        /* Modal Styles */
         .modal {
             position: fixed;
             top: 0;
             left: 0;
             width: 100%;
             height: 100%;
-            background-color: rgba(0, 0, 0, 0.8);
+            background-color: rgba(0, 0, 0, 0.9);
             display: flex;
             justify-content: center;
             align-items: center;
@@ -1060,6 +1377,7 @@
             opacity: 0;
             visibility: hidden;
             transition: all 0.5s ease;
+            backdrop-filter: blur(10px);
         }
 
         .modal.active {
@@ -1069,15 +1387,17 @@
 
         .modal-content {
             background-color: var(--matte-card);
-            border-radius: 15px;
+            border-radius: 20px;
             width: 90%;
-            max-width: 1000px;
+            max-width: 1200px;
             max-height: 90vh;
             overflow-y: auto;
-            padding: 40px;
+            padding: 60px;
             position: relative;
             transform: scale(0.8);
             transition: all 0.5s ease;
+            border: 1px solid rgba(255, 255, 255, 0.1);
+            box-shadow: 0 25px 60px rgba(0, 0, 0, 0.8);
         }
 
         .modal.active .modal-content {
@@ -1086,39 +1406,58 @@
 
         .modal-close {
             position: absolute;
-            top: 20px;
-            right: 20px;
-            width: 40px;
-            height: 40px;
+            top: 30px;
+            right: 30px;
+            width: 50px;
+            height: 50px;
             border-radius: 50%;
-            background-color: var(--primary);
+            background: linear-gradient(135deg, var(--primary), var(--accent));
             color: var(--dark);
             display: flex;
             justify-content: center;
             align-items: center;
-            font-size: 1.5rem;
+            font-size: 1.8rem;
             cursor: pointer;
             transition: all 0.3s ease;
+            border: none;
+            transform: translateZ(20px);
         }
 
         .modal-close:hover {
-            background-color: var(--secondary);
-            transform: rotate(90deg);
+            background: linear-gradient(135deg, #ff5252, #ff8c1c);
+            transform: rotate(90deg) translateZ(30px);
+            box-shadow: 0 5px 15px rgba(255, 107, 107, 0.5);
         }
 
         .modal-title {
-            font-size: 2.5rem;
-            margin-bottom: 30px;
+            font-size: 3rem;
+            margin-bottom: 40px;
             color: var(--primary);
             text-align: center;
+            position: relative;
+            padding-bottom: 20px;
+            transform: translateZ(20px);
+        }
+
+        .modal-title::after {
+            content: '';
+            position: absolute;
+            bottom: 0;
+            left: 50%;
+            transform: translateX(-50%);
+            width: 100px;
+            height: 4px;
+            background: linear-gradient(to right, var(--primary), var(--secondary));
+            border-radius: 4px;
         }
 
         .modal-subtitle {
-            font-size: 1.5rem;
-            margin: 30px 0 20px;
+            font-size: 2rem;
+            margin: 40px 0 25px;
             color: var(--secondary);
             position: relative;
-            padding-left: 20px;
+            padding-left: 25px;
+            transform: translateZ(20px);
         }
 
         .modal-subtitle::before {
@@ -1127,29 +1466,36 @@
             left: 0;
             top: 50%;
             transform: translateY(-50%);
-            width: 10px;
-            height: 10px;
-            background-color: var(--primary);
+            width: 15px;
+            height: 15px;
+            background: linear-gradient(135deg, var(--primary), var(--accent));
             border-radius: 50%;
         }
 
         .modal-list {
             list-style: none;
-            margin-bottom: 30px;
+            margin-bottom: 40px;
         }
 
         .modal-item {
             display: flex;
             align-items: flex-start;
-            gap: 15px;
-            margin-bottom: 15px;
-            font-size: 1.1rem;
+            gap: 20px;
+            margin-bottom: 20px;
+            font-size: 1.3rem;
             color: var(--light);
+            transform: translateZ(20px);
+            transition: all 0.3s ease;
+        }
+
+        .modal-item:hover {
+            transform: translateX(10px) translateZ(30px);
         }
 
         .modal-item i {
             color: var(--primary);
-            margin-top: 3px;
+            margin-top: 5px;
+            font-size: 1.5rem;
         }
 
         /* Animations */
@@ -1165,7 +1511,7 @@
         @keyframes fadeInUp {
             from {
                 opacity: 0;
-                transform: translateY(30px);
+                transform: translateY(50px);
             }
             to {
                 opacity: 1;
@@ -1186,34 +1532,23 @@
         }
 
         /* Responsive Styles */
+        @media (max-width: 1400px) {
+            .hero h1 {
+                font-size: 4rem;
+            }
+            
+            .hero p {
+                font-size: 1.5rem;
+            }
+        }
+
         @media (max-width: 1200px) {
             .hero h1 {
                 font-size: 3.5rem;
             }
             
-            .hero p {
-                font-size: 1.2rem;
-            }
-        }
-
-        @media (max-width: 992px) {
-            .nav-links {
-                gap: 20px;
-            }
-            
-            .about-content,
-            .contact-container {
-                flex-direction: column;
-            }
-            
-            .about-image,
-            .contact-form {
-                transform: none;
-            }
-            
-            .about-image:hover,
-            .contact-form:hover {
-                transform: translateY(-10px);
+            .section-title {
+                font-size: 3rem;
             }
             
             .diet-card,
@@ -1227,39 +1562,35 @@
                 width: 100%;
             }
             
-            .hours-container {
+            .contact-container {
                 flex-direction: column;
             }
             
-            .footer-content {
-                flex-wrap: wrap;
+            .contact-form {
+                transform: none;
             }
             
-            .footer-column {
-                flex: 0 0 50%;
-                margin-bottom: 30px;
+            .contact-form:hover {
+                transform: translateY(-10px);
             }
         }
 
-        @media (max-width: 768px) {
-            .navbar {
-                padding: 15px;
-            }
-            
+        @media (max-width: 992px) {
             .nav-links {
                 position: fixed;
-                top: 80px;
+                top: 100px;
                 left: 0;
                 width: 100%;
                 background-color: var(--matte-black);
                 flex-direction: column;
                 align-items: center;
-                padding: 20px 0;
-                gap: 15px;
-                box-shadow: 0 10px 20px rgba(0, 0, 0, 0.3);
+                padding: 30px 0;
+                gap: 25px;
+                box-shadow: 0 10px 30px rgba(0, 0, 0, 0.5);
                 transform: translateY(-150%);
                 transition: all 0.5s ease;
                 z-index: 999;
+                backdrop-filter: blur(10px);
             }
             
             .nav-links.active {
@@ -1270,17 +1601,28 @@
                 display: block;
             }
             
+            .hours-container {
+                flex-direction: column;
+            }
+            
+            .footer-column {
+                flex: 0 0 100%;
+            }
+        }
+
+        @media (max-width: 768px) {
             .hero h1 {
-                font-size: 2.5rem;
+                font-size: 2.8rem;
+                letter-spacing: 2px;
             }
             
             .hero p {
-                font-size: 1rem;
+                font-size: 1.3rem;
             }
             
             .hero-btns {
                 flex-direction: column;
-                gap: 15px;
+                gap: 20px;
             }
             
             .btn {
@@ -1291,73 +1633,72 @@
                 font-size: 2.5rem;
             }
             
-            .services-container {
+            .plans-container {
                 grid-template-columns: 1fr;
             }
             
-            .footer-column {
-                flex: 0 0 100%;
+            .modal-content {
+                padding: 40px;
+            }
+            
+            .modal-title {
+                font-size: 2.5rem;
             }
         }
 
         @media (max-width: 576px) {
             .hero h1 {
-                font-size: 2rem;
+                font-size: 2.2rem;
+            }
+            
+            .hero p {
+                font-size: 1.1rem;
             }
             
             .section-title {
                 font-size: 2rem;
             }
             
-            .about-text h3,
+            .diet-content,
+            .workout-content {
+                padding: 30px;
+            }
+            
             .diet-title,
             .workout-title,
             .form-title,
             .modal-title {
-                font-size: 1.5rem;
-            }
-            
-            .service-title {
-                font-size: 1.5rem;
-            }
-            
-            .diet-content,
-            .workout-content {
-                padding: 25px;
+                font-size: 1.8rem;
             }
             
             .modal-content {
-                padding: 20px;
+                padding: 30px 20px;
             }
             
-            .modal-title {
-                font-size: 2rem;
+            .modal-subtitle {
+                font-size: 1.5rem;
+            }
+            
+            .modal-item {
+                font-size: 1.1rem;
             }
         }
 
         /* 3D Card Hover Effects */
         .card-3d {
             transform-style: preserve-3d;
-            transition: all 0.5s ease;
+            transition: all 0.6s ease;
         }
 
         .card-3d:hover {
-            transform: rotateY(10deg) rotateX(5deg) translateZ(20px);
-            box-shadow: 0 20px 40px rgba(0, 0, 0, 0.5);
-        }
-
-        /* Parallax Effect */
-        .parallax {
-            background-attachment: fixed;
-            background-position: center;
-            background-repeat: no-repeat;
-            background-size: cover;
+            transform: rotateY(10deg) rotateX(5deg) translateZ(40px);
+            box-shadow: 0 25px 50px rgba(0, 0, 0, 0.7);
         }
 
         /* Scroll Reveal Animation */
         .reveal {
             opacity: 0;
-            transform: translateY(30px);
+            transform: translateY(50px);
             transition: all 0.8s ease;
         }
 
@@ -1365,10 +1706,150 @@
             opacity: 1;
             transform: translateY(0);
         }
+
+        /* Chatbot Button */
+        .chatbot-btn {
+            position: fixed;
+            bottom: 30px;
+            right: 30px;
+            width: 70px;
+            height: 70px;
+            border-radius: 50%;
+            background: linear-gradient(135deg, var(--primary), var(--accent));
+            color: var(--dark);
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            font-size: 1.8rem;
+            cursor: pointer;
+            transition: all 0.4s ease;
+            box-shadow: 0 5px 20px rgba(255, 107, 107, 0.5);
+            z-index: 100;
+            transform: translateZ(30px);
+            border: none;
+        }
+
+        .chatbot-btn:hover {
+            background: linear-gradient(135deg, #ff5252, #ff8c1c);
+            transform: scale(1.1) translateZ(40px);
+            box-shadow: 0 10px 30px rgba(255, 107, 107, 0.7);
+        }
+
+        /* Chatbot Container */
+        .chatbot-container {
+            position: fixed;
+            bottom: 120px;
+            right: 30px;
+            width: 350px;
+            background-color: var(--matte-card);
+            border-radius: 20px;
+            box-shadow: 0 15px 40px rgba(0, 0, 0, 0.6);
+            transform: translateY(20px) scale(0.9);
+            opacity: 0;
+            visibility: hidden;
+            transition: all 0.4s ease;
+            z-index: 100;
+            border: 1px solid rgba(255, 255, 255, 0.1);
+            transform-style: preserve-3d;
+        }
+
+        .chatbot-container.active {
+            transform: translateY(0) scale(1);
+            opacity: 1;
+            visibility: visible;
+        }
+
+        .chatbot-header {
+            padding: 20px;
+            background: linear-gradient(135deg, var(--primary), var(--accent));
+            color: var(--dark);
+            border-radius: 20px 20px 0 0;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        .chatbot-title {
+            font-size: 1.3rem;
+            font-weight: 700;
+        }
+
+        .chatbot-close {
+            background: none;
+            border: none;
+            color: var(--dark);
+            font-size: 1.5rem;
+            cursor: pointer;
+        }
+
+        .chatbot-messages {
+            height: 300px;
+            padding: 20px;
+            overflow-y: auto;
+        }
+
+        .chatbot-input {
+            display: flex;
+            padding: 15px;
+            border-top: 1px solid rgba(255, 255, 255, 0.1);
+        }
+
+        .chatbot-input-field {
+            flex: 1;
+            padding: 12px;
+            border-radius: 50px;
+            border: none;
+            background-color: rgba(255, 255, 255, 0.1);
+            color: var(--light);
+            font-size: 1rem;
+        }
+
+        .chatbot-send {
+            width: 50px;
+            height: 50px;
+            border-radius: 50%;
+            background: linear-gradient(135deg, var(--primary), var(--accent));
+            color: var(--dark);
+            border: none;
+            margin-left: 10px;
+            cursor: pointer;
+            transition: all 0.3s ease;
+        }
+
+        .chatbot-send:hover {
+            background: linear-gradient(135deg, #ff5252, #ff8c1c);
+            transform: rotate(30deg);
+        }
+
+        /* Message Styles */
+        .message {
+            margin-bottom: 15px;
+            max-width: 80%;
+            padding: 12px 18px;
+            border-radius: 20px;
+            font-size: 0.95rem;
+            line-height: 1.4;
+            transform: translateZ(20px);
+        }
+
+        .bot-message {
+            background-color: rgba(78, 205, 196, 0.2);
+            color: var(--light);
+            border-radius: 20px 20px 20px 5px;
+            align-self: flex-start;
+        }
+
+        .user-message {
+            background-color: rgba(255, 107, 107, 0.2);
+            color: var(--light);
+            border-radius: 20px 20px 5px 20px;
+            align-self: flex-end;
+            margin-left: auto;
+        }
     </style>
 </head>
 <body>
-    <!-- Background Container -->
+    <!-- 3D Background -->
     <div class="bg-container">
         <div class="bg-image"></div>
     </div>
@@ -1395,115 +1876,164 @@
 
     <!-- Hero Section -->
     <section class="hero" id="home">
-        <h1>Transform Your <span>Fitness Journey</span> Today!</h1>
-        <p>Personalized Training • Expert Coaches • Results Guaranteed</p>
-        <div class="hero-btns">
-            <a href="#membership" class="btn btn-primary">Join Now</a>
-            <a href="#contact" class="btn btn-secondary">Contact Us</a>
+        <div class="hero-content">
+            <h1>Transform Your <span>Fitness Journey</span> Today!</h1>
+            <p>Personalized Training • Expert Coaches • Results Guaranteed</p>
+            <div class="hero-btns">
+                <a href="#membership" class="btn btn-primary">Join Now</a>
+                <a href="#contact" class="btn btn-secondary">Contact Us</a>
+            </div>
         </div>
-        <div class="hero-image card-3d">
-            <img src="https://i.pinimg.com/736x/f5/51/48/f55148ad2ef92de8597008b60bcd29a8.jpg" alt="Gym Interior">
-        </div>
-        <div class="hero-image card-3d">
-            <img src="https://i.pinimg.com/736x/f7/b0/5d/f7b05d5bb3f523a73aa01efeed5be53d.jpg" alt="Gym Training">
+        <div class="hero-images">
+            <div class="hero-image card-3d">
+                <img src="https://i.pinimg.com/736x/f5/51/48/f55148ad2ef92de8597008b60bcd29a8.jpg" alt="Gym Interior">
+            </div>
+            <div class="hero-image card-3d">
+                <img src="https://i.pinimg.com/736x/f7/b0/5d/f7b05d5bb3f523a73aa01efeed5be53d.jpg" alt="Gym Training">
+            </div>
         </div>
     </section>
 
     <!-- Membership Plans Section -->
-    <section class="section" id="membership">
+    <section class="section membership-plans" id="membership">
         <h2 class="section-title">Membership Plans</h2>
-        <div class="services-container">
+        <div class="plans-container">
             <!-- Gym Membership -->
-            <div class="service-card reveal">
-                <img src="https://i.pinimg.com/736x/f5/51/48/f55148ad2ef92de8597008b60bcd29a8.jpg" alt="Gym Training" class="service-img">
-                <div class="service-content">
-                    <h3 class="service-title">Gym Membership</h3>
-                    <p class="service-description">Build strength, muscle, and endurance with our comprehensive gym package.</p>
-                    <div class="service-features">
+            <div class="plan-card reveal">
+                <img src="https://i.pinimg.com/736x/f5/51/48/f55148ad2ef92de8597008b60bcd29a8.jpg" alt="Gym Training" class="plan-img">
+                <div class="plan-content">
+                    <h3 class="plan-title">Gym Membership</h3>
+                    <p class="plan-description">Build strength, muscle, and endurance with our comprehensive gym package.</p>
+                    <div class="plan-features">
                         <div class="feature-item">
                             <i class="fas fa-check"></i>
-                            <span>Strength Training</span>
+                            <div class="feature-text">
+                                <strong>🏋️‍♂️ STRENGTH TRAINING</strong>
+                                <p>Build muscle with free weights & machines. Progressive overload programs.</p>
+                            </div>
                         </div>
                         <div class="feature-item">
                             <i class="fas fa-check"></i>
-                            <span>Functional & Crossfit</span>
+                            <div class="feature-text">
+                                <strong>⚡ FUNCTIONAL & CROSSFIT TRAINING</strong>
+                                <p>HIIT workouts. Battle ropes, kettlebells, plyometrics.</p>
+                            </div>
                         </div>
                         <div class="feature-item">
                             <i class="fas fa-check"></i>
-                            <span>Customized Workout Plans</span>
+                            <div class="feature-text">
+                                <strong>📊 CUSTOMIZED WORKOUT PLANNING</strong>
+                                <p>Personalized routines. Monthly progress tracking.</p>
+                            </div>
                         </div>
                         <div class="feature-item">
                             <i class="fas fa-check"></i>
-                            <span>Diet & Nutrition Consultation</span>
+                            <div class="feature-text">
+                                <strong>🍎 CUSTOMIZED DIET & NUTRITION</strong>
+                                <p>Tailored meal plans. Macro calculations.</p>
+                            </div>
                         </div>
                     </div>
-                    <div class="service-price">₹1,500/month</div>
-                    <a href="#contact" class="service-btn">Join Now</a>
+                    <div class="plan-price">
+                        <i class="fas fa-tag"></i>
+                        <span>₹1,500/- MONTHLY</span>
+                    </div>
+                    <a href="#contact" class="plan-btn">Join Now</a>
                 </div>
             </div>
 
             <!-- Dance Class -->
-            <div class="service-card reveal">
-                <img src="https://i.pinimg.com/736x/f7/b0/5d/f7b05d5bb3f523a73aa01efeed5be53d.jpg" alt="Dance Class" class="service-img">
-                <div class="service-content">
-                    <h3 class="service-title">Dance/Zumba Class</h3>
-                    <p class="service-description">Burn calories while having fun with our energetic dance and Zumba sessions.</p>
-                    <div class="service-features">
+            <div class="plan-card reveal">
+                <img src="https://i.pinimg.com/736x/36/b4/e9/36b4e90c80ebe15005d126ce3e32b12b.jpg" alt="Dance Class" class="plan-img">
+                <div class="plan-content">
+                    <h3 class="plan-title">Dance/Zumba Class</h3>
+                    <p class="plan-description">Burn calories while having fun with our energetic dance and Zumba sessions.</p>
+                    <div class="plan-features">
                         <div class="feature-item">
                             <i class="fas fa-check"></i>
-                            <span>All fitness levels welcome</span>
+                            <div class="feature-text">
+                                <strong>🕺 No experience needed</strong>
+                                <p>Beginners welcome! Learn global dance styles from Bollywood to Hip-Hop!</p>
+                            </div>
                         </div>
                         <div class="feature-item">
                             <i class="fas fa-check"></i>
-                            <span>Learn global dance styles</span>
+                            <div class="feature-text">
+                                <strong>💃 Feel the rhythm</strong>
+                                <p>Groove to upbeat music. Full-body workout that burns calories.</p>
+                            </div>
                         </div>
                         <div class="feature-item">
                             <i class="fas fa-check"></i>
-                            <span>Full-body workout</span>
+                            <div class="feature-text">
+                                <strong>👯 Friendly community</strong>
+                                <p>Meet dance lovers. Group energy with motivating sessions.</p>
+                            </div>
                         </div>
                         <div class="feature-item">
                             <i class="fas fa-check"></i>
-                            <span>Party-like vibe</span>
+                            <div class="feature-text">
+                                <strong>🎉 Party-like vibe</strong>
+                                <p>Every class feels like a celebration! Instant mood booster.</p>
+                            </div>
                         </div>
                     </div>
-                    <div class="service-price">₹1,500/month</div>
-                    <a href="#contact" class="service-btn">Join Now</a>
+                    <div class="plan-price">
+                        <i class="fas fa-tag"></i>
+                        <span>₹1,500/- MONTHLY</span>
+                    </div>
+                    <a href="#contact" class="plan-btn">Join Now</a>
                 </div>
             </div>
 
             <!-- Calisthenics -->
-            <div class="service-card reveal">
-                <img src="https://i.pinimg.com/736x/f4/81/51/f48151613d6c1b329c50e38ea78693f0.jpg" alt="Calisthenics" class="service-img">
-                <div class="service-content">
-                    <h3 class="service-title">Calisthenics Training</h3>
-                    <p class="service-description">Master your bodyweight with our progressive calisthenics program.</p>
-                    <div class="service-features">
+            <div class="plan-card reveal">
+                <img src="https://i.pinimg.com/736x/f4/81/51/f48151613d6c1b329c50e38ea78693f0.jpg" alt="Calisthenics" class="plan-img">
+                <div class="plan-content">
+                    <h3 class="plan-title">Calisthenics Training</h3>
+                    <p class="plan-description">Master your bodyweight with our progressive calisthenics program.</p>
+                    <div class="plan-features">
                         <div class="feature-item">
                             <i class="fas fa-check"></i>
-                            <span>Full-body strength</span>
+                            <div class="feature-text">
+                                <strong>💪 Full-Body Strength</strong>
+                                <p>Push-ups, Pull-ups, Dips & Muscle-Ups. No gym equipment needed.</p>
+                            </div>
                         </div>
                         <div class="feature-item">
                             <i class="fas fa-check"></i>
-                            <span>Core & mobility</span>
+                            <div class="feature-text">
+                                <strong>🧘‍♂️ Core & Mobility</strong>
+                                <p>Planks, Leg Raises, Handstands. Improves posture & athleticism.</p>
+                            </div>
                         </div>
                         <div class="feature-item">
                             <i class="fas fa-check"></i>
-                            <span>Explosive power</span>
+                            <div class="feature-text">
+                                <strong>⚡ Explosive Power</strong>
+                                <p>Plyometrics & Dynamic Movements. Build functional strength.</p>
+                            </div>
                         </div>
                         <div class="feature-item">
                             <i class="fas fa-check"></i>
-                            <span>Skill-based progression</span>
+                            <div class="feature-text">
+                                <strong>📅 Skill Progression</strong>
+                                <p>From beginner to advanced levels. Small group coaching.</p>
+                            </div>
                         </div>
                     </div>
-                    <div class="service-price">₹1,500/month</div>
-                    <a href="#contact" class="service-btn">Join Now</a>
+                    <div class="plan-price">
+                        <i class="fas fa-tag"></i>
+                        <span>₹1,500/- MONTHLY</span>
+                    </div>
+                    <a href="#contact" class="plan-btn">Join Now</a>
                 </div>
             </div>
         </div>
     </section>
 
     <!-- Diet Plan Section -->
-    <section class="section" id="diet">
+    <section class="section diet-plan" id="diet">
         <h2 class="section-title">Diet Plan</h2>
         <div class="diet-container">
             <div class="diet-card reveal">
@@ -1516,23 +2046,27 @@
                     <div class="diet-features">
                         <div class="diet-feature">
                             <i class="fas fa-utensils"></i>
-                            <span>Daily Macros: Protein (1.6-2.2g/kg), Carbs (3-5g/kg), Fats (0.8-1g/kg)</span>
+                            <span><strong>📊 Daily Macros:</strong> Protein (1.6-2.2g/kg), Carbs (3-5g/kg), Fats (0.8-1g/kg)</span>
                         </div>
                         <div class="diet-feature">
                             <i class="fas fa-clock"></i>
-                            <span>Optimal Meal Timing: Pre/Post workout nutrition strategies</span>
+                            <span><strong>⏰ Meal Timing:</strong> Pre-Workout (carbs + protein), Post-Workout (protein + carbs)</span>
                         </div>
                         <div class="diet-feature">
                             <i class="fas fa-ban"></i>
-                            <span>Foods to Limit: Processed sugar, trans fats, excess salt</span>
+                            <span><strong>🚫 Foods to Limit:</strong> Processed sugar, trans fats, excess salt, alcohol</span>
                         </div>
                         <div class="diet-feature">
                             <i class="fas fa-exchange-alt"></i>
-                            <span>Healthy Swaps: Brown rice, grilled chicken, dark chocolate</span>
+                            <span><strong>✅ Healthy Swaps:</strong> Brown rice, grilled chicken, dark chocolate, sparkling water</span>
+                        </div>
+                        <div class="diet-feature">
+                            <i class="fas fa-seedling"></i>
+                            <span><strong>🥗 Micronutrients:</strong> Vitamin C, Vitamin D, Iron, Calcium, Magnesium</span>
                         </div>
                         <div class="diet-feature">
                             <i class="fas fa-tint"></i>
-                            <span>Hydration: 3-4L water daily with electrolytes</span>
+                            <span><strong>💧 Hydration:</strong> 3-4L water daily with electrolytes (Nimbu Pani, Coconut Water)</span>
                         </div>
                     </div>
                     <button class="diet-btn" id="viewDietPlan">View Full 7-Day Plan</button>
@@ -1542,7 +2076,7 @@
     </section>
 
     <!-- Workout Routine Section -->
-    <section class="section" id="workout">
+    <section class="section workout-routine" id="workout">
         <h2 class="section-title">Workout Routine</h2>
         <div class="workout-container">
             <!-- Gym Workout -->
@@ -1556,27 +2090,27 @@
                     <div class="workout-features">
                         <div class="workout-feature">
                             <i class="fas fa-dumbbell"></i>
-                            <span>Day 1: Chest & Triceps</span>
+                            <span><strong>Day 1:</strong> Chest & Triceps - Bench press, flys, push-ups</span>
                         </div>
                         <div class="workout-feature">
                             <i class="fas fa-dumbbell"></i>
-                            <span>Day 2: Back & Biceps</span>
+                            <span><strong>Day 2:</strong> Back & Biceps - Pull-ups, rows, deadlifts</span>
                         </div>
                         <div class="workout-feature">
                             <i class="fas fa-dumbbell"></i>
-                            <span>Day 3: Legs (Quads Focus)</span>
+                            <span><strong>Day 3:</strong> Legs (Quads) - Squats, leg press, extensions</span>
                         </div>
                         <div class="workout-feature">
                             <i class="fas fa-dumbbell"></i>
-                            <span>Day 4: Shoulders & Abs</span>
+                            <span><strong>Day 4:</strong> Shoulders & Abs - Overhead press, raises, leg raises</span>
                         </div>
                         <div class="workout-feature">
                             <i class="fas fa-dumbbell"></i>
-                            <span>Day 5: Arms (Hypertrophy)</span>
+                            <span><strong>Day 5:</strong> Arms (Hypertrophy) - Close-grip bench, curls, pushdowns</span>
                         </div>
                         <div class="workout-feature">
                             <i class="fas fa-dumbbell"></i>
-                            <span>Day 6: Legs (Hamstrings/Glutes) + HIIT</span>
+                            <span><strong>Day 6:</strong> Legs (Hamstrings/Glutes) + HIIT - Deadlifts, hip thrusts, sprints</span>
                         </div>
                     </div>
                     <button class="workout-btn" id="viewGymPlan">View 6-Day Gym Workout Split</button>
@@ -1594,27 +2128,27 @@
                     <div class="workout-features">
                         <div class="workout-feature">
                             <i class="fas fa-fire"></i>
-                            <span>Day 1: Upper Body Push</span>
+                            <span><strong>Day 1:</strong> Upper Body Push - Push-ups, dips, handstand holds</span>
                         </div>
                         <div class="workout-feature">
                             <i class="fas fa-fire"></i>
-                            <span>Day 2: Upper Body Pull</span>
+                            <span><strong>Day 2:</strong> Upper Body Pull - Pull-ups, rows, leg raises</span>
                         </div>
                         <div class="workout-feature">
                             <i class="fas fa-fire"></i>
-                            <span>Day 3: Legs & Core</span>
+                            <span><strong>Day 3:</strong> Legs & Core - Pistol squats, jump squats, L-sits</span>
                         </div>
                         <div class="workout-feature">
                             <i class="fas fa-fire"></i>
-                            <span>Day 4: Skill & Mobility</span>
+                            <span><strong>Day 4:</strong> Skill & Mobility - Handstands, levers, planche</span>
                         </div>
                         <div class="workout-feature">
                             <i class="fas fa-fire"></i>
-                            <span>Day 5: Full Body HIIT</span>
+                            <span><strong>Day 5:</strong> Full Body HIIT - Burpees, mountain climbers, jump lunges</span>
                         </div>
                         <div class="workout-feature">
                             <i class="fas fa-fire"></i>
-                            <span>Day 6: Freestyle & Play</span>
+                            <span><strong>Day 6:</strong> Freestyle & Play - Muscle-ups, human flag, parkour</span>
                         </div>
                     </div>
                     <button class="workout-btn" id="viewCalisthenicsPlan">View 6-Day Calisthenics Plan</button>
@@ -1624,10 +2158,10 @@
     </section>
 
     <!-- Location Section -->
-    <section class="section" id="location">
+    <section class="section location" id="location">
         <h2 class="section-title">Our Location</h2>
         <div class="location-container">
-            <div class="map-container card-3d">
+            <div class="map-container card-3d reveal">
                 <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3635.570712666092!2d79.07413837515436!3d21.07967418058246!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x3bd4bf1b58fb6519%3A0x6cbe7ba3e9ac2854!2sLakudkar&#39;s%20Fitness%20Gym!5e1!3m2!1sen!2sin!4v1743186760740!5m2!1sen!2sin" width="600" height="450" style="border:0;" allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe>
             </div>
 
@@ -1668,7 +2202,7 @@
     </section>
 
     <!-- Contact Section -->
-    <section class="section" id="contact">
+    <section class="section contact" id="contact">
         <h2 class="section-title">Contact Us</h2>
         <div class="contact-container">
             <div class="contact-form card-3d reveal">
@@ -1721,19 +2255,19 @@
                     <h3 class="info-title">Why Choose Us?</h3>
                     <div class="info-item">
                         <i class="fas fa-check"></i>
-                        <span>Certified Trainers</span>
+                        <span>Certified Trainers with 10+ Years Experience</span>
                     </div>
                     <div class="info-item">
                         <i class="fas fa-check"></i>
-                        <span>Personalized Training</span>
+                        <span>Personalized Training Programs</span>
                     </div>
                     <div class="info-item">
                         <i class="fas fa-check"></i>
-                        <span>Modern Equipment</span>
+                        <span>State-of-the-Art Equipment</span>
                     </div>
                     <div class="info-item">
                         <i class="fas fa-check"></i>
-                        <span>Results Guaranteed</span>
+                        <span>Proven Results Guaranteed</span>
                     </div>
                 </div>
             </div>
@@ -1751,6 +2285,12 @@
                 <p class="footer-about">
                     Lakudkar Gym is a premier fitness center in Nagpur dedicated to helping you achieve your fitness goals through personalized training, expert guidance, and state-of-the-art facilities.
                 </p>
+                <div class="footer-social-links">
+                    <a href="#" class="footer-social-link"><i class="fab fa-facebook-f"></i></a>
+                    <a href="#" class="footer-social-link"><i class="fab fa-instagram"></i></a>
+                    <a href="#" class="footer-social-link"><i class="fab fa-twitter"></i></a>
+                    <a href="#" class="footer-social-link"><i class="fab fa-youtube"></i></a>
+                </div>
             </div>
 
             <div class="footer-column">
@@ -1847,11 +2387,10 @@
                         </a>
                     </li>
                 </ul>
-                <div class="social-links">
-                    <a href="#" class="social-link"><i class="fab fa-facebook-f"></i></a>
-                    <a href="#" class="social-link"><i class="fab fa-instagram"></i></a>
-                    <a href="#" class="social-link"><i class="fab fa-twitter"></i></a>
-                    <a href="#" class="social-link"><i class="fab fa-youtube"></i></a>
+                <h3 class="footer-title" style="margin-top: 30px;">Newsletter</h3>
+                <div class="form-group">
+                    <input type="email" class="form-input" placeholder="Your Email">
+                    <button class="diet-btn" style="width: 100%; margin-top: 15px;">Subscribe</button>
                 </div>
             </div>
         </div>
@@ -1865,6 +2404,32 @@
         </div>
     </footer>
 
+    <!-- Chatbot Button -->
+    <button class="chatbot-btn" id="chatbotBtn">
+        <i class="fas fa-comment-dots"></i>
+    </button>
+
+    <!-- Chatbot Container -->
+    <div class="chatbot-container" id="chatbotContainer">
+        <div class="chatbot-header">
+            <h3 class="chatbot-title">Lakudkar Gym Assistant</h3>
+            <button class="chatbot-close" id="chatbotClose">
+                <i class="fas fa-times"></i>
+            </button>
+        </div>
+        <div class="chatbot-messages" id="chatbotMessages">
+            <div class="message bot-message">
+                Hi there! 👋 How can I help you today?
+            </div>
+        </div>
+        <div class="chatbot-input">
+            <input type="text" class="chatbot-input-field" placeholder="Type your message..." id="chatbotInput">
+            <button class="chatbot-send" id="chatbotSend">
+                <i class="fas fa-paper-plane"></i>
+            </button>
+        </div>
+    </div>
+
     <!-- Diet Plan Modal -->
     <div class="modal" id="dietModal">
         <div class="modal-content">
@@ -1873,141 +2438,143 @@
             </button>
             <h2 class="modal-title">7-Day Diet Plan</h2>
             
-            <h3 class="modal-subtitle">Day 1 🏋️‍♂️ (Strength Training - High Protein)</h3>
-            <ul class="modal-list">
-                <li class="modal-item">
-                    <i class="fas fa-sun"></i>
-                    <span>Pre-Workout: Banana 🍌 + Peanut Butter 🥜 + Milk 🥛</span>
-                </li>
-                <li class="modal-item">
-                    <i class="fas fa-dumbbell"></i>
-                    <span>Post-Workout: Roti 🫓 + Chicken Curry 🍗 + Dal 🌱 + Cucumber Salad 🥒</span>
-                </li>
-                <li class="modal-item">
-                    <i class="fas fa-coffee"></i>
-                    <span>Snack: Sprout Chaat 🌱 + Almonds 🥜</span>
-                </li>
-                <li class="modal-item">
-                    <i class="fas fa-moon"></i>
-                    <span>Dinner: Brown Rice 🍚 + Fish Curry 🐟 + Bhindi Sabzi 🥗</span>
-                </li>
-            </ul>
-            
-            <h3 class="modal-subtitle">Day 2 🏃‍♂️ (HIIT - Moderate Carb)</h3>
-            <ul class="modal-list">
-                <li class="modal-item">
-                    <i class="fas fa-sun"></i>
-                    <span>Pre-Workout: Poha 🍚 + Boiled Egg 🥚</span>
-                </li>
-                <li class="modal-item">
-                    <i class="fas fa-running"></i>
-                    <span>Post-Workout: Quinoa 🍛 + Moong Dal 🌱 + Curd 🥄</span>
-                </li>
-                <li class="modal-item">
-                    <i class="fas fa-coffee"></i>
-                    <span>Snack: Greek Yogurt 🥣 + Chia Seeds ✨</span>
-                </li>
-                <li class="modal-item">
-                    <i class="fas fa-moon"></i>
-                    <span>Dinner: Jowar Roti 🫓 + Palak Paneer 🧀 + Sprouts 🌱</span>
-                </li>
-            </ul>
-            
-            <h3 class="modal-subtitle">Day 3 🦵 (Leg Day - High Energy)</h3>
-            <ul class="modal-list">
-                <li class="modal-item">
-                    <i class="fas fa-sun"></i>
-                    <span>Pre-Workout: Oats 🥣 + Whey 💊 + Dates 🍇</span>
-                </li>
-                <li class="modal-item">
-                    <i class="fas fa-dumbbell"></i>
-                    <span>Post-Workout: Rice 🍚 + Mutton Curry 🍖 + Beetroot Salad 🥗</span>
-                </li>
-                <li class="modal-item">
-                    <i class="fas fa-coffee"></i>
-                    <span>Snack: Chana Chaat 🌱 + Green Chutney 🍃</span>
-                </li>
-                <li class="modal-item">
-                    <i class="fas fa-moon"></i>
-                    <span>Dinner: Bajra Roti 🫓 + Dal Tadka 🌱 + Mushrooms 🍄</span>
-                </li>
-            </ul>
-            
-            <h3 class="modal-subtitle">Day 4 💪 (Upper Body - Balanced)</h3>
-            <ul class="modal-list">
-                <li class="modal-item">
-                    <i class="fas fa-sun"></i>
-                    <span>Pre-Workout: Upma 🍛 + Buttermilk 🥛</span>
-                </li>
-                <li class="modal-item">
-                    <i class="fas fa-dumbbell"></i>
-                    <span>Post-Workout: Roti 🫓 + Egg Bhurji 🍳 + Curd 🥄</span>
-                </li>
-                <li class="modal-item">
-                    <i class="fas fa-coffee"></i>
-                    <span>Snack: Makhana 🍿 + Ghee 🧈</span>
-                </li>
-                <li class="modal-item">
-                    <i class="fas fa-moon"></i>
-                    <span>Dinner: Khichdi 🍚 + Kadhi 🥣</span>
-                </li>
-            </ul>
-            
-            <h3 class="modal-subtitle">Day 5 🚴 (Endurance - Carb Cycling)</h3>
-            <ul class="modal-list">
-                <li class="modal-item">
-                    <i class="fas fa-sun"></i>
-                    <span>Pre-Workout: Idli 🍘 + Sambar 🍛</span>
-                </li>
-                <li class="modal-item">
-                    <i class="fas fa-biking"></i>
-                    <span>Post-Workout: Brown Rice 🍚 + Grilled Fish 🐟 + Lauki Sabzi 🥗</span>
-                </li>
-                <li class="modal-item">
-                    <i class="fas fa-coffee"></i>
-                    <span>Snack: Fruit Salad 🍉 + Walnuts 🥜</span>
-                </li>
-                <li class="modal-item">
-                    <i class="fas fa-moon"></i>
-                    <span>Dinner: Missi Roti 🫓 + Dal 🌱 + Bhindi Sabzi 🥗</span>
-                </li>
-            </ul>
-            
-            <h3 class="modal-subtitle">Day 6 🧘 (Active Recovery - Low Carb)</h3>
-            <ul class="modal-list">
-                <li class="modal-item">
-                    <i class="fas fa-sun"></i>
-                    <span>Breakfast: Egg Whites 🥚 + Spinach Omelet 🍳</span>
-                </li>
-                <li class="modal-item">
-                    <i class="fas fa-utensils"></i>
-                    <span>Lunch: Quinoa 🍛 + Chana Masala 🌱 + Cucumber Raita 🥒</span>
-                </li>
-                <li class="modal-item">
-                    <i class="fas fa-coffee"></i>
-                    <span>Snack: Coconut Water 🥥 + Pumpkin Seeds 🎃</span>
-                </li>
-                <li class="modal-item">
-                    <i class="fas fa-moon"></i>
-                    <span>Dinner: Tofu 🧈 + Mushroom Soup 🍄</span>
-                </li>
-            </ul>
-            
-            <h3 class="modal-subtitle">Day 7 🛌 (Rest Day - Flexible)</h3>
-            <ul class="modal-list">
-                <li class="modal-item">
-                    <i class="fas fa-utensils"></i>
-                    <span>Brunch: Dosa 🍘 + Sambar 🍛 + Flaxseed Chutney ✨</span>
-                </li>
-                <li class="modal-item">
-                    <i class="fas fa-coffee"></i>
-                    <span>Snack: Lassi 🥛 + Sunflower Seeds 🌻</span>
-                </li>
-                <li class="modal-item">
-                    <i class="fas fa-lightbulb"></i>
-                    <span>Muscle Gain 💪: Add ghee 🧈 or extra eggs 🥚</span>
-                </li>
-            </ul>
+            <div style="background: url('https://i.pinimg.com/474x/65/1f/00/651f00fd2fdf4d3774ce93711ae8b866.jpg') center/cover; padding: 30px; border-radius: 15px; margin-bottom: 40px;">
+                <h3 class="modal-subtitle">Day 1 🏋️‍♂️ (Strength Training - High Protein)</h3>
+                <ul class="modal-list">
+                    <li class="modal-item">
+                        <i class="fas fa-sun"></i>
+                        <span>Pre-Workout: Banana 🍌 + Peanut Butter 🥜 + Milk 🥛</span>
+                    </li>
+                    <li class="modal-item">
+                        <i class="fas fa-dumbbell"></i>
+                        <span>Post-Workout: Roti 🫓 + Chicken Curry 🍗 + Dal 🌱 + Cucumber Salad 🥒</span>
+                    </li>
+                    <li class="modal-item">
+                        <i class="fas fa-coffee"></i>
+                        <span>Snack: Sprout Chaat 🌱 + Almonds 🥜</span>
+                    </li>
+                    <li class="modal-item">
+                        <i class="fas fa-moon"></i>
+                        <span>Dinner: Brown Rice 🍚 + Fish Curry 🐟 + Bhindi Sabzi 🥗</span>
+                    </li>
+                </ul>
+                
+                <h3 class="modal-subtitle">Day 2 🏃‍♂️ (HIIT - Moderate Carb)</h3>
+                <ul class="modal-list">
+                    <li class="modal-item">
+                        <i class="fas fa-sun"></i>
+                        <span>Pre-Workout: Poha 🍚 + Boiled Egg 🥚</span>
+                    </li>
+                    <li class="modal-item">
+                        <i class="fas fa-running"></i>
+                        <span>Post-Workout: Quinoa 🍛 + Moong Dal 🌱 + Curd 🥄</span>
+                    </li>
+                    <li class="modal-item">
+                        <i class="fas fa-coffee"></i>
+                        <span>Snack: Greek Yogurt 🥣 + Chia Seeds ✨</span>
+                    </li>
+                    <li class="modal-item">
+                        <i class="fas fa-moon"></i>
+                        <span>Dinner: Jowar Roti 🫓 + Palak Paneer 🧀 + Sprouts 🌱</span>
+                    </li>
+                </ul>
+                
+                <h3 class="modal-subtitle">Day 3 🦵 (Leg Day - High Energy)</h3>
+                <ul class="modal-list">
+                    <li class="modal-item">
+                        <i class="fas fa-sun"></i>
+                        <span>Pre-Workout: Oats 🥣 + Whey 💊 + Dates 🍇</span>
+                    </li>
+                    <li class="modal-item">
+                        <i class="fas fa-dumbbell"></i>
+                        <span>Post-Workout: Rice 🍚 + Mutton Curry 🍖 + Beetroot Salad 🥗</span>
+                    </li>
+                    <li class="modal-item">
+                        <i class="fas fa-coffee"></i>
+                        <span>Snack: Chana Chaat 🌱 + Green Chutney 🍃</span>
+                    </li>
+                    <li class="modal-item">
+                        <i class="fas fa-moon"></i>
+                        <span>Dinner: Bajra Roti 🫓 + Dal Tadka 🌱 + Mushrooms 🍄</span>
+                    </li>
+                </ul>
+                
+                <h3 class="modal-subtitle">Day 4 💪 (Upper Body - Balanced)</h3>
+                <ul class="modal-list">
+                    <li class="modal-item">
+                        <i class="fas fa-sun"></i>
+                        <span>Pre-Workout: Upma 🍛 + Buttermilk 🥛</span>
+                    </li>
+                    <li class="modal-item">
+                        <i class="fas fa-dumbbell"></i>
+                        <span>Post-Workout: Roti 🫓 + Egg Bhurji 🍳 + Curd 🥄</span>
+                    </li>
+                    <li class="modal-item">
+                        <i class="fas fa-coffee"></i>
+                        <span>Snack: Makhana 🍿 + Ghee 🧈</span>
+                    </li>
+                    <li class="modal-item">
+                        <i class="fas fa-moon"></i>
+                        <span>Dinner: Khichdi 🍚 + Kadhi 🥣</span>
+                    </li>
+                </ul>
+                
+                <h3 class="modal-subtitle">Day 5 🚴 (Endurance - Carb Cycling)</h3>
+                <ul class="modal-list">
+                    <li class="modal-item">
+                        <i class="fas fa-sun"></i>
+                        <span>Pre-Workout: Idli 🍘 + Sambar 🍛</span>
+                    </li>
+                    <li class="modal-item">
+                        <i class="fas fa-biking"></i>
+                        <span>Post-Workout: Brown Rice 🍚 + Grilled Fish 🐟 + Lauki Sabzi 🥗</span>
+                    </li>
+                    <li class="modal-item">
+                        <i class="fas fa-coffee"></i>
+                        <span>Snack: Fruit Salad 🍉 + Walnuts 🥜</span>
+                    </li>
+                    <li class="modal-item">
+                        <i class="fas fa-moon"></i>
+                        <span>Dinner: Missi Roti 🫓 + Dal 🌱 + Bhindi Sabzi 🥗</span>
+                    </li>
+                </ul>
+                
+                <h3 class="modal-subtitle">Day 6 🧘 (Active Recovery - Low Carb)</h3>
+                <ul class="modal-list">
+                    <li class="modal-item">
+                        <i class="fas fa-sun"></i>
+                        <span>Breakfast: Egg Whites 🥚 + Spinach Omelet 🍳</span>
+                    </li>
+                    <li class="modal-item">
+                        <i class="fas fa-utensils"></i>
+                        <span>Lunch: Quinoa 🍛 + Chana Masala 🌱 + Cucumber Raita 🥒</span>
+                    </li>
+                    <li class="modal-item">
+                        <i class="fas fa-coffee"></i>
+                        <span>Snack: Coconut Water 🥥 + Pumpkin Seeds 🎃</span>
+                    </li>
+                    <li class="modal-item">
+                        <i class="fas fa-moon"></i>
+                        <span>Dinner: Tofu 🧈 + Mushroom Soup 🍄</span>
+                    </li>
+                </ul>
+                
+                <h3 class="modal-subtitle">Day 7 🛌 (Rest Day - Flexible)</h3>
+                <ul class="modal-list">
+                    <li class="modal-item">
+                        <i class="fas fa-utensils"></i>
+                        <span>Brunch: Dosa 🍘 + Sambar 🍛 + Flaxseed Chutney ✨</span>
+                    </li>
+                    <li class="modal-item">
+                        <i class="fas fa-coffee"></i>
+                        <span>Snack: Lassi 🥛 + Sunflower Seeds 🌻</span>
+                    </li>
+                    <li class="modal-item">
+                        <i class="fas fa-lightbulb"></i>
+                        <span>Muscle Gain 💪: Add ghee 🧈 or extra eggs 🥚</span>
+                    </li>
+                </ul>
+            </div>
         </div>
     </div>
 
@@ -2019,165 +2586,167 @@
             </button>
             <h2 class="modal-title">6-Day Gym Workout Split</h2>
             
-            <h3 class="modal-subtitle">Day 1️⃣ (Monday): Chest & Triceps</h3>
-            <ul class="modal-list">
-                <li class="modal-item">
-                    <i class="fas fa-dumbbell"></i>
-                    <span>Flat Bench Press – 4x6-8 🏋️‍♂️</span>
-                </li>
-                <li class="modal-item">
-                    <i class="fas fa-dumbbell"></i>
-                    <span>Incline Dumbbell Press – 3x8-10 🏋️‍♀️</span>
-                </li>
-                <li class="modal-item">
-                    <i class="fas fa-dumbbell"></i>
-                    <span>Cable Flys – 3x12 ✨</span>
-                </li>
-                <li class="modal-item">
-                    <i class="fas fa-dumbbell"></i>
-                    <span>Triceps Dips – 3xMAX 💪</span>
-                </li>
-                <li class="modal-item">
-                    <i class="fas fa-dumbbell"></i>
-                    <span>Skull Crushers – 3x10-12 🦾</span>
-                </li>
-                <li class="modal-item">
-                    <i class="fas fa-walking"></i>
-                    <span>(Finish: 10 min incline treadmill walk 🚶‍♂️)</span>
-                </li>
-            </ul>
-            
-            <h3 class="modal-subtitle">Day 2️⃣ (Tuesday): Back & Biceps</h3>
-            <ul class="modal-list">
-                <li class="modal-item">
-                    <i class="fas fa-dumbbell"></i>
-                    <span>Pull-Ups – 4x6-8 (add weight if advanced) 🏋️‍♂️</span>
-                </li>
-                <li class="modal-item">
-                    <i class="fas fa-dumbbell"></i>
-                    <span>Barbell Rows – 3x8-10 🏋️‍♀️</span>
-                </li>
-                <li class="modal-item">
-                    <i class="fas fa-dumbbell"></i>
-                    <span>Lat Pulldown – 3x10-12 🔄</span>
-                </li>
-                <li class="modal-item">
-                    <i class="fas fa-dumbbell"></i>
-                    <span>Deadlifts – 3x5 (heavy!) ⚡</span>
-                </li>
-                <li class="modal-item">
-                    <i class="fas fa-dumbbell"></i>
-                    <span>Hammer Curls – 3x12 💥</span>
-                </li>
-                <li class="modal-item">
-                    <i class="fas fa-spa"></i>
-                    <span>(Stretch: 5 min lats/biceps 🧘)</span>
-                </li>
-            </ul>
-            
-            <h3 class="modal-subtitle">Day 3️⃣ (Wednesday): Legs (Quads Focus)</h3>
-            <ul class="modal-list">
-                <li class="modal-item">
-                    <i class="fas fa-dumbbell"></i>
-                    <span>Squats – 4x6-8 🦵</span>
-                </li>
-                <li class="modal-item">
-                    <i class="fas fa-dumbbell"></i>
-                    <span>Bulgarian Split Squats – 3x8/leg 🏋️‍♀️</span>
-                </li>
-                <li class="modal-item">
-                    <i class="fas fa-dumbbell"></i>
-                    <span>Leg Press – 3x10-12 🚂</span>
-                </li>
-                <li class="modal-item">
-                    <i class="fas fa-dumbbell"></i>
-                    <span>Leg Extensions – 3x15 (slow!) 🐢</span>
-                </li>
-                <li class="modal-item">
-                    <i class="fas fa-dumbbell"></i>
-                    <span>Calf Raises – 4x15 👟</span>
-                </li>
-                <li class="modal-item">
-                    <i class="fas fa-biking"></i>
-                    <span>(Cool down: 5 min bike 🚴‍♂️)</span>
-                </li>
-            </ul>
-            
-            <h3 class="modal-subtitle">Day 4️⃣ (Thursday): Shoulders & Abs</h3>
-            <ul class="modal-list">
-                <li class="modal-item">
-                    <i class="fas fa-dumbbell"></i>
-                    <span>Overhead Press – 4x6-8 🏋️‍♂️</span>
-                </li>
-                <li class="modal-item">
-                    <i class="fas fa-dumbbell"></i>
-                    <span>Lateral Raises – 3x12-15 ✈️</span>
-                </li>
-                <li class="modal-item">
-                    <i class="fas fa-dumbbell"></i>
-                    <span>Face Pulls – 3x15 🔄</span>
-                </li>
-                <li class="modal-item">
-                    <i class="fas fa-dumbbell"></i>
-                    <span>Hanging Leg Raises – 3x12-15 🦵</span>
-                </li>
-                <li class="modal-item">
-                    <i class="fas fa-dumbbell"></i>
-                    <span>Russian Twists – 3x20/side 🔄</span>
-                </li>
-                <li class="modal-item">
-                    <i class="fas fa-water"></i>
-                    <span>(Finish: 10 min rowing 🚣‍♂️)</span>
-                </li>
-            </ul>
-            
-            <h3 class="modal-subtitle">Day 5️⃣ (Friday): Arms (Hypertrophy)</h3>
-            <ul class="modal-list">
-                <li class="modal-item">
-                    <i class="fas fa-dumbbell"></i>
-                    <span>Close-Grip Bench – 3x10-12 🏋️‍♂️</span>
-                </li>
-                <li class="modal-item">
-                    <i class="fas fa-dumbbell"></i>
-                    <span>EZ Bar Curls – 3x10-12 💪</span>
-                </li>
-                <li class="modal-item">
-                    <i class="fas fa-dumbbell"></i>
-                    <span>Triceps Rope Pushdown – 3x12-15 🦾</span>
-                </li>
-                <li class="modal-item">
-                    <i class="fas fa-dumbbell"></i>
-                    <span>Preacher Curls – 3x12 🔥</span>
-                </li>
-                <li class="modal-item">
-                    <i class="fas fa-lightbulb"></i>
-                    <span>(Superset biceps/triceps for pump! 💥)</span>
-                </li>
-            </ul>
-            
-            <h3 class="modal-subtitle">Day 6️⃣ (Saturday): Legs (Hamstrings/Glutes) + HIIT</h3>
-            <ul class="modal-list">
-                <li class="modal-item">
-                    <i class="fas fa-dumbbell"></i>
-                    <span>Romanian Deadlifts – 4x8 🏋️‍♀️</span>
-                </li>
-                <li class="modal-item">
-                    <i class="fas fa-dumbbell"></i>
-                    <span>Hip Thrusts – 3x10-12 🍑</span>
-                </li>
-                <li class="modal-item">
-                    <i class="fas fa-dumbbell"></i>
-                    <span>Leg Curls – 3x12-15 🦵</span>
-                </li>
-                <li class="modal-item">
-                    <i class="fas fa-dumbbell"></i>
-                    <span>Farmer's Walk – 3x30 sec 🚶‍♂️</span>
-                </li>
-                <li class="modal-item">
-                    <i class="fas fa-bolt"></i>
-                    <span>HIIT Finisher: 30 sec Sprint / 30 sec Walk – 8 rounds ⚡</span>
-                </li>
-            </ul>
+            <div style="background: url('https://i.pinimg.com/474x/65/1f/00/651f00fd2fdf4d3774ce93711ae8b866.jpg') center/cover; padding: 30px; border-radius: 15px; margin-bottom: 40px;">
+                <h3 class="modal-subtitle">Day 1️⃣ (Monday): Chest & Triceps</h3>
+                <ul class="modal-list">
+                    <li class="modal-item">
+                        <i class="fas fa-dumbbell"></i>
+                        <span>Flat Bench Press – 4x6-8 🏋️‍♂️</span>
+                    </li>
+                    <li class="modal-item">
+                        <i class="fas fa-dumbbell"></i>
+                        <span>Incline Dumbbell Press – 3x8-10 🏋️‍♀️</span>
+                    </li>
+                    <li class="modal-item">
+                        <i class="fas fa-dumbbell"></i>
+                        <span>Cable Flys – 3x12 ✨</span>
+                    </li>
+                    <li class="modal-item">
+                        <i class="fas fa-dumbbell"></i>
+                        <span>Triceps Dips – 3xMAX 💪</span>
+                    </li>
+                    <li class="modal-item">
+                        <i class="fas fa-dumbbell"></i>
+                        <span>Skull Crushers – 3x10-12 🦾</span>
+                    </li>
+                    <li class="modal-item">
+                        <i class="fas fa-walking"></i>
+                        <span>(Finish: 10 min incline treadmill walk 🚶‍♂️)</span>
+                    </li>
+                </ul>
+                
+                <h3 class="modal-subtitle">Day 2️⃣ (Tuesday): Back & Biceps</h3>
+                <ul class="modal-list">
+                    <li class="modal-item">
+                        <i class="fas fa-dumbbell"></i>
+                        <span>Pull-Ups – 4x6-8 (add weight if advanced) 🏋️‍♂️</span>
+                    </li>
+                    <li class="modal-item">
+                        <i class="fas fa-dumbbell"></i>
+                        <span>Barbell Rows – 3x8-10 🏋️‍♀️</span>
+                    </li>
+                    <li class="modal-item">
+                        <i class="fas fa-dumbbell"></i>
+                        <span>Lat Pulldown – 3x10-12 🔄</span>
+                    </li>
+                    <li class="modal-item">
+                        <i class="fas fa-dumbbell"></i>
+                        <span>Deadlifts – 3x5 (heavy!) ⚡</span>
+                    </li>
+                    <li class="modal-item">
+                        <i class="fas fa-dumbbell"></i>
+                        <span>Hammer Curls – 3x12 💥</span>
+                    </li>
+                    <li class="modal-item">
+                        <i class="fas fa-spa"></i>
+                        <span>(Stretch: 5 min lats/biceps 🧘)</span>
+                    </li>
+                </ul>
+                
+                <h3 class="modal-subtitle">Day 3️⃣ (Wednesday): Legs (Quads Focus)</h3>
+                <ul class="modal-list">
+                    <li class="modal-item">
+                        <i class="fas fa-dumbbell"></i>
+                        <span>Squats – 4x6-8 🦵</span>
+                    </li>
+                    <li class="modal-item">
+                        <i class="fas fa-dumbbell"></i>
+                        <span>Bulgarian Split Squats – 3x8/leg 🏋️‍♀️</span>
+                    </li>
+                    <li class="modal-item">
+                        <i class="fas fa-dumbbell"></i>
+                        <span>Leg Press – 3x10-12 🚂</span>
+                    </li>
+                    <li class="modal-item">
+                        <i class="fas fa-dumbbell"></i>
+                        <span>Leg Extensions – 3x15 (slow!) 🐢</span>
+                    </li>
+                    <li class="modal-item">
+                        <i class="fas fa-dumbbell"></i>
+                        <span>Calf Raises – 4x15 👟</span>
+                    </li>
+                    <li class="modal-item">
+                        <i class="fas fa-biking"></i>
+                        <span>(Cool down: 5 min bike 🚴‍♂️)</span>
+                    </li>
+                </ul>
+                
+                <h3 class="modal-subtitle">Day 4️⃣ (Thursday): Shoulders & Abs</h3>
+                <ul class="modal-list">
+                    <li class="modal-item">
+                        <i class="fas fa-dumbbell"></i>
+                        <span>Overhead Press – 4x6-8 🏋️‍♂️</span>
+                    </li>
+                    <li class="modal-item">
+                        <i class="fas fa-dumbbell"></i>
+                        <span>Lateral Raises – 3x12-15 ✈️</span>
+                    </li>
+                    <li class="modal-item">
+                        <i class="fas fa-dumbbell"></i>
+                        <span>Face Pulls – 3x15 🔄</span>
+                    </li>
+                    <li class="modal-item">
+                        <i class="fas fa-dumbbell"></i>
+                        <span>Hanging Leg Raises – 3x12-15 🦵</span>
+                    </li>
+                    <li class="modal-item">
+                        <i class="fas fa-dumbbell"></i>
+                        <span>Russian Twists – 3x20/side 🔄</span>
+                    </li>
+                    <li class="modal-item">
+                        <i class="fas fa-water"></i>
+                        <span>(Finish: 10 min rowing 🚣‍♂️)</span>
+                    </li>
+                </ul>
+                
+                <h3 class="modal-subtitle">Day 5️⃣ (Friday): Arms (Hypertrophy)</h3>
+                <ul class="modal-list">
+                    <li class="modal-item">
+                        <i class="fas fa-dumbbell"></i>
+                        <span>Close-Grip Bench – 3x10-12 🏋️‍♂️</span>
+                    </li>
+                    <li class="modal-item">
+                        <i class="fas fa-dumbbell"></i>
+                        <span>EZ Bar Curls – 3x10-12 💪</span>
+                    </li>
+                    <li class="modal-item">
+                        <i class="fas fa-dumbbell"></i>
+                        <span>Triceps Rope Pushdown – 3x12-15 🦾</span>
+                    </li>
+                    <li class="modal-item">
+                        <i class="fas fa-dumbbell"></i>
+                        <span>Preacher Curls – 3x12 🔥</span>
+                    </li>
+                    <li class="modal-item">
+                        <i class="fas fa-lightbulb"></i>
+                        <span>(Superset biceps/triceps for pump! 💥)</span>
+                    </li>
+                </ul>
+                
+                <h3 class="modal-subtitle">Day 6️⃣ (Saturday): Legs (Hamstrings/Glutes) + HIIT</h3>
+                <ul class="modal-list">
+                    <li class="modal-item">
+                        <i class="fas fa-dumbbell"></i>
+                        <span>Romanian Deadlifts – 4x8 🏋️‍♀️</span>
+                    </li>
+                    <li class="modal-item">
+                        <i class="fas fa-dumbbell"></i>
+                        <span>Hip Thrusts – 3x10-12 🍑</span>
+                    </li>
+                    <li class="modal-item">
+                        <i class="fas fa-dumbbell"></i>
+                        <span>Leg Curls – 3x12-15 🦵</span>
+                    </li>
+                    <li class="modal-item">
+                        <i class="fas fa-dumbbell"></i>
+                        <span>Farmer's Walk – 3x30 sec 🚶‍♂️</span>
+                    </li>
+                    <li class="modal-item">
+                        <i class="fas fa-bolt"></i>
+                        <span>HIIT Finisher: 30 sec Sprint / 30 sec Walk – 8 rounds ⚡</span>
+                    </li>
+                </ul>
+            </div>
         </div>
     </div>
 
@@ -2189,169 +2758,171 @@
             </button>
             <h2 class="modal-title">6-Day Calisthenics Plan</h2>
             
-            <h3 class="modal-subtitle">Day 1️⃣ (Monday): Upper Body Push</h3>
-            <ul class="modal-list">
-                <li class="modal-item">
-                    <i class="fas fa-fire"></i>
-                    <span>Push-Ups – 4x12-15 🏋️‍♂️ (slow, full range)</span>
-                </li>
-                <li class="modal-item">
-                    <i class="fas fa-fire"></i>
-                    <span>Pike Push-Ups – 3x8-10 ✋ (shoulder focus)</span>
-                </li>
-                <li class="modal-item">
-                    <i class="fas fa-fire"></i>
-                    <span>Dips (Parallel Bars/Chair) – 3x8-10 🔄</span>
-                </li>
-                <li class="modal-item">
-                    <i class="fas fa-fire"></i>
-                    <span>Handstand Holds – 3x20-30 sec ⏳ (against wall)</span>
-                </li>
-                <li class="modal-item">
-                    <i class="fas fa-fire"></i>
-                    <span>Triceps Extensions – 3x10-12 🦾</span>
-                </li>
-                <li class="modal-item">
-                    <i class="fas fa-hands"></i>
-                    <span>(Finish: 5 min wrist mobility drills ✋)</span>
-                </li>
-            </ul>
-            
-            <h3 class="modal-subtitle">Day 2️⃣ (Tuesday): Upper Body Pull</h3>
-            <ul class="modal-list">
-                <li class="modal-item">
-                    <i class="fas fa-fire"></i>
-                    <span>Pull-Ups – 4x6-8 🏋️‍♂️ (strict form)</span>
-                </li>
-                <li class="modal-item">
-                    <i class="fas fa-fire"></i>
-                    <span>Bodyweight Rows (Table/TRX) – 3x10-12 🔄</span>
-                </li>
-                <li class="modal-item">
-                    <i class="fas fa-fire"></i>
-                    <span>Archer Rows – 3x6/side 🎯 (scaled: feet on ground)</span>
-                </li>
-                <li class="modal-item">
-                    <i class="fas fa-fire"></i>
-                    <span>Hanging Leg Raises – 3x12-15 🦵</span>
-                </li>
-                <li class="modal-item">
-                    <i class="fas fa-fire"></i>
-                    <span>Plank to Failure – 3xMAX ⏳</span>
-                </li>
-                <li class="modal-item">
-                    <i class="fas fa-spa"></i>
-                    <span>(Stretch: 5 min lats & biceps 🧘‍♂️)</span>
-                </li>
-            </ul>
-            
-            <h3 class="modal-subtitle">Day 3️⃣ (Wednesday): Legs & Core</h3>
-            <ul class="modal-list">
-                <li class="modal-item">
-                    <i class="fas fa-fire"></i>
-                    <span>Pistol Squats – 3x5/side 🦵 (assisted if needed)</span>
-                </li>
-                <li class="modal-item">
-                    <i class="fas fa-fire"></i>
-                    <span>Jump Squats – 3x12-15 ⚡</span>
-                </li>
-                <li class="modal-item">
-                    <i class="fas fa-fire"></i>
-                    <span>Nordic Hamstring Curls – 3x6-8 🏋️‍♀️ (slow negatives)</span>
-                </li>
-                <li class="modal-item">
-                    <i class="fas fa-fire"></i>
-                    <span>L-Sit Holds – 3x15-20 sec ⏳ (tucked if advanced)</span>
-                </li>
-                <li class="modal-item">
-                    <i class="fas fa-fire"></i>
-                    <span>Dragon Flags – 3x6-8 🐉 (scaled: negatives)</span>
-                </li>
-                <li class="modal-item">
-                    <i class="fas fa-spa"></i>
-                    <span>(Cool down: 5 min hip stretches 🧘‍♀️)</span>
-                </li>
-            </ul>
-            
-            <h3 class="modal-subtitle">Day 4️⃣ (Thursday): Skill & Mobility</h3>
-            <ul class="modal-list">
-                <li class="modal-item">
-                    <i class="fas fa-fire"></i>
-                    <span>Handstand Practice – 10 min ✋ (wall holds/kicks)</span>
-                </li>
-                <li class="modal-item">
-                    <i class="fas fa-fire"></i>
-                    <span>Front Lever Progressions – 3x8-10 sec 🏋️‍♂️ (tuck/adv. tuck)</span>
-                </li>
-                <li class="modal-item">
-                    <i class="fas fa-fire"></i>
-                    <span>Planche Lean Holds – 3x20-30 sec ⏳</span>
-                </li>
-                <li class="modal-item">
-                    <i class="fas fa-fire"></i>
-                    <span>Skin the Cat – 3x5 🔄 (shoulder mobility)</span>
-                </li>
-                <li class="modal-item">
-                    <i class="fas fa-fire"></i>
-                    <span>Bridge Holds – 3x20 sec 🌉</span>
-                </li>
-                <li class="modal-item">
-                    <i class="fas fa-lightbulb"></i>
-                    <span>(Focus: Form over reps! 👀)</span>
-                </li>
-            </ul>
-            
-            <h3 class="modal-subtitle">Day 5️⃣ (Friday): Full Body HIIT</h3>
-            <ul class="modal-list">
-                <li class="modal-item">
-                    <i class="fas fa-fire"></i>
-                    <span>Burpees – 4x10 ⚡</span>
-                </li>
-                <li class="modal-item">
-                    <i class="fas fa-fire"></i>
-                    <span>Mountain Climbers – 3x20/side 🏔️</span>
-                </li>
-                <li class="modal-item">
-                    <i class="fas fa-fire"></i>
-                    <span>Explosive Push-Ups – 3x8 💥</span>
-                </li>
-                <li class="modal-item">
-                    <i class="fas fa-fire"></i>
-                    <span>Jump Lunges – 3x12/side 🦵</span>
-                </li>
-                <li class="modal-item">
-                    <i class="fas fa-fire"></i>
-                    <span>Plank Jacks – 3x30 sec ⏳</span>
-                </li>
-                <li class="modal-item">
-                    <i class="fas fa-fire"></i>
-                    <span>(Finisher: 5 min jump rope 🏃‍♂️)</span>
-                </li>
-            </ul>
-            
-            <h3 class="modal-subtitle">Day 6️⃣ (Saturday): Freestyle & Play</h3>
-            <ul class="modal-list">
-                <li class="modal-item">
-                    <i class="fas fa-fire"></i>
-                    <span>Muscle-Up Progressions – 10 min 🏋️‍♂️</span>
-                </li>
-                <li class="modal-item">
-                    <i class="fas fa-fire"></i>
-                    <span>Human Flag Practice – 3x5 sec/side 🚩</span>
-                </li>
-                <li class="modal-item">
-                    <i class="fas fa-fire"></i>
-                    <span>Handstand Walks – 3x10 steps 🚶‍♂️</span>
-                </li>
-                <li class="modal-item">
-                    <i class="fas fa-fire"></i>
-                    <span>Parkour Basics – Vaults/Rolling 🏃‍♂️</span>
-                </li>
-                <li class="modal-item">
-                    <i class="fas fa-smile"></i>
-                    <span>(Have fun! 😄)</span>
-                </li>
-            </ul>
+            <div style="background: url('https://i.pinimg.com/474x/65/1f/00/651f00fd2fdf4d3774ce93711ae8b866.jpg') center/cover; padding: 30px; border-radius: 15px; margin-bottom: 40px;">
+                <h3 class="modal-subtitle">Day 1️⃣ (Monday): Upper Body Push</h3>
+                <ul class="modal-list">
+                    <li class="modal-item">
+                        <i class="fas fa-fire"></i>
+                        <span>Push-Ups – 4x12-15 🏋️‍♂️ (slow, full range)</span>
+                    </li>
+                    <li class="modal-item">
+                        <i class="fas fa-fire"></i>
+                        <span>Pike Push-Ups – 3x8-10 ✋ (shoulder focus)</span>
+                    </li>
+                    <li class="modal-item">
+                        <i class="fas fa-fire"></i>
+                        <span>Dips (Parallel Bars/Chair) – 3x8-10 🔄</span>
+                    </li>
+                    <li class="modal-item">
+                        <i class="fas fa-fire"></i>
+                        <span>Handstand Holds – 3x20-30 sec ⏳ (against wall)</span>
+                    </li>
+                    <li class="modal-item">
+                        <i class="fas fa-fire"></i>
+                        <span>Triceps Extensions – 3x10-12 🦾</span>
+                    </li>
+                    <li class="modal-item">
+                        <i class="fas fa-hands"></i>
+                        <span>(Finish: 5 min wrist mobility drills ✋)</span>
+                    </li>
+                </ul>
+                
+                <h3 class="modal-subtitle">Day 2️⃣ (Tuesday): Upper Body Pull</h3>
+                <ul class="modal-list">
+                    <li class="modal-item">
+                        <i class="fas fa-fire"></i>
+                        <span>Pull-Ups – 4x6-8 🏋️‍♂️ (strict form)</span>
+                    </li>
+                    <li class="modal-item">
+                        <i class="fas fa-fire"></i>
+                        <span>Bodyweight Rows (Table/TRX) – 3x10-12 🔄</span>
+                    </li>
+                    <li class="modal-item">
+                        <i class="fas fa-fire"></i>
+                        <span>Archer Rows – 3x6/side 🎯 (scaled: feet on ground)</span>
+                    </li>
+                    <li class="modal-item">
+                        <i class="fas fa-fire"></i>
+                        <span>Hanging Leg Raises – 3x12-15 🦵</span>
+                    </li>
+                    <li class="modal-item">
+                        <i class="fas fa-fire"></i>
+                        <span>Plank to Failure – 3xMAX ⏳</span>
+                    </li>
+                    <li class="modal-item">
+                        <i class="fas fa-spa"></i>
+                        <span>(Stretch: 5 min lats & biceps 🧘‍♂️)</span>
+                    </li>
+                </ul>
+                
+                <h3 class="modal-subtitle">Day 3️⃣ (Wednesday): Legs & Core</h3>
+                <ul class="modal-list">
+                    <li class="modal-item">
+                        <i class="fas fa-fire"></i>
+                        <span>Pistol Squats – 3x5/side 🦵 (assisted if needed)</span>
+                    </li>
+                    <li class="modal-item">
+                        <i class="fas fa-fire"></i>
+                        <span>Jump Squats – 3x12-15 ⚡</span>
+                    </li>
+                    <li class="modal-item">
+                        <i class="fas fa-fire"></i>
+                        <span>Nordic Hamstring Curls – 3x6-8 🏋️‍♀️ (slow negatives)</span>
+                    </li>
+                    <li class="modal-item">
+                        <i class="fas fa-fire"></i>
+                        <span>L-Sit Holds – 3x15-20 sec ⏳ (tucked if advanced)</span>
+                    </li>
+                    <li class="modal-item">
+                        <i class="fas fa-fire"></i>
+                        <span>Dragon Flags – 3x6-8 🐉 (scaled: negatives)</span>
+                    </li>
+                    <li class="modal-item">
+                        <i class="fas fa-spa"></i>
+                        <span>(Cool down: 5 min hip stretches 🧘‍♀️)</span>
+                    </li>
+                </ul>
+                
+                <h3 class="modal-subtitle">Day 4️⃣ (Thursday): Skill & Mobility</h3>
+                <ul class="modal-list">
+                    <li class="modal-item">
+                        <i class="fas fa-fire"></i>
+                        <span>Handstand Practice – 10 min ✋ (wall holds/kicks)</span>
+                    </li>
+                    <li class="modal-item">
+                        <i class="fas fa-fire"></i>
+                        <span>Front Lever Progressions – 3x8-10 sec 🏋️‍♂️ (tuck/adv. tuck)</span>
+                    </li>
+                    <li class="modal-item">
+                        <i class="fas fa-fire"></i>
+                        <span>Planche Lean Holds – 3x20-30 sec ⏳</span>
+                    </li>
+                    <li class="modal-item">
+                        <i class="fas fa-fire"></i>
+                        <span>Skin the Cat – 3x5 🔄 (shoulder mobility)</span>
+                    </li>
+                    <li class="modal-item">
+                        <i class="fas fa-fire"></i>
+                        <span>Bridge Holds – 3x20 sec 🌉</span>
+                    </li>
+                    <li class="modal-item">
+                        <i class="fas fa-lightbulb"></i>
+                        <span>(Focus: Form over reps! 👀)</span>
+                    </li>
+                </ul>
+                
+                <h3 class="modal-subtitle">Day 5️⃣ (Friday): Full Body HIIT</h3>
+                <ul class="modal-list">
+                    <li class="modal-item">
+                        <i class="fas fa-fire"></i>
+                        <span>Burpees – 4x10 ⚡</span>
+                    </li>
+                    <li class="modal-item">
+                        <i class="fas fa-fire"></i>
+                        <span>Mountain Climbers – 3x20/side 🏔️</span>
+                    </li>
+                    <li class="modal-item">
+                        <i class="fas fa-fire"></i>
+                        <span>Explosive Push-Ups – 3x8 💥</span>
+                    </li>
+                    <li class="modal-item">
+                        <i class="fas fa-fire"></i>
+                        <span>Jump Lunges – 3x12/side 🦵</span>
+                    </li>
+                    <li class="modal-item">
+                        <i class="fas fa-fire"></i>
+                        <span>Plank Jacks – 3x30 sec ⏳</span>
+                    </li>
+                    <li class="modal-item">
+                        <i class="fas fa-fire"></i>
+                        <span>(Finisher: 5 min jump rope 🏃‍♂️)</span>
+                    </li>
+                </ul>
+                
+                <h3 class="modal-subtitle">Day 6️⃣ (Saturday): Freestyle & Play</h3>
+                <ul class="modal-list">
+                    <li class="modal-item">
+                        <i class="fas fa-fire"></i>
+                        <span>Muscle-Up Progressions – 10 min 🏋️‍♂️</span>
+                    </li>
+                    <li class="modal-item">
+                        <i class="fas fa-fire"></i>
+                        <span>Human Flag Practice – 3x5 sec/side 🚩</span>
+                    </li>
+                    <li class="modal-item">
+                        <i class="fas fa-fire"></i>
+                        <span>Handstand Walks – 3x10 steps 🚶‍♂️</span>
+                    </li>
+                    <li class="modal-item">
+                        <i class="fas fa-fire"></i>
+                        <span>Parkour Basics – Vaults/Rolling 🏃‍♂️</span>
+                    </li>
+                    <li class="modal-item">
+                        <i class="fas fa-smile"></i>
+                        <span>(Have fun! 😄)</span>
+                    </li>
+                </ul>
+            </div>
         </div>
     </div>
 
@@ -2531,6 +3102,68 @@
             const bgContainer = document.querySelector('.bg-container');
             bgContainer.style.transform = 'rotateY(0deg) rotateX(0deg)';
         });
+
+        // Chatbot functionality
+        const chatbotBtn = document.getElementById('chatbotBtn');
+        const chatbotContainer = document.getElementById('chatbotContainer');
+        const chatbotClose = document.getElementById('chatbotClose');
+        const chatbotMessages = document.getElementById('chatbotMessages');
+        const chatbotInput = document.getElementById('chatbotInput');
+        const chatbotSend = document.getElementById('chatbotSend');
+
+        chatbotBtn.addEventListener('click', () => {
+            chatbotContainer.classList.toggle('active');
+        });
+
+        chatbotClose.addEventListener('click', () => {
+            chatbotContainer.classList.remove('active');
+        });
+
+        chatbotSend.addEventListener('click', sendMessage);
+        chatbotInput.addEventListener('keypress', (e) => {
+            if (e.key === 'Enter') {
+                sendMessage();
+            }
+        });
+
+        function sendMessage() {
+            const message = chatbotInput.value.trim();
+            if (message === '') return;
+            
+            // Add user message
+            const userMessage = document.createElement('div');
+            userMessage.className = 'message user-message';
+            userMessage.textContent = message;
+            chatbotMessages.appendChild(userMessage);
+            
+            // Clear input
+            chatbotInput.value = '';
+            
+            // Scroll to bottom
+            chatbotMessages.scrollTop = chatbotMessages.scrollHeight;
+            
+            // Bot response
+            setTimeout(() => {
+                const botMessage = document.createElement('div');
+                botMessage.className = 'message bot-message';
+                
+                // Simple chatbot logic
+                if (message.toLowerCase().includes('hi') || message.toLowerCase().includes('hello')) {
+                    botMessage.textContent = 'Hello there! How can I help you today?';
+                } else if (message.toLowerCase().includes('price') || message.toLowerCase().includes('cost')) {
+                    botMessage.textContent = 'Our membership plans start at ₹1,500 per month. Would you like more details about our packages?';
+                } else if (message.toLowerCase().includes('time') || message.toLowerCase().includes('hour')) {
+                    botMessage.textContent = 'We are open Monday to Saturday from 6:00 AM to 10:00 PM. Closed on Sundays.';
+                } else if (message.toLowerCase().includes('location') || message.toLowerCase().includes('address')) {
+                    botMessage.textContent = 'We are located at Lakudkar\'s Fitness Gym in Nagpur, Maharashtra. You can find us on Google Maps: https://goo.gl/maps/example';
+                } else {
+                    botMessage.textContent = 'Thank you for your message! For more detailed information, please contact us at riteshrathod016@gmail.com or call +91 1234567890.';
+                }
+                
+                chatbotMessages.appendChild(botMessage);
+                chatbotMessages.scrollTop = chatbotMessages.scrollHeight;
+            }, 1000);
+        }
     </script>
 </body>
 </html>
