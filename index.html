@@ -3,749 +3,1047 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Lakudkar Gym - Transform Your Fitness Journey</title>
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
-    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@300;400;500;600;700;800&family=Oswald:wght@400;500;600;700&display=swap" rel="stylesheet">
+    <title>Ritesh Rathod - Professional Profile</title>
     <style>
+        /* Global Styles */
         :root {
-            --primary: #ff5e14;
-            --secondary: #1a1a1a;
-            --accent: #ff8c42;
-            --light: #f8f9fa;
-            --dark: #212529;
-            --text: #333;
-            --text-light: #777;
-            --card-bg: rgba(26, 26, 26, 0.8);
-            --overlay: rgba(0, 0, 0, 0.5);
-            --transition: all 0.3s ease;
+            --primary-color: #3498db;
+            --secondary-color: #2c3e50;
+            --accent-color: #e74c3c;
+            --light-color: #ecf0f1;
+            --dark-color: #2c3e50;
+            --success-color: #2ecc71;
+            --gold-color: #FFD700;
+            --silver-color: #C0C0C0;
         }
-
+        
         * {
             margin: 0;
             padding: 0;
             box-sizing: border-box;
+            font-family: 'Poppins', 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
         }
-
+        
         body {
-            font-family: 'Montserrat', sans-serif;
-            color: var(--text);
             line-height: 1.6;
-            background-color: var(--dark);
-            overflow-x: hidden;
-            position: relative;
+            color: #333;
+            background-color: #f9f9f9;
+            scroll-behavior: smooth;
         }
-
-        body::before {
-            content: "";
-            position: fixed;
-            top: 0;
-            left: 0;
-            width: 100%;
-            height: 100%;
-            background-image: url('https://i.pinimg.com/736x/de/8f/57/de8f579651b2e0a6cddbd359182f95ad.jpg');
-            background-size: cover;
-            background-position: center;
-            background-repeat: no-repeat;
-            opacity: 0.5;
-            z-index: -2;
-        }
-
-        h1, h2, h3, h4, h5, h6 {
-            font-family: 'Oswald', sans-serif;
-            font-weight: 600;
-            text-transform: uppercase;
-            letter-spacing: 1px;
-        }
-
+        
         a {
             text-decoration: none;
-            color: var(--primary);
-            transition: var(--transition);
+            color: var(--primary-color);
         }
-
-        a:hover {
-            color: var(--accent);
-        }
-
+        
         .container {
-            width: 100%;
             max-width: 1200px;
             margin: 0 auto;
             padding: 0 20px;
         }
-
+        
         .btn {
             display: inline-block;
-            padding: 12px 30px;
-            background-color: var(--primary);
-            color: white;
+            background: var(--primary-color);
+            color: #fff;
+            padding: 10px 20px;
             border: none;
-            border-radius: 4px;
-            font-weight: 600;
-            text-transform: uppercase;
-            letter-spacing: 1px;
+            border-radius: 5px;
             cursor: pointer;
-            transition: var(--transition);
-            box-shadow: 0 4px 15px rgba(255, 94, 20, 0.3);
+            transition: all 0.3s ease;
+            font-weight: 500;
+            text-align: center;
         }
-
+        
         .btn:hover {
-            background-color: var(--accent);
-            transform: translateY(-3px);
-            box-shadow: 0 6px 20px rgba(255, 140, 66, 0.4);
+            background: var(--secondary-color);
+            transform: translateY(-2px);
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
         }
-
+        
         .btn-outline {
-            background-color: transparent;
-            border: 2px solid var(--primary);
-            color: var(--primary);
+            background: transparent;
+            border: 2px solid var(--primary-color);
+            color: var(--primary-color);
         }
-
+        
         .btn-outline:hover {
-            background-color: var(--primary);
-            color: white;
+            background: var(--primary-color);
+            color: #fff;
         }
-
-        .section {
-            padding: 80px 0;
+        
+        .btn-gold {
+            background: var(--gold-color);
+            color: #000;
         }
-
+        
+        .btn-gold:hover {
+            background: #e6c200;
+            color: #000;
+        }
+        
+        .btn-silver {
+            background: var(--silver-color);
+            color: #000;
+        }
+        
+        .btn-silver:hover {
+            background: #a8a8a8;
+            color: #000;
+        }
+        
         .section-title {
             text-align: center;
-            margin-bottom: 60px;
-            color: var(--light);
+            margin-bottom: 40px;
+            color: var(--secondary-color);
             position: relative;
+            font-size: 36px;
+            font-weight: 700;
+            text-transform: uppercase;
+            letter-spacing: 2px;
         }
-
+        
         .section-title::after {
-            content: "";
+            content: '';
             display: block;
             width: 80px;
             height: 4px;
-            background-color: var(--primary);
+            background: var(--primary-color);
             margin: 15px auto;
+            border-radius: 2px;
         }
-
-        /* Header */
+        
+        /* Header Styles */
         header {
-            position: fixed;
-            top: 0;
-            left: 0;
-            width: 100%;
-            z-index: 1000;
-            transition: var(--transition);
+            background: rgba(44, 62, 80, 0.95);
+            color: #fff;
             padding: 20px 0;
-            background-color: rgba(26, 26, 26, 0.8);
+            position: fixed;
+            width: 100%;
+            top: 0;
+            z-index: 1000;
+            box-shadow: 0 2px 20px rgba(0, 0, 0, 0.2);
             backdrop-filter: blur(10px);
+            transition: all 0.3s ease;
         }
-
+        
         header.scrolled {
             padding: 15px 0;
-            box-shadow: 0 5px 20px rgba(0, 0, 0, 0.2);
+            box-shadow: 0 5px 20px rgba(0, 0, 0, 0.3);
         }
-
+        
         .header-container {
             display: flex;
             justify-content: space-between;
             align-items: center;
         }
-
-        .logo-container {
+        
+        .logo-nav-container {
+            display: flex;
+            align-items: center;
+            gap: 40px;
+        }
+        
+        .logo {
+            font-size: 24px;
+            font-weight: bold;
+            white-space: nowrap;
             display: flex;
             align-items: center;
         }
-
-        .logo-img {
-            width: 60px;
-            height: 60px;
-            border-radius: 50%;
-            object-fit: cover;
-            margin-right: 15px;
-            border: 2px solid var(--primary);
+        
+        .logo span {
+            color: var(--primary-color);
+            margin-left: 5px;
         }
-
-        .logo-text {
-            font-size: 36px;
-            font-weight: 700;
-            color: var(--light);
-            font-family: 'Oswald', sans-serif;
+        
+        .logo-icon {
+            margin-right: 10px;
+            font-size: 28px;
+            color: var(--primary-color);
         }
-
-        .nav-links {
+        
+        nav ul {
             display: flex;
             list-style: none;
+            gap: 25px;
         }
-
-        .nav-links li {
-            margin-left: 30px;
-        }
-
-        .nav-links a {
-            color: var(--light);
+        
+        nav ul li a {
+            color: #fff;
             font-weight: 500;
+            transition: all 0.3s ease;
+            white-space: nowrap;
             position: relative;
             padding: 5px 0;
         }
-
-        .nav-links a::after {
-            content: "";
+        
+        nav ul li a::after {
+            content: '';
             position: absolute;
-            bottom: 0;
-            left: 0;
             width: 0;
             height: 2px;
-            background-color: var(--primary);
-            transition: var(--transition);
+            background: var(--primary-color);
+            bottom: 0;
+            left: 0;
+            transition: width 0.3s ease;
         }
-
-        .nav-links a:hover::after {
+        
+        nav ul li a:hover::after {
             width: 100%;
         }
-
-        .hamburger {
+        
+        nav ul li a:hover {
+            color: var(--primary-color);
+        }
+        
+        .mobile-menu {
             display: none;
+            font-size: 24px;
             cursor: pointer;
+            color: white;
+            transition: transform 0.3s ease;
         }
-
-        .hamburger div {
-            width: 25px;
-            height: 3px;
-            background-color: var(--light);
-            margin: 5px;
-            transition: var(--transition);
+        
+        .mobile-menu:hover {
+            transform: scale(1.1);
         }
-
+        
+        /* Mobile Navigation Menu */
+        .mobile-nav {
+            display: none;
+            position: fixed;
+            top: 80px;
+            left: 0;
+            width: 100%;
+            background: rgba(44, 62, 80, 0.98);
+            z-index: 999;
+            box-shadow: 0 5px 20px rgba(0, 0, 0, 0.2);
+            padding: 20px 0;
+            transform: translateY(-150%);
+            transition: transform 0.4s ease;
+            backdrop-filter: blur(10px);
+        }
+        
+        .mobile-nav.active {
+            transform: translateY(0);
+        }
+        
+        .mobile-nav ul {
+            list-style: none;
+            text-align: center;
+        }
+        
+        .mobile-nav ul li {
+            margin-bottom: 20px;
+        }
+        
+        .mobile-nav ul li a {
+            color: white;
+            font-size: 18px;
+            padding: 10px 20px;
+            display: inline-block;
+            border-radius: 5px;
+            transition: all 0.3s ease;
+        }
+        
+        .mobile-nav ul li a:hover {
+            background: rgba(255, 255, 255, 0.1);
+            transform: translateX(5px);
+        }
+        
         /* Hero Section */
         .hero {
             height: 100vh;
+            background: linear-gradient(rgba(44, 62, 80, 0.8), rgba(44, 62, 80, 0.8)), url('https://images.unsplash.com/photo-1497215728101-856f4ea42174?ixlib=rb-1.2.1&auto=format&fit=crop&w=1350&q=80') no-repeat center center/cover;
+            color: #fff;
             display: flex;
             align-items: center;
+            text-align: center;
+            padding-top: 80px;
             position: relative;
             overflow: hidden;
-            padding-top: 80px;
         }
-
-        .hero-content {
-            max-width: 600px;
-            z-index: 1;
-        }
-
-        .hero h1 {
-            font-size: 3.5rem;
-            margin-bottom: 20px;
-            color: var(--light);
-            line-height: 1.2;
-            text-shadow: 2px 2px 5px rgba(0, 0, 0, 0.5);
-        }
-
-        .hero p {
-            font-size: 1.2rem;
-            color: var(--light);
-            margin-bottom: 30px;
-            text-shadow: 1px 1px 3px rgba(0, 0, 0, 0.5);
-        }
-
-        .hero-btns {
-            display: flex;
-            gap: 20px;
-        }
-
-        .hero-image {
+        
+        .hero::before {
+            content: '';
             position: absolute;
             top: 0;
             left: 0;
             width: 100%;
             height: 100%;
-            z-index: -1;
-            overflow: hidden;
+            background: radial-gradient(circle at center, transparent 0%, rgba(0,0,0,0.5) 100%);
+            z-index: 0;
         }
-
-        .hero-image img {
-            width: 100%;
-            height: 100%;
-            object-fit: cover;
-            opacity: 0.7;
-        }
-
-        /* About Section */
-        .about {
-            background-color: rgba(26, 26, 26, 0.8);
-            color: var(--light);
+        
+        .hero-content {
+            max-width: 800px;
+            margin: 0 auto;
             position: relative;
+            z-index: 1;
+            animation: fadeInUp 1s ease;
         }
-
-        .about-container {
-            display: flex;
-            align-items: center;
-            gap: 50px;
-        }
-
-        .about-image {
-            flex: 1;
-            border-radius: 10px;
-            overflow: hidden;
-            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.3);
-            transform: perspective(1000px) rotateY(-10deg);
-            transition: var(--transition);
-        }
-
-        .about-image:hover {
-            transform: perspective(1000px) rotateY(0deg);
-        }
-
-        .about-image img {
-            width: 100%;
-            height: auto;
-            display: block;
-        }
-
-        .about-content {
-            flex: 1;
-        }
-
-        .about h2 {
+        
+        .hero h1 {
+            font-size: 48px;
             margin-bottom: 20px;
-            color: var(--primary);
-        }
-
-        .about p {
-            margin-bottom: 20px;
-        }
-
-        /* Classes Section */
-        .classes {
-            background-color: rgba(26, 26, 26, 0.8);
-            color: var(--light);
-        }
-
-        .classes-container {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
-            gap: 30px;
-        }
-
-        .class-card {
-            background-color: var(--card-bg);
-            border-radius: 10px;
-            overflow: hidden;
-            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.2);
-            transition: var(--transition);
-            position: relative;
-            transform-style: preserve-3d;
-            perspective: 1000px;
-        }
-
-        .class-card:hover {
-            transform: translateY(-10px) rotateX(5deg);
-            box-shadow: 0 15px 30px rgba(0, 0, 0, 0.3);
-        }
-
-        .class-card-img {
-            height: 200px;
-            overflow: hidden;
-        }
-
-        .class-card-img img {
-            width: 100%;
-            height: 100%;
-            object-fit: cover;
-            transition: var(--transition);
-        }
-
-        .class-card:hover .class-card-img img {
-            transform: scale(1.1);
-        }
-
-        .class-card-content {
-            padding: 20px;
-        }
-
-        .class-card h3 {
-            margin-bottom: 15px;
-            color: var(--primary);
-        }
-
-        .class-card p {
-            margin-bottom: 15px;
-            color: var(--text-light);
-        }
-
-        .class-card .btn {
-            margin-top: 10px;
-        }
-
-        /* Membership Plans */
-        .membership {
-            background-color: rgba(26, 26, 26, 0.8);
-            color: var(--light);
-        }
-
-        .membership-container {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
-            gap: 30px;
-        }
-
-        .membership-card {
-            background-color: var(--card-bg);
-            border-radius: 10px;
-            padding: 30px;
-            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.2);
-            transition: var(--transition);
-            text-align: center;
-            position: relative;
-            overflow: hidden;
-            border: 1px solid rgba(255, 255, 255, 0.1);
-        }
-
-        .membership-card:hover {
-            transform: translateY(-10px);
-            box-shadow: 0 15px 30px rgba(0, 0, 0, 0.3);
-            border-color: var(--primary);
-        }
-
-        .membership-card h3 {
-            font-size: 1.5rem;
-            margin-bottom: 20px;
-            color: var(--primary);
-        }
-
-        .membership-card .price {
-            font-size: 2.5rem;
             font-weight: 700;
-            margin-bottom: 20px;
-            color: var(--light);
+            text-shadow: 0 2px 5px rgba(0,0,0,0.3);
         }
-
-        .membership-card .price span {
-            font-size: 1rem;
-            font-weight: 400;
-        }
-
-        .membership-card ul {
-            list-style: none;
+        
+        .hero p {
+            font-size: 20px;
             margin-bottom: 30px;
-            text-align: left;
+            text-shadow: 0 1px 3px rgba(0,0,0,0.3);
         }
-
-        .membership-card ul li {
-            margin-bottom: 10px;
-            position: relative;
-            padding-left: 25px;
-        }
-
-        .membership-card ul li::before {
-            content: "✓";
-            position: absolute;
-            left: 0;
-            color: var(--primary);
-            font-weight: bold;
-        }
-
-        /* Diet Plan Section */
-        .diet-plan {
-            background-color: rgba(26, 26, 26, 0.8);
-            color: var(--light);
-        }
-
-        .diet-container {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
-            gap: 30px;
-        }
-
-        .diet-card {
-            background-color: var(--card-bg);
-            border-radius: 10px;
-            overflow: hidden;
-            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.2);
-            transition: var(--transition);
-        }
-
-        .diet-card:hover {
-            transform: translateY(-10px);
-            box-shadow: 0 15px 30px rgba(0, 0, 0, 0.3);
-        }
-
-        .diet-card-img {
-            height: 200px;
-            overflow: hidden;
-        }
-
-        .diet-card-img img {
-            width: 100%;
-            height: 100%;
-            object-fit: cover;
-            transition: var(--transition);
-        }
-
-        .diet-card:hover .diet-card-img img {
-            transform: scale(1.1);
-        }
-
-        .diet-card-content {
-            padding: 20px;
-        }
-
-        .diet-card h3 {
-            margin-bottom: 15px;
-            color: var(--primary);
-        }
-
-        .diet-card p {
-            margin-bottom: 15px;
-            color: var(--text-light);
-        }
-
-        /* Workout Routine Section */
-        .workout {
-            background-color: rgba(26, 26, 26, 0.8);
-            color: var(--light);
-        }
-
-        .workout-container {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
-            gap: 30px;
-        }
-
-        .workout-card {
-            background-color: var(--card-bg);
-            border-radius: 10px;
-            overflow: hidden;
-            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.2);
-            transition: var(--transition);
-        }
-
-        .workout-card:hover {
-            transform: translateY(-10px);
-            box-shadow: 0 15px 30px rgba(0, 0, 0, 0.3);
-        }
-
-        .workout-card-img {
-            height: 200px;
-            overflow: hidden;
-        }
-
-        .workout-card-img img {
-            width: 100%;
-            height: 100%;
-            object-fit: cover;
-            transition: var(--transition);
-        }
-
-        .workout-card:hover .workout-card-img img {
-            transform: scale(1.1);
-        }
-
-        .workout-card-content {
-            padding: 20px;
-        }
-
-        .workout-card h3 {
-            margin-bottom: 15px;
-            color: var(--primary);
-        }
-
-        .workout-card p {
-            margin-bottom: 15px;
-            color: var(--text-light);
-        }
-
-        /* Location Section */
-        .location {
-            background-color: rgba(26, 26, 26, 0.8);
-            color: var(--light);
-        }
-
-        .location-container {
+        
+        .hero-btns {
             display: flex;
-            flex-direction: column;
-            align-items: center;
-        }
-
-        .map-container {
-            width: 100%;
-            height: 400px;
-            border-radius: 10px;
-            overflow: hidden;
-            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.3);
-            margin-bottom: 30px;
-        }
-
-        .map-container iframe {
-            width: 100%;
-            height: 100%;
-            border: none;
-        }
-
-        .hours-container {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
-            gap: 30px;
-            width: 100%;
-        }
-
-        .hours-card {
-            background-color: var(--card-bg);
-            border-radius: 10px;
-            padding: 20px;
-            text-align: center;
-            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.2);
-        }
-
-        .hours-card h3 {
-            margin-bottom: 15px;
-            color: var(--primary);
-        }
-
-        .hours-card p {
-            margin-bottom: 10px;
-        }
-
-        /* Contact Section */
-        .contact {
-            background-color: rgba(26, 26, 26, 0.8);
-            color: var(--light);
-        }
-
-        .contact-container {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
-            gap: 50px;
-        }
-
-        .contact-info {
-            display: flex;
-            flex-direction: column;
+            justify-content: center;
             gap: 20px;
         }
-
-        .contact-info h3 {
-            color: var(--primary);
-            margin-bottom: 10px;
+        
+        .hero-btns .btn {
+            padding: 12px 30px;
+            font-size: 16px;
+            min-width: 150px;
         }
-
-        .contact-info-item {
+        
+        .btn-outline {
+            background: transparent;
+            border: 2px solid #fff;
+        }
+        
+        .btn-outline:hover {
+            background: #fff;
+            color: var(--secondary-color);
+        }
+        
+        .scroll-down {
+            position: absolute;
+            bottom: 30px;
+            left: 50%;
+            transform: translateX(-50%);
+            color: white;
+            font-size: 24px;
+            animation: bounce 2s infinite;
+            cursor: pointer;
+            z-index: 1;
+        }
+        
+        @keyframes bounce {
+            0%, 20%, 50%, 80%, 100% {
+                transform: translateY(0) translateX(-50%);
+            }
+            40% {
+                transform: translateY(-20px) translateX(-50%);
+            }
+            60% {
+                transform: translateY(-10px) translateX(-50%);
+            }
+        }
+        
+        /* About Section */
+        .about {
+            padding: 100px 0;
+            background: #fff;
+            position: relative;
+        }
+        
+        .about::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100px;
+            background: linear-gradient(to bottom, rgba(0,0,0,0.05), transparent);
+        }
+        
+        .about-content {
             display: flex;
             align-items: center;
-            gap: 15px;
+            gap: 50px;
         }
-
-        .contact-info-item i {
-            font-size: 1.5rem;
-            color: var(--primary);
+        
+        .about-text {
+            flex: 1;
         }
-
-        .contact-form {
-            background-color: var(--card-bg);
-            padding: 30px;
-            border-radius: 10px;
-            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.2);
-        }
-
-        .form-group {
+        
+        .about-text h3 {
+            font-size: 28px;
             margin-bottom: 20px;
+            color: var(--secondary-color);
+            position: relative;
+            display: inline-block;
         }
-
-        .form-group label {
-            display: block;
+        
+        .about-text h3::after {
+            content: '';
+            position: absolute;
+            width: 50%;
+            height: 3px;
+            background: var(--primary-color);
+            bottom: -8px;
+            left: 0;
+        }
+        
+        .about-text p {
+            margin-bottom: 20px;
+            line-height: 1.8;
+        }
+        
+        .skills {
+            margin-top: 30px;
+        }
+        
+        .skill-item {
+            margin-bottom: 15px;
+        }
+        
+        .skill-name {
+            display: flex;
+            justify-content: space-between;
             margin-bottom: 5px;
             font-weight: 500;
         }
-
-        .form-group input,
-        .form-group textarea {
+        
+        .skill-bar {
+            height: 10px;
+            background: #e0e0e0;
+            border-radius: 5px;
+            overflow: hidden;
+            box-shadow: inset 0 1px 3px rgba(0,0,0,0.1);
+        }
+        
+        .skill-progress {
+            height: 100%;
+            background: linear-gradient(90deg, var(--primary-color), #5dade2);
+            border-radius: 5px;
+            position: relative;
+            overflow: hidden;
+        }
+        
+        .skill-progress::after {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background: linear-gradient(90deg, 
+                          rgba(255,255,255,0.1) 0%, 
+                          rgba(255,255,255,0.3) 50%, 
+                          rgba(255,255,255,0.1) 100%);
+            animation: shine 2s infinite;
+        }
+        
+        @keyframes shine {
+            0% { transform: translateX(-100%); }
+            100% { transform: translateX(100%); }
+        }
+        
+        /* Resume Section */
+        .resume {
+            padding: 100px 0;
+            background: #f5f5f5;
+            position: relative;
+            overflow: hidden;
+        }
+        
+        .resume::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
             width: 100%;
-            padding: 12px;
-            border: 1px solid rgba(255, 255, 255, 0.1);
-            background-color: rgba(255, 255, 255, 0.05);
-            border-radius: 4px;
-            color: var(--light);
-            transition: var(--transition);
+            height: 100px;
+            background: linear-gradient(to bottom, rgba(0,0,0,0.05), transparent);
         }
-
-        .form-group input:focus,
-        .form-group textarea:focus {
-            outline: none;
-            border-color: var(--primary);
-            background-color: rgba(255, 255, 255, 0.1);
+        
+        .resume-container {
+            display: flex;
+            gap: 50px;
+            position: relative;
         }
-
-        .form-group textarea {
-            resize: vertical;
-            min-height: 120px;
+        
+        .resume-column {
+            flex: 1;
         }
-
-        /* Footer */
-        footer {
-            background-color: rgba(26, 26, 26, 0.8);
-            color: var(--light);
-            padding: 50px 0 20px;
+        
+        .resume-column h3 {
+            font-size: 24px;
+            margin-bottom: 30px;
+            color: var(--secondary-color);
+            position: relative;
+            padding-bottom: 10px;
         }
-
-        .footer-container {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
-            gap: 30px;
-            margin-bottom: 40px;
+        
+        .resume-column h3::after {
+            content: '';
+            position: absolute;
+            width: 50px;
+            height: 3px;
+            background: var(--primary-color);
+            bottom: 0;
+            left: 0;
         }
-
-        .footer-col h3 {
-            color: var(--primary);
-            margin-bottom: 20px;
-            font-size: 1.2rem;
+        
+        .resume-item {
+            background: #fff;
+            padding: 30px;
+            margin-bottom: 30px;
+            border-radius: 8px;
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.08);
+            position: relative;
+            border-left: 4px solid var(--primary-color);
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
         }
-
-        .footer-col ul {
-            list-style: none;
+        
+        .resume-item:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 15px 35px rgba(0, 0, 0, 0.12);
         }
-
-        .footer-col ul li {
+        
+        .resume-item h3 {
+            font-size: 20px;
+            margin-bottom: 10px;
+            color: var(--secondary-color);
+        }
+        
+        .resume-item h4 {
+            font-size: 16px;
+            color: var(--primary-color);
+            margin-bottom: 10px;
+            font-weight: 600;
+        }
+        
+        .resume-item .date {
+            display: inline-block;
+            background: var(--light-color);
+            padding: 5px 15px;
+            border-radius: 20px;
+            font-size: 14px;
+            margin-bottom: 15px;
+            font-weight: 500;
+            color: var(--dark-color);
+        }
+        
+        .resume-item .company {
+            font-weight: bold;
+            color: var(--dark-color);
+            margin-bottom: 5px;
+            display: flex;
+            align-items: center;
+            gap: 8px;
+        }
+        
+        .resume-item .company i {
+            color: var(--primary-color);
+        }
+        
+        .resume-item .employment-type {
+            font-style: italic;
+            color: #666;
             margin-bottom: 10px;
         }
-
-        .footer-col ul li a {
-            color: var(--text-light);
-            transition: var(--transition);
-        }
-
-        .footer-col ul li a:hover {
-            color: var(--primary);
-            padding-left: 5px;
-        }
-
-        .social-links {
+        
+        .resume-item .location {
             display: flex;
-            gap: 15px;
+            align-items: center;
+            color: #666;
+            margin-bottom: 15px;
+            gap: 8px;
         }
-
-        .social-links a {
+        
+        .resume-item .location i {
+            color: var(--primary-color);
+        }
+        
+        .resume-item .description {
+            margin-bottom: 15px;
+            line-height: 1.8;
+        }
+        
+        .resume-item .description ul {
+            padding-left: 20px;
+            margin-top: 10px;
+        }
+        
+        .resume-item .description li {
+            margin-bottom: 8px;
+            position: relative;
+        }
+        
+        .resume-item .description li::before {
+            content: '▹';
+            position: absolute;
+            left: -20px;
+            color: var(--primary-color);
+        }
+        
+        .resume-item .skills-list {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 10px;
+            margin-top: 15px;
+        }
+        
+        .resume-item .skill-tag {
+            background: #e0e0e0;
+            padding: 5px 15px;
+            border-radius: 20px;
+            font-size: 12px;
+            font-weight: 500;
+            transition: all 0.3s ease;
+        }
+        
+        .resume-item .skill-tag:hover {
+            background: var(--primary-color);
+            color: white;
+            transform: translateY(-2px);
+        }
+        
+        .download-resume {
+            text-align: center;
+            margin-top: 50px;
+        }
+        
+        .download-resume .btn {
+            padding: 15px 40px;
+            font-size: 16px;
+            display: inline-flex;
+            align-items: center;
+            gap: 10px;
+        }
+        
+        /* Certificates Section */
+        .certificates {
+            padding: 100px 0;
+            background: #fff;
+            position: relative;
+        }
+        
+        .certificates::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100px;
+            background: linear-gradient(to bottom, rgba(0,0,0,0.05), transparent);
+        }
+        
+        .certificate-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(350px, 1fr));
+            gap: 30px;
+        }
+        
+        .certificate-item {
+            background: #f9f9f9;
+            border-radius: 10px;
+            overflow: hidden;
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.08);
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+            position: relative;
+        }
+        
+        .certificate-item:hover {
+            transform: translateY(-10px);
+            box-shadow: 0 15px 40px rgba(0, 0, 0, 0.15);
+        }
+        
+        .certificate-img {
+            height: 200px;
+            overflow: hidden;
+            position: relative;
+        }
+        
+        .certificate-img img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            transition: transform 0.5s ease;
+        }
+        
+        .certificate-item:hover .certificate-img img {
+            transform: scale(1.1);
+        }
+        
+        .certificate-badge {
+            position: absolute;
+            top: 15px;
+            right: 15px;
+            background: var(--gold-color);
+            color: #000;
+            padding: 5px 10px;
+            border-radius: 20px;
+            font-size: 12px;
+            font-weight: bold;
+            box-shadow: 0 3px 10px rgba(0,0,0,0.2);
+        }
+        
+        .certificate-info {
+            padding: 25px;
+        }
+        
+        .certificate-info h3 {
+            margin-bottom: 15px;
+            color: var(--secondary-color);
+            font-size: 20px;
+        }
+        
+        .certificate-info p {
+            color: #666;
+            margin-bottom: 20px;
+            line-height: 1.6;
+        }
+        
+        .certificate-actions {
+            display: flex;
+            gap: 10px;
+        }
+        
+        .certificate-actions .btn {
+            flex: 1;
+            padding: 8px 15px;
+            font-size: 14px;
             display: flex;
             align-items: center;
             justify-content: center;
+            gap: 5px;
+        }
+        
+        /* Projects Section */
+        .projects {
+            padding: 100px 0;
+            background: #f5f5f5;
+            position: relative;
+        }
+        
+        .projects::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100px;
+            background: linear-gradient(to bottom, rgba(0,0,0,0.05), transparent);
+        }
+        
+        .project-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(350px, 1fr));
+            gap: 30px;
+        }
+        
+        .project-card {
+            background: #fff;
+            border-radius: 10px;
+            overflow: hidden;
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.08);
+            transition: all 0.3s ease;
+        }
+        
+        .project-card:hover {
+            transform: translateY(-10px);
+            box-shadow: 0 15px 40px rgba(0, 0, 0, 0.15);
+        }
+        
+        .project-img {
+            height: 200px;
+            overflow: hidden;
+            position: relative;
+        }
+        
+        .project-img::after {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: linear-gradient(to bottom, rgba(0,0,0,0.1), rgba(0,0,0,0.3));
+        }
+        
+        .project-img img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            transition: transform 0.5s ease;
+        }
+        
+        .project-card:hover .project-img img {
+            transform: scale(1.1);
+        }
+        
+        .project-content {
+            padding: 25px;
+        }
+        
+        .project-content h3 {
+            margin-bottom: 15px;
+            color: var(--secondary-color);
+            font-size: 20px;
+        }
+        
+        .project-content p {
+            margin-bottom: 20px;
+            color: #666;
+            line-height: 1.6;
+        }
+        
+        .project-tags {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 10px;
+            margin-bottom: 20px;
+        }
+        
+        .project-tag {
+            background: #e0e0e0;
+            padding: 5px 15px;
+            border-radius: 20px;
+            font-size: 12px;
+            font-weight: 500;
+            transition: all 0.3s ease;
+        }
+        
+        .project-tag:hover {
+            background: var(--primary-color);
+            color: white;
+            transform: translateY(-2px);
+        }
+        
+        .project-links {
+            display: flex;
+            gap: 15px;
+        }
+        
+        .project-links .btn {
+            flex: 1;
+            padding: 10px;
+            font-size: 14px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            gap: 8px;
+        }
+        
+        /* Contact Section */
+        .contact {
+            padding: 100px 0;
+            background: #fff;
+            position: relative;
+        }
+        
+        .contact::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100px;
+            background: linear-gradient(to bottom, rgba(0,0,0,0.05), transparent);
+        }
+        
+        .contact-container {
+            display: flex;
+            gap: 50px;
+        }
+        
+        .contact-info {
+            flex: 1;
+        }
+        
+        .contact-info h3 {
+            font-size: 24px;
+            margin-bottom: 20px;
+            color: var(--secondary-color);
+            position: relative;
+            padding-bottom: 10px;
+        }
+        
+        .contact-info h3::after {
+            content: '';
+            position: absolute;
+            width: 50px;
+            height: 3px;
+            background: var(--primary-color);
+            bottom: 0;
+            left: 0;
+        }
+        
+        .contact-details {
+            margin-bottom: 30px;
+        }
+        
+        .contact-item {
+            display: flex;
+            align-items: center;
+            margin-bottom: 20px;
+            gap: 15px;
+            transition: transform 0.3s ease;
+        }
+        
+        .contact-item:hover {
+            transform: translateX(10px);
+        }
+        
+        .contact-item i {
+            font-size: 20px;
             width: 40px;
             height: 40px;
-            background-color: rgba(255, 255, 255, 0.1);
+            background: var(--light-color);
             border-radius: 50%;
-            color: var(--light);
-            transition: var(--transition);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: var(--primary-color);
+            flex-shrink: 0;
         }
-
-        .social-links a:hover {
-            background-color: var(--primary);
-            transform: translateY(-3px);
+        
+        .contact-text {
+            flex: 1;
         }
-
-        .footer-bottom {
+        
+        .contact-text span {
+            display: block;
+            font-weight: 500;
+        }
+        
+        .contact-text small {
+            color: #666;
+            font-size: 14px;
+        }
+        
+        .social-links {
+            display: flex;
+            gap: 15px;
+            margin-top: 30px;
+        }
+        
+        .social-link {
+            width: 45px;
+            height: 45px;
+            border-radius: 50%;
+            background: var(--light-color);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 20px;
+            color: var(--primary-color);
+            transition: all 0.3s ease;
+        }
+        
+        .social-link:hover {
+            background: var(--primary-color);
+            color: white;
+            transform: translateY(-5px);
+            box-shadow: 0 5px 15px rgba(52, 152, 219, 0.3);
+        }
+        
+        .contact-form {
+            flex: 1;
+            background: #f9f9f9;
+            padding: 40px;
+            border-radius: 10px;
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.08);
+        }
+        
+        .form-group {
+            margin-bottom: 25px;
+        }
+        
+        .form-group label {
+            display: block;
+            margin-bottom: 8px;
+            font-weight: 500;
+            color: var(--dark-color);
+        }
+        
+        .form-control {
+            width: 100%;
+            padding: 12px 15px;
+            border: 1px solid #ddd;
+            border-radius: 5px;
+            font-size: 16px;
+            transition: all 0.3s ease;
+        }
+        
+        .form-control:focus {
+            border-color: var(--primary-color);
+            box-shadow: 0 0 0 3px rgba(52, 152, 219, 0.2);
+            outline: none;
+        }
+        
+        textarea.form-control {
+            height: 150px;
+            resize: vertical;
+        }
+        
+        /* Footer */
+        footer {
+            background: var(--secondary-color);
+            color: #fff;
+            padding: 40px 0 20px;
             text-align: center;
-            padding-top: 20px;
-            border-top: 1px solid rgba(255, 255, 255, 0.1);
-            color: var(--text-light);
-            font-size: 0.9rem;
+            position: relative;
         }
-
-        /* Modal */
+        
+        footer::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 5px;
+            background: linear-gradient(90deg, var(--primary-color), var(--accent-color));
+        }
+        
+        .footer-content p {
+            margin-bottom: 15px;
+            line-height: 1.8;
+        }
+        
+        .footer-content .copyright {
+            font-size: 14px;
+            opacity: 0.8;
+        }
+        
+        .back-to-top {
+            position: fixed;
+            bottom: 30px;
+            right: 30px;
+            width: 50px;
+            height: 50px;
+            background: var(--primary-color);
+            color: white;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 20px;
+            cursor: pointer;
+            opacity: 0;
+            visibility: hidden;
+            transition: all 0.3s ease;
+            z-index: 999;
+            box-shadow: 0 5px 15px rgba(0,0,0,0.2);
+        }
+        
+        .back-to-top.active {
+            opacity: 1;
+            visibility: visible;
+        }
+        
+        .back-to-top:hover {
+            background: var(--secondary-color);
+            transform: translateY(-5px);
+        }
+        
+        /* Modal for Certificate Viewing */
         .modal {
             display: none;
             position: fixed;
@@ -753,464 +1051,583 @@
             left: 0;
             width: 100%;
             height: 100%;
-            background-color: rgba(0, 0, 0, 0.8);
-            z-index: 2000;
-            overflow-y: auto;
-            padding: 20px;
+            background: rgba(0,0,0,0.8);
+            z-index: 1001;
+            overflow: auto;
+            opacity: 0;
+            transition: opacity 0.3s ease;
         }
-
+        
+        .modal.active {
+            opacity: 1;
+        }
+        
         .modal-content {
-            background-color: var(--card-bg);
-            max-width: 800px;
+            max-width: 900px;
             margin: 50px auto;
+            background: white;
             border-radius: 10px;
             overflow: hidden;
-            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.5);
-            position: relative;
+            box-shadow: 0 10px 30px rgba(0,0,0,0.3);
+            transform: scale(0.9);
+            transition: transform 0.3s ease;
         }
-
+        
+        .modal.active .modal-content {
+            transform: scale(1);
+        }
+        
+        .modal-img {
+            max-height: 80vh;
+            overflow: auto;
+        }
+        
+        .modal-img img {
+            width: 100%;
+            display: block;
+        }
+        
         .modal-close {
             position: absolute;
-            top: 15px;
-            right: 15px;
-            font-size: 1.5rem;
-            color: var(--light);
+            top: 20px;
+            right: 20px;
+            color: white;
+            font-size: 30px;
             cursor: pointer;
-            z-index: 1;
-            transition: var(--transition);
+            transition: transform 0.3s ease;
         }
-
+        
         .modal-close:hover {
-            color: var(--primary);
             transform: rotate(90deg);
         }
-
-        .modal-header {
-            padding: 20px;
-            background-color: var(--primary);
-            color: white;
-        }
-
-        .modal-header h2 {
-            margin: 0;
-        }
-
-        .modal-body {
-            padding: 20px;
-            max-height: 70vh;
-            overflow-y: auto;
-        }
-
-        /* 3D Effects */
-        .perspective {
-            perspective: 1000px;
-        }
-
-        .transform-3d {
-            transform-style: preserve-3d;
-        }
-
-        /* Animations */
-        @keyframes fadeIn {
-            from { opacity: 0; }
-            to { opacity: 1; }
-        }
-
-        @keyframes slideUp {
-            from { 
-                opacity: 0;
-                transform: translateY(50px);
-            }
-            to { 
-                opacity: 1;
-                transform: translateY(0);
-            }
-        }
-
-        @keyframes pulse {
-            0% { transform: scale(1); }
-            50% { transform: scale(1.05); }
-            100% { transform: scale(1); }
-        }
-
-        .animate-fadeIn {
-            animation: fadeIn 1s ease forwards;
-        }
-
-        .animate-slideUp {
-            animation: slideUp 0.8s ease forwards;
-        }
-
-        .animate-pulse {
-            animation: pulse 2s infinite;
-        }
-
+        
         /* Responsive Styles */
-        @media (max-width: 992px) {
-            .hero h1 {
-                font-size: 2.8rem;
-            }
-
-            .about-container {
-                flex-direction: column;
-            }
-
-            .about-image {
-                margin-bottom: 30px;
-                max-width: 100%;
+        @media (max-width: 1200px) {
+            .section-title {
+                font-size: 32px;
             }
         }
-
-        @media (max-width: 768px) {
-            .nav-links {
-                position: fixed;
-                top: 80px;
-                right: -100%;
-                width: 80%;
-                height: calc(100vh - 80px);
-                background-color: rgba(26, 26, 26, 0.95);
+        
+        @media (max-width: 992px) {
+            .about-content, .resume-container, .contact-container {
                 flex-direction: column;
-                align-items: center;
-                justify-content: center;
-                transition: var(--transition);
-                backdrop-filter: blur(10px);
+            }
+            
+            .project-grid, .certificate-grid {
+                grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
             }
 
-            .nav-links.active {
-                right: 0;
+            nav ul {
+                display: none;
             }
-
-            .nav-links li {
-                margin: 15px 0;
-            }
-
-            .hamburger {
+            
+            .mobile-menu {
                 display: block;
             }
-
-            .hamburger.active div:nth-child(1) {
-                transform: rotate(-45deg) translate(-5px, 6px);
+            
+            .resume-column {
+                width: 100%;
             }
-
-            .hamburger.active div:nth-child(2) {
-                opacity: 0;
+            
+            .resume-column h3 {
+                text-align: center;
             }
-
-            .hamburger.active div:nth-child(3) {
-                transform: rotate(45deg) translate(-5px, -6px);
+            
+            .resume-column h3::after {
+                left: 50%;
+                transform: translateX(-50%);
             }
-
+        }
+        
+        @media (max-width: 768px) {
             .hero h1 {
-                font-size: 2.5rem;
+                font-size: 36px;
             }
-
+            
+            .hero p {
+                font-size: 18px;
+            }
+            
             .hero-btns {
                 flex-direction: column;
                 gap: 15px;
             }
-
-            .btn {
-                width: 100%;
-                text-align: center;
+            
+            .mobile-nav {
+                display: block;
             }
-        }
-
-        @media (max-width: 576px) {
-            .logo-text {
+            
+            .section-title {
                 font-size: 28px;
             }
-
-            .logo-img {
-                width: 50px;
-                height: 50px;
+            
+            .certificate-actions {
+                flex-direction: column;
             }
-
+            
+            .certificate-actions .btn {
+                width: 100%;
+            }
+            
+            .project-links {
+                flex-direction: column;
+            }
+            
+            .project-links .btn {
+                width: 100%;
+            }
+        }
+        
+        @media (max-width: 576px) {
             .hero h1 {
-                font-size: 2rem;
+                font-size: 30px;
             }
-
+            
             .hero p {
-                font-size: 1rem;
+                font-size: 16px;
             }
-
+            
             .section-title {
-                font-size: 1.8rem;
+                font-size: 24px;
+            }
+            
+            .btn {
+                padding: 8px 15px;
+                font-size: 14px;
+            }
+            
+            .contact-form {
+                padding: 20px;
+            }
+        }
+        
+        /* Animations */
+        @keyframes fadeInUp {
+            from {
+                opacity: 0;
+                transform: translateY(20px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
             }
         }
     </style>
+    <!-- Google Fonts -->
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <!-- Font Awesome -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
 </head>
 <body>
     <!-- Header -->
     <header id="header">
         <div class="container header-container">
-            <div class="logo-container">
-                <img src="https://media-hosting.imagekit.io/c1ab74a3f47f431f/gym%20logo.jpg?Expires=1837705785&Key-Pair-Id=K2ZIVPTIP2VGHC&Signature=TYJAxh6mjPtoHZVw~zuArvoiv~lTPsuUFaCcZet1ONDrorjBp5Gu3Z0JSgllFRKB6jySfr~cCeZaESwR5biHtISUhncCx6wO8CouX7M6BvBAUF0S-PgUQ4RaiSuvSXYIxZRa7T8D-vNcVsYlB8BUBGNWGEuhBcACDVr4dV-cpmYW35MGndbL~UmDjTEbmerYp8Vr-sJssoxBmtVjKnhWQd6Ah2FOuiq5s6reLohIPevwjN6K60b59fgfZFbdeXA~oDTgUW3iqQ6CjPacPERi6n3WyKWh3YKvg9VJS-FjDa58WD229czHbYXQTl5OU5cQVcpYGnLrK8rWNQS2s7~Qqg__" alt="Lakudkar Gym Logo" class="logo-img">
-                <span class="logo-text">Lakudkar Gym</span>
-            </div>
-            <nav>
-                <ul class="nav-links" id="navLinks">
-                    <li><a href="#home">Home</a></li>
-                    <li><a href="#membership">Membership Plans</a></li>
-                    <li><a href="#location">Location</a></li>
-                </ul>
-                <div class="hamburger" id="hamburger">
-                    <div></div>
-                    <div></div>
-                    <div></div>
+            <div class="logo-nav-container">
+                <div class="logo">
+                    <i class="fas fa-code logo-icon"></i>
+                    Ritesh<span>Rathod</span>
                 </div>
-            </nav>
+                <nav>
+                    <ul id="nav-menu">
+                        <li><a href="#home">Home</a></li>
+                        <li><a href="#about">About</a></li>
+                        <li><a href="#resume">Resume</a></li>
+                        <li><a href="#certificates">Certificates</a></li>
+                        <li><a href="#projects">Projects</a></li>
+                        <li><a href="#contact">Contact</a></li>
+                    </ul>
+                </nav>
+            </div>
+            <div class="mobile-menu" id="mobile-menu">
+                <i class="fas fa-bars"></i>
+            </div>
         </div>
     </header>
 
+    <!-- Mobile Navigation -->
+    <div class="mobile-nav" id="mobile-nav">
+        <ul>
+            <li><a href="#home"><i class="fas fa-home"></i> Home</a></li>
+            <li><a href="#about"><i class="fas fa-user"></i> About</a></li>
+            <li><a href="#resume"><i class="fas fa-file-alt"></i> Resume</a></li>
+            <li><a href="#certificates"><i class="fas fa-certificate"></i> Certificates</a></li>
+            <li><a href="#projects"><i class="fas fa-project-diagram"></i> Projects</a></li>
+            <li><a href="#contact"><i class="fas fa-envelope"></i> Contact</a></li>
+        </ul>
+    </div>
+
     <!-- Hero Section -->
     <section class="hero" id="home">
-        <div class="container">
-            <div class="hero-content animate-slideUp">
-                <h1>Transform Your Fitness Journey Today!</h1>
-                <p>Personalized Training • Expert Coaches • Results Guaranteed</p>
-                <div class="hero-btns">
-                    <a href="#membership" class="btn animate-pulse">Join Now</a>
-                    <a href="#contact" class="btn btn-outline">Learn More</a>
-                </div>
+        <div class="container hero-content">
+            <h1>Hi, I'm <span style="color: var(--primary-color);">Ritesh Rathod</span></h1>
+            <p>First Year Student | Aspiring Data Analyst | Passionate Learner</p>
+            <div class="hero-btns">
+                <a href="#contact" class="btn"><i class="fas fa-paper-plane"></i> Contact Me</a>
+                <a href="#resume" class="btn btn-outline"><i class="fas fa-file-alt"></i> View Resume</a>
             </div>
         </div>
-        <div class="hero-image">
-            <img src="https://i.pinimg.com/736x/f5/51/48/f55148ad2ef92de8597008b60bcd29a8.jpg" alt="Gym Hero Image">
-        </div>
+        <a href="#about" class="scroll-down">
+            <i class="fas fa-chevron-down"></i>
+        </a>
     </section>
 
     <!-- About Section -->
-    <section class="section about" id="about">
+    <section class="about" id="about">
         <div class="container">
-            <h2 class="section-title">Our Gym</h2>
-            <div class="about-container">
-                <div class="about-image perspective">
-                    <img src="https://i.pinimg.com/736x/f7/b0/5d/f7b05d5bb3f523a73aa01efeed5be53d.jpg" alt="Gym Interior">
-                </div>
-                <div class="about-content">
-                    <h2>Welcome to Lakudkar Gym</h2>
-                    <p>We are dedicated to helping you achieve your fitness goals through personalized training programs, expert guidance, and state-of-the-art facilities.</p>
-                    <p>Our team of certified trainers will work with you to create a customized workout plan tailored to your specific needs and goals.</p>
-                    <p>Whether you're looking to build muscle, lose weight, or improve your overall fitness, we have the tools and expertise to help you succeed.</p>
-                    <a href="#membership" class="btn">Explore Memberships</a>
-                </div>
-            </div>
-        </div>
-    </section>
-
-    <!-- Classes Section -->
-    <section class="section classes" id="classes">
-        <div class="container">
-            <h2 class="section-title">Our Classes</h2>
-            <div class="classes-container">
-                <div class="class-card transform-3d">
-                    <div class="class-card-img">
-                        <img src="https://i.pinimg.com/736x/f5/51/48/f55148ad2ef92de8597008b60bcd29a8.jpg" alt="Gym Class">
-                    </div>
-                    <div class="class-card-content">
-                        <h3>Gym Training</h3>
-                        <p>Build strength and muscle with our comprehensive gym training programs.</p>
-                        <button class="btn" onclick="openModal('gym-modal')">Learn More</button>
-                    </div>
-                </div>
-                <div class="class-card transform-3d">
-                    <div class="class-card-img">
-                        <img src="https://i.pinimg.com/736x/36/b4/e9/36b4e90c80ebe15005d126ce3e32b12b.jpg" alt="Dance Class">
-                    </div>
-                    <div class="class-card-content">
-                        <h3>Dance/Zumba</h3>
-                        <p>Get fit while having fun with our energetic dance and Zumba classes.</p>
-                        <button class="btn" onclick="openModal('dance-modal')">Learn More</button>
-                    </div>
-                </div>
-                <div class="class-card transform-3d">
-                    <div class="class-card-img">
-                        <img src="https://i.pinimg.com/736x/f4/81/51/f48151613d6c1b329c50e38ea78693f0.jpg" alt="Calisthenics">
-                    </div>
-                    <div class="class-card-content">
-                        <h3>Calisthenics</h3>
-                        <p>Master bodyweight exercises and build functional strength with our calisthenics program.</p>
-                        <button class="btn" onclick="openModal('calisthenics-modal')">Learn More</button>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </section>
-
-    <!-- Membership Plans Section -->
-    <section class="section membership" id="membership">
-        <div class="container">
-            <h2 class="section-title">Membership Plans</h2>
-            <div class="membership-container">
-                <div class="membership-card transform-3d">
-                    <h3>Gym Membership</h3>
-                    <div class="price">₹1,500 <span>/month</span></div>
-                    <ul>
-                        <li>🏋️‍♂️ Strength Training</li>
-                        <li>⚡ Functional & Crossfit Training</li>
-                        <li>📊 Customized Workout Planning</li>
-                        <li>🍎 Customized Diet Consultation</li>
-                        <li>24/7 Gym Access</li>
-                        <li>Personal Trainer Guidance</li>
-                    </ul>
-                    <a href="#contact" class="btn">Join Now</a>
-                </div>
-                <div class="membership-card transform-3d">
-                    <h3>Dance/Zumba Class</h3>
-                    <div class="price">₹1,500 <span>/month</span></div>
-                    <ul>
-                        <li>🕺 No experience needed</li>
-                        <li>🌍 Learn global dance styles</li>
-                        <li>💃 Feel the rhythm</li>
-                        <li>💪 Full-body workout</li>
-                        <li>😊 Instant mood booster</li>
-                        <li>👯 Friendly community</li>
-                    </ul>
-                    <a href="#contact" class="btn">Join Now</a>
-                </div>
-                <div class="membership-card transform-3d">
-                    <h3>Calisthenics</h3>
-                    <div class="price">₹1,500 <span>/month</span></div>
-                    <ul>
-                        <li>💪 Bodyweight Mastery</li>
-                        <li>🔥 No Gym Equipment Needed</li>
-                        <li>✔ Full-Body Strength</li>
-                        <li>✔ Core & Mobility</li>
-                        <li>✔ Explosive Power</li>
-                        <li>✔ Progressive Training</li>
-                    </ul>
-                    <a href="#contact" class="btn">Join Now</a>
-                </div>
-            </div>
-        </div>
-    </section>
-
-    <!-- Diet Plan Section -->
-    <section class="section diet-plan" id="diet">
-        <div class="container">
-            <h2 class="section-title">Diet Plans</h2>
-            <div class="diet-container">
-                <div class="diet-card">
-                    <div class="diet-card-img">
-                        <img src="https://i.pinimg.com/474x/6c/e3/b2/6ce3b2be792cdd262d3bc338f4268687.jpg" alt="Diet Plan">
-                    </div>
-                    <div class="diet-card-content">
-                        <h3>Nutrition Guide</h3>
-                        <p>Discover the perfect diet plan tailored to your fitness goals with our comprehensive nutrition guide.</p>
-                        <button class="btn" onclick="openModal('diet-modal')">View Full 7-Day Plan</button>
+            <h2 class="section-title">About Me</h2>
+            <div class="about-content">
+                <div class="about-text">
+                    <h3>First Year Student at St. Vincent Pallotti College Of Engineering And Technology</h3>
+                    <p>Hello! I'm a passionate first-year student pursuing Computer Science And Business System with a focus on Data Analyst. Expected graduation in 2028.</p>
+                    <p>My journey in technology began when I first discovered programming in high school. Since then, I've been actively participating in various learning opportunities to expand my knowledge and skills.</p>
+                    
+                    <div class="skills">
+                        <h4>My Skills</h4>
+                        <div class="skill-item">
+                            <div class="skill-name">
+                                <span>Programming (Python/Html/C)</span>
+                                <span>75%</span>
+                            </div>
+                            <div class="skill-bar">
+                                <div class="skill-progress" style="width: 75%;"></div>
+                            </div>
+                        </div>
+                        <div class="skill-item">
+                            <div class="skill-name">
+                                <span>Web Development</span>
+                                <span>65%</span>
+                            </div>
+                            <div class="skill-bar">
+                                <div class="skill-progress" style="width: 65%;"></div>
+                            </div>
+                        </div>
+                        <div class="skill-item">
+                            <div class="skill-name">
+                                <span>Communication</span>
+                                <span>85%</span>
+                            </div>
+                            <div class="skill-bar">
+                                <div class="skill-progress" style="width: 85%;"></div>
+                            </div>
+                        </div>
+                        <div class="skill-item">
+                            <div class="skill-name">
+                                <span>Teamwork</span>
+                                <span>90%</span>
+                            </div>
+                            <div class="skill-bar">
+                                <div class="skill-progress" style="width: 90%;"></div>
+                            </div>
+                        </div>
                     </div>
                 </div>
             </div>
         </div>
     </section>
 
-    <!-- Workout Routine Section -->
-    <section class="section workout" id="workout">
+    <!-- Resume Section -->
+    <section class="resume" id="resume">
         <div class="container">
-            <h2 class="section-title">Workout Routines</h2>
-            <div class="workout-container">
-                <div class="workout-card">
-                    <div class="workout-card-img">
-                        <img src="https://i.pinimg.com/474x/7a/1f/02/7a1f0261de4715fd78874ac0d42d55b1.jpg" alt="Gym Workout">
+            <h2 class="section-title">My Resume</h2>
+            <div class="resume-container">
+                <div class="resume-column">
+                    <h3>Education</h3>
+                    <div class="resume-item">
+                        <h3>BTech in Computer Science And Business System</h3>
+                        <h4>St. Vincent Pallotti College Of Engineering And Technology</h4>
+                        <span class="date">2024 - 2028</span>
+                        <p>Currently pursuing my degree with a focus on Data Analyst. Expected graduation in 2028.</p>
                     </div>
-                    <div class="workout-card-content">
-                        <h3>Gym Workout Split</h3>
-                        <p>Build muscle, strength and endurance with our 6-day gym workout split.</p>
-                        <button class="btn" onclick="openModal('gym-workout-modal')">View 6-Day Gym Workout Split</button>
+                    <div class="resume-item">
+                        <h3>High School</h3>
+                        <h4>St. Xaviers High School, Nagpur</h4>
+                        <span class="date">2023 - 2024</span>
+                        <p>Completed high school with honors in PCM, CS, English. Participated in Sports Tournaments.</p>
                     </div>
                 </div>
-                <div class="workout-card">
-                    <div class="workout-card-img">
-                        <img src="https://i.pinimg.com/736x/f4/81/51/f48151613d6c1b329c50e38ea78693f0.jpg" alt="Calisthenics Workout">
+                <div class="resume-column">
+                    <h3>Experience</h3>
+                    <!-- Phoenix Algo Experience -->
+                    <div class="resume-item">
+                        <h3>Chief Technology Officer</h3>
+                        <h4 class="company"><i class="fas fa-briefcase"></i> Phoenix Algo</h4>
+                        <span class="employment-type">Full-time</span>
+                        <span class="date">Feb 2025 - Present</span>
+                        <div class="location">
+                            <i class="fas fa-map-marker-alt"></i>
+                            <span>Nagpur, Maharashtra, India · Remote</span>
+                        </div>
+                        <div class="description">
+                            <p>🚀 Proudly Serving as CTO at PhoenixAlgo! At PhoenixAlgo, we're revolutionizing education through innovative technology, and I'm honored to lead the charge as Chief Technology Officer.</p>
+                            <p>In this dynamic role, I wear many hats:</p>
+                            <ul>
+                                <li>🎨 Designing Posters & Visual Content: Crafting compelling visuals that communicate our mission and inspire our community.</li>
+                                <li>💻 Managing Website Development: Building and maintaining a seamless, user-friendly platform to deliver exceptional educational services.</li>
+                                <li>👥 Leading & Collaborating with Teams: Working alongside talented individuals to drive innovation, solve challenges, and bring our vision to life.</li>
+                            </ul>
+                            <p>Every day, I'm inspired by the opportunity to make education more accessible, engaging, and impactful for learners worldwide.</p>
+                        </div>
+                        <div class="skills-list">
+                            <span class="skill-tag">Canva</span>
+                            <span class="skill-tag">Web Development</span>
+                            <span class="skill-tag">Leadership</span>
+                            <span class="skill-tag">Team Management</span>
+                        </div>
                     </div>
-                    <div class="workout-card-content">
-                        <h3>Calisthenics Plan</h3>
-                        <p>Build strength, muscle and mobility with our 6-day calisthenics plan.</p>
-                        <button class="btn" onclick="openModal('calisthenics-workout-modal')">View 6-Day Calisthenics Plan</button>
+                    
+                    <!-- iBase Technology Internship -->
+                    <div class="resume-item">
+                        <h3>Trainee Developer Intern</h3>
+                        <h4 class="company"><i class="fas fa-briefcase"></i> iBase Electrosoft LLP</h4>
+                        <span class="employment-type">Internship</span>
+                        <span class="date">Mar 2025 · 1 wk</span>
+                        <div class="location">
+                            <i class="fas fa-map-marker-alt"></i>
+                            <span>Nagpur, Maharashtra, India</span>
+                        </div>
+                        <div class="description">
+                            <p>Successfully completed a 7-day internship program focused on Python development.</p>
+                            <p>Gained practical knowledge in:</p>
+                            <ul>
+                                <li>Python programming fundamentals</li>
+                                <li>Software development processes</li>
+                                <li>Industry best practices</li>
+                            </ul>
+                        </div>
+                        <div class="skills-list">
+                            <span class="skill-tag">Python</span>
+                            <span class="skill-tag">Software Development</span>
+                            <span class="skill-tag">Problem Solving</span>
+                        </div>
+                    </div>
+
+                    <!-- Volunteer Experience - E-Cell -->
+                    <div class="resume-item">
+                        <h3>Operations Manager (Volunteer)</h3>
+                        <h4 class="company"><i class="fas fa-briefcase"></i> Ecell-SVPCET</h4>
+                        <span class="employment-type">Part-time</span>
+                        <span class="date">Feb 2025 - Present · 3 mos</span>
+                        <div class="location">
+                            <i class="fas fa-map-marker-alt"></i>
+                            <span>Nagpur, Maharashtra, India · On-site</span>
+                        </div>
+                        <div class="description">
+                            <p>🚀 I am working as an Operations Manager at E-Cell, where I oversee the planning and execution of entrepreneurship-focused events, workshops, and initiatives. My role involves coordinating teams, managing resources, and ensuring smooth operations to support the growth of the entrepreneurial ecosystem and inspire future innovators.🗽</p>
+                        </div>
+                        <div class="skills-list">
+                            <span class="skill-tag">Project Management</span>
+                            <span class="skill-tag">Operations Management</span>
+                            <span class="skill-tag">Team Coordination</span>
+                            <span class="skill-tag">Event Planning</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="download-resume">
+                <a href="#" class="btn"><i class="fas fa-download"></i> Download Full Resume (PDF)</a>
+            </div>
+        </div>
+    </section>
+
+    <!-- Certificates Section -->
+    <section class="certificates" id="certificates">
+        <div class="container">
+            <h2 class="section-title">My Certificates</h2>
+            <div class="certificate-grid">
+                <!-- Python Crash Course -->
+                <div class="certificate-item">
+                    <div class="certificate-img">
+                        <img src="Crash_Course_On_Python.png" alt="Python Crash Course Certificate">
+                        <span class="certificate-badge">Gold</span>
+                    </div>
+                    <div class="certificate-info">
+                        <h3>Python Crash Course</h3>
+                        <p>Completed Google's Crash Course on Python through Coursera, certified on March 18, 2025.</p>
+                        <div class="certificate-actions">
+                            <a href="Crash_Course_On_Python.png" class="btn btn-gold" target="_blank"><i class="fas fa-eye"></i> View Certificate</a>
+                            <a href="Crash_Course_On_Python.png" class="btn" download><i class="fas fa-download"></i> Download</a>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- C Programming Certificate -->
+                <div class="certificate-item">
+                    <div class="certificate-img">
+                        <img src="C_Programming_Course_Certificate.png" alt="C Programming Certificate">
+                        <span class="certificate-badge">Silver</span>
+                    </div>
+                    <div class="certificate-info">
+                        <h3>C Programming Course</h3>
+                        <p>Successfully completed the C Programming Course from Infosys Springboard on December 14, 2024.</p>
+                        <div class="certificate-actions">
+                            <a href="C_Programming_Course_Certificate.png" class="btn btn-silver" target="_blank"><i class="fas fa-eye"></i> View Certificate</a>
+                            <a href="C_Programming_Course_Certificate.png" class="btn" download><i class="fas fa-download"></i> Download</a>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- iBase Technology Internship Certificate -->
+                <div class="certificate-item">
+                    <div class="certificate-img">
+                        <img src="iBase_Technology_Certificate.png" alt="iBase Technology Internship Certificate">
+                        <span class="certificate-badge">Gold</span>
+                    </div>
+                    <div class="certificate-info">
+                        <h3>Trainee Developer Internship</h3>
+                        <p>Successfully completed a 7-day internship at iBase Electrosoft LLP from 24/03/2025 to 30/03/2025, gaining practical knowledge in Python development.</p>
+                        <div class="certificate-actions">
+                            <a href="iBase_Technology_Certificate.png" class="btn btn-gold" target="_blank"><i class="fas fa-eye"></i> View Certificate</a>
+                            <a href="iBase_Technology_Certificate.png" class="btn" download><i class="fas fa-download"></i> Download</a>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- AWS Solution Architecture -->
+                <div class="certificate-item">
+                    <div class="certificate-img">
+                        <img src="Solution_Architecture_Job_Simulation.jpg" alt="AWS Solution Architecture Certificate">
+                        <span class="certificate-badge">Gold</span>
+                    </div>
+                    <div class="certificate-info">
+                        <h3>AWS Solution Architecture</h3>
+                        <p>Completed practical tasks in designing scalable hosting architectures through Forage job simulation in March 2025.</p>
+                        <div class="certificate-actions">
+                            <a href="Solution_Architecture_Job_Simulation.jpg" class="btn btn-gold" target="_blank"><i class="fas fa-eye"></i> View Certificate</a>
+                            <a href="Solution_Architecture_Job_Simulation.jpg" class="btn" download><i class="fas fa-download"></i> Download</a>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Raisoni Hackathon Certificate -->
+                <div class="certificate-item">
+                    <div class="certificate-img">
+                        <img src="Raisoni_Hackathon_Certificate.png" alt="Raisoni Hackathon Certificate">
+                        <span class="certificate-badge">Silver</span>
+                    </div>
+                    <div class="certificate-info">
+                        <h3>Raisoni Summer of Code</h3>
+                        <p>Successfully participated in RSOC-2025: A 6-Hour Hackathon at GHRCEM, Nagpur on 3rd April 2025.</p>
+                        <div class="certificate-actions">
+                            <a href="Raisoni_Hackathon_Certificate.png" class="btn btn-silver" target="_blank"><i class="fas fa-eye"></i> View Certificate</a>
+                            <a href="Raisoni_Hackathon_Certificate.png" class="btn" download><i class="fas fa-download"></i> Download</a>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Hackathon Certificate -->
+                <div class="certificate-item">
+                    <div class="certificate-img">
+                        <img src="Hackathon.jpg" alt="Hackathon Participation Certificate">
+                        <span class="certificate-badge">Silver</span>
+                    </div>
+                    <div class="certificate-info">
+                        <h3>Hackathon Participation</h3>
+                        <p>Participated in Technex Hackathon at St. Vincent Pallotti College of Engineering & Technology, Nagpur on 20th-21st January 2025.</p>
+                        <div class="certificate-actions">
+                            <a href="Hackathon.jpg" class="btn btn-silver" target="_blank"><i class="fas fa-eye"></i> View Certificate</a>
+                            <a href="Hackathon.jpg" class="btn" download><i class="fas fa-download"></i> Download</a>
+                        </div>
                     </div>
                 </div>
             </div>
         </div>
     </section>
 
-    <!-- Location Section -->
-    <section class="section location" id="location">
+    <!-- Projects Section -->
+    <section class="projects" id="projects">
         <div class="container">
-            <h2 class="section-title">Find Us</h2>
-            <div class="location-container">
-                <div class="map-container">
-                    <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3635.570712666092!2d79.07413837515436!3d21.07967418058246!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x3bd4bf1b58fb6519%3A0x6cbe7ba3e9ac2854!2sLakudkar&#39;s%20Fitness%20Gym!5e1!3m2!1sen!2sin!4v1743186760740!5m2!1sen!2sin" allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe>
-                </div>
-                <div class="hours-container">
-                    <div class="hours-card">
-                        <h3>Training Days</h3>
-                        <p>Monday - Sunday</p>
+            <h2 class="section-title">My Projects</h2>
+            <div class="project-grid">
+                <div class="project-card">
+                    <div class="project-img">
+                        <img src="https://images.unsplash.com/photo-1555066931-4365d14bab8c?ixlib=rb-1.2.1&auto=format&fit=crop&w=1350&q=80" alt="Real Time Collaborative WhiteBoard">
                     </div>
-                    <div class="hours-card">
-                        <h3>Training Time</h3>
-                        <p>6 am - 10 pm</p>
+                    <div class="project-content">
+                        <h3>Real Time Collaborative WhiteBoard</h3>
+                        <p>A web-based collaborative whiteboard application that allows multiple users to draw simultaneously in real-time.</p>
+                        <div class="project-tags">
+                            <span class="project-tag">HTML</span>
+                            <span class="project-tag">CSS</span>
+                            <span class="project-tag">JavaScript</span>
+                            <span class="project-tag">WebSockets</span>
+                        </div>
+                        <div class="project-links">
+                            <a href="https://ritesh-rathod16.github.io/Whiteboard_Education/" class="btn" target="_blank"><i class="fas fa-external-link-alt"></i> View Project</a>
+                            <a href="#" class="btn btn-outline"><i class="fab fa-github"></i> Code</a>
+                        </div>
                     </div>
-                    <div class="hours-card">
-                        <h3>Closed On</h3>
-                        <p>Sunday</p>
-                    </div>
-                </div>
-                <div class="parking-info" style="width: 100%; margin-top: 30px;">
-                    <img src="https://tse1.mm.bing.net/th?id=OIP.Oke_TneWMJ1b0_M4kWrSKwHaFj&pid=Api&P=0&h=180" alt="Parking Information" style="width: 60%; margin: 0 auto; display: block; border-radius: 10px;">
                 </div>
             </div>
         </div>
     </section>
 
     <!-- Contact Section -->
-    <section class="section contact" id="contact">
+    <section class="contact" id="contact">
         <div class="container">
             <h2 class="section-title">Get In Touch</h2>
             <div class="contact-container">
                 <div class="contact-info">
-                    <h3>Contact Information</h3>
-                    <div class="contact-info-item">
-                        <i class="fas fa-map-marker-alt"></i>
-                        <span>Lakudkar's Fitness Gym, Nagpur, Maharashtra</span>
+                    <h3>Let's Connect</h3>
+                    <p>I'm always open to discussing new opportunities, learning resources, or potential collaborations. Feel free to reach out!</p>
+                    
+                    <div class="contact-details">
+                        <div class="contact-item">
+                            <i class="fas fa-envelope"></i>
+                            <div class="contact-text">
+                                <span>Email</span>
+                                <small>riteshrathod016@gmail.com</small>
+                            </div>
+                        </div>
+                        <div class="contact-item">
+                            <i class="fas fa-phone"></i>
+                            <div class="contact-text">
+                                <span>Phone</span>
+                                <small>+91 7721874530</small>
+                            </div>
+                        </div>
+                        <div class="contact-item">
+                            <i class="fas fa-map-marker-alt"></i>
+                            <div class="contact-text">
+                                <span>Location</span>
+                                <small>Nagpur, Maharashtra, India</small>
+                            </div>
+                        </div>
                     </div>
-                    <div class="contact-info-item">
-                        <i class="fas fa-phone"></i>
-                        <span>+91 1234567890</span>
-                    </div>
-                    <div class="contact-info-item">
-                        <i class="fas fa-envelope"></i>
-                        <span>riteshrathod016@gmail.com</span>
-                    </div>
-                    <div class="contact-info-item">
-                        <i class="fas fa-clock"></i>
-                        <span>Mon-Sun: 6:00 AM - 10:00 PM</span>
-                    </div>
+                    
+                    <h3>Follow Me</h3>
                     <div class="social-links">
-                        <a href="#"><i class="fab fa-facebook-f"></i></a>
-                        <a href="#"><i class="fab fa-instagram"></i></a>
-                        <a href="#"><i class="fab fa-twitter"></i></a>
-                        <a href="#"><i class="fab fa-youtube"></i></a>
+                        <a href="https://www.linkedin.com/in/ritesh-rathod-34a5a3329" class="social-link" target="_blank" aria-label="LinkedIn">
+                            <i class="fab fa-linkedin-in"></i>
+                        </a>
+                        <a href="https://github.com/yourusername" class="social-link" target="_blank" aria-label="GitHub">
+                            <i class="fab fa-github"></i>
+                        </a>
+                        <a href="https://www.instagram.com/ritesh_rathod_official/" class="social-link" target="_blank" aria-label="Instagram">
+                            <i class="fab fa-instagram"></i>
+                        </a>
+                        <a href="https://www.instagram.com/_ritesh_pvt__/" class="social-link" target="_blank" aria-label="Private Instagram">
+                            <i class="fas fa-lock"></i>
+                        </a>
                     </div>
                 </div>
                 <div class="contact-form">
-                    <form id="contactForm" action="https://formspree.io/f/riteshrathod016@gmail.com" method="POST">
+                    <form action="https://api.web3forms.com/submit" method="POST">
+                        <input type="hidden" name="access_key" value="3ad2ac7d-5205-4c7f-b856-de35b9a592f3">
+                        
                         <div class="form-group">
-                            <label for="name">Name</label>
-                            <input type="text" id="name" name="name" required>
+                            <label for="name">Your Name</label>
+                            <input type="text" id="name" name="name" class="form-control" required>
                         </div>
                         <div class="form-group">
-                            <label for="email">Email</label>
-                            <input type="email" id="email" name="email" required>
-                        </div>
-                        <div class="form-group">
-                            <label for="phone">Phone</label>
-                            <input type="tel" id="phone" name="phone" required>
+                            <label for="email">Your Email</label>
+                            <input type="email" id="email" name="email" class="form-control" required>
                         </div>
                         <div class="form-group">
                             <label for="message">Message</label>
-                            <textarea id="message" name="message" required></textarea>
+                            <textarea id="message" name="message" class="form-control" required></textarea>
                         </div>
-                        <button type="submit" class="btn">Send Message</button>
+                        <input type="checkbox" name="botcheck" class="hidden" style="display: none;">
+                        <button type="submit" class="btn"><i class="fas fa-paper-plane"></i> Send Message</button>
                     </form>
                 </div>
             </div>
@@ -1219,464 +1636,46 @@
 
     <!-- Footer -->
     <footer>
-        <div class="container">
-            <div class="footer-container">
-                <div class="footer-col">
-                    <h3>Lakudkar Gym</h3>
-                    <p>Transform your fitness journey with our expert training programs and state-of-the-art facilities.</p>
-                </div>
-                <div class="footer-col">
-                    <h3>Quick Links</h3>
-                    <ul>
-                        <li><a href="#home">Home</a></li>
-                        <li><a href="#about">About Us</a></li>
-                        <li><a href="#classes">Classes</a></li>
-                        <li><a href="#membership">Membership</a></li>
-                        <li><a href="#contact">Contact</a></li>
-                    </ul>
-                </div>
-                <div class="footer-col">
-                    <h3>Classes</h3>
-                    <ul>
-                        <li><a href="#classes">Gym Training</a></li>
-                        <li><a href="#classes">Dance/Zumba</a></li>
-                        <li><a href="#classes">Calisthenics</a></li>
-                        <li><a href="#workout">Workout Plans</a></li>
-                        <li><a href="#diet">Diet Plans</a></li>
-                    </ul>
-                </div>
-                <div class="footer-col">
-                    <h3>Contact Info</h3>
-                    <ul>
-                        <li><i class="fas fa-map-marker-alt"></i> Nagpur, Maharashtra</li>
-                        <li><i class="fas fa-phone"></i> +91 1234567890</li>
-                        <li><i class="fas fa-envelope"></i> riteshrathod016@gmail.com</li>
-                        <li><i class="fas fa-clock"></i> Mon-Sun: 6AM-10PM</li>
-                    </ul>
-                </div>
-            </div>
-            <div class="footer-bottom">
-                <p>&copy; 2023 Lakudkar Gym. All Rights Reserved. | <a href="#">Privacy Policy</a> | <a href="#">Terms & Conditions</a></p>
-            </div>
+        <div class="container footer-content">
+            <p>Thank you for visiting my portfolio. Let's create something amazing together!</p>
+            <p class="copyright">&copy; 2025 Ritesh Rathod. All rights reserved.</p>
         </div>
     </footer>
 
-    <!-- Modals -->
-    <!-- Gym Class Modal -->
-    <div class="modal" id="gym-modal">
+    <!-- Back to Top Button -->
+    <div class="back-to-top" id="back-to-top">
+        <i class="fas fa-arrow-up"></i>
+    </div>
+
+    <!-- Certificate Modal -->
+    <div class="modal" id="certificate-modal">
+        <span class="modal-close" id="modal-close">&times;</span>
         <div class="modal-content">
-            <span class="modal-close" onclick="closeModal('gym-modal')">&times;</span>
-            <div class="modal-header">
-                <h2>Gym Training Package</h2>
-            </div>
-            <div class="modal-body">
-                <h3>💪 Lakudkar Gym Membership Package</h3>
-                <h4>🎯 What's Included:</h4>
-                <p>✅ 🏋️‍♂️ STRENGTH TRAINING</p>
-                <p>Build muscle with free weights & machines</p>
-                <p>Progressive overload programs</p>
-                
-                <p>✅ ⚡ FUNCTIONAL & CROSSFIT TRAINING</p>
-                <p>HIIT workouts</p>
-                <p>Battle ropes, kettlebells, plyometrics</p>
-                
-                <p>✅ 📊 CUSTOMIZED WORKOUT PLANNING & MONITORING</p>
-                <p>Personalized routines</p>
-                <p>Monthly progress tracking</p>
-                
-                <p>✅ 🍎 CUSTOMIZED DIET & NUTRITION CONSULTATION</p>
-                <p>Tailored meal plans</p>
-                <p>Macro calculations</p>
-                
-                <h4>💰 Pricing:</h4>
-                <p>💲 1,500/- MONTHLY</p>
-                <p>🔥 Best value for comprehensive fitness support!</p>
+            <div class="modal-img">
+                <img src="" alt="Certificate" id="modal-image">
             </div>
         </div>
     </div>
 
-    <!-- Dance Class Modal -->
-    <div class="modal" id="dance-modal">
-        <div class="modal-content">
-            <span class="modal-close" onclick="closeModal('dance-modal')">&times;</span>
-            <div class="modal-header">
-                <h2>Dance/Zumba Class Package</h2>
-            </div>
-            <div class="modal-body">
-                <h3>🌟 Dance Class / Zumba Class Package🌟</h3>
-                <p>🕺 No experience needed – Beginners welcome!</p>
-                <p>🌍 Learn global dance styles – From Bollywood to Hip-Hop!</p>
-                <p>💃 Feel the rhythm – Groove to upbeat music!</p>
-                <p>💪 Full-body workout – Burn calories while having fun!</p>
-                <p>😊 Instant mood booster – Dance your stress away!</p>
-                <p>👯 Meet dance lovers – Join a friendly community!</p>
-                <p>👥 Group energy – Motivating & social sessions!</p>
-                <p>🎉 Party-like vibe – Every class feels like a celebration!</p>
-                
-                <h4>💰 Only 1500/- MONTHLY!</h4>
-                
-                <h4>✨ Why Choose This Class?</h4>
-                <p>✅ All fitness levels welcome</p>
-                <p>✅ Non-stop fun & movement</p>
-                <p>✅ Great for weight loss & stamina</p>
-                
-                <p>🎶 Let's dance together! DM to enroll. 💃🔥</p>
-            </div>
-        </div>
-    </div>
-
-    <!-- Calisthenics Class Modal -->
-    <div class="modal" id="calisthenics-modal">
-        <div class="modal-content">
-            <span class="modal-close" onclick="closeModal('calisthenics-modal')">&times;</span>
-            <div class="modal-header">
-                <h2>Calisthenics Training Package</h2>
-            </div>
-            <div class="modal-body">
-                <h3>💪 Calisthenics Training – Transform Your Body with Bodyweight Mastery!</h3>
-                <p>🔥 No Gym? No Problem! Build strength, flexibility, and endurance using only your bodyweight!</p>
-                
-                <h4>✅ What You'll Get:</h4>
-                <p>✔ Full-Body Strength – Push-ups, Pull-ups, Dips & Muscle-Ups</p>
-                <p>✔ Core & Mobility – Planks, Leg Raises, Handstands</p>
-                <p>✔ Explosive Power – Plyometrics & Dynamic Movements</p>
-                <p>✔ Lean Muscle Gain – No weights, pure functional fitness</p>
-                <p>✔ Progressive Training – From beginner to advanced levels</p>
-                
-                <h4>🌟 Why Choose Our Calisthenics Classes?</h4>
-                <p>✅ Suitable for all levels (Beginner to Athlete)</p>
-                <p>✅ Improves posture & athleticism</p>
-                <p>✅ Builds functional strength for real-life movements</p>
-                <p>✅ Outdoor/Indoor sessions – Train anywhere!</p>
-                
-                <h4>📅 Class Features:</h4>
-                <p>👥 Small Group Coaching (Personalized attention)</p>
-                <p>⏳ Flexible Timing (Morning/Evening batches)</p>
-                <p>🎯 Skill-Based Progression (Master step-by-step)</p>
-                
-                <h4>💰 Pricing:</h4>
-                <p>1 Month: ₹1500/-</p>
-                <p>3 Months: ₹4000/- (Save ₹500!)</p>
-            </div>
-        </div>
-    </div>
-
-    <!-- Diet Plan Modal -->
-    <div class="modal" id="diet-modal">
-        <div class="modal-content">
-            <span class="modal-close" onclick="closeModal('diet-modal')">&times;</span>
-            <div class="modal-header">
-                <h2>7-Day Diet Plan</h2>
-            </div>
-            <div class="modal-body" style="background-image: url('https://i.pinimg.com/474x/65/1f/00/651f00fd2fdf4d3774ce93711ae8b866.jpg'); background-size: cover; background-position: center; background-repeat: no-repeat; padding: 20px; color: white; text-shadow: 1px 1px 3px rgba(0, 0, 0, 0.8);">
-                <h3>📊 Daily Macros (Indian Foods)</h3>
-                <p>💪 Protein: 1.6-2.2g/kg (Eggs 🥚, Chicken 🍗, Paneer 🧀, Dal 🌱)</p>
-                <p>⚡ Carbs: 3-5g/kg (Brown Rice 🍚, Roti 🫓, Oats 🥣)</p>
-                <p>🫒 Fats: 0.8-1g/kg (Ghee 🧈, Nuts 🥜, Coconut 🥥)</p>
-                
-                <h4>⏰ Meal Timing (When to Eat?)</h4>
-                <p>Pre-Workout (1-2h before) ⚡ – Carbs + protein (banana + peanut butter)</p>
-                <p>Post-Workout (30-60min after) 💪 – Protein + carbs (chicken + rice)</p>
-                <p>Snacks 🥜 – Nuts, Greek yogurt, protein shake</p>
-                
-                <h4>🚫 Foods to Limit</h4>
-                <p>Processed Sugar 🍩 – Spikes insulin</p>
-                <p>Trans Fats 🍟 – Bad for heart</p>
-                <p>Alcohol 🍺 – Slows recovery</p>
-                <p>Excess Salt 🧂 – Bloating & BP issues</p>
-                
-                <h4>✅ Healthy Swaps</h4>
-                <p>White rice → Brown rice 🌾</p>
-                <p>Soda → Sparkling water 🥤➡️💧</p>
-                <p>Fried chicken → Grilled chicken 🍗🔥</p>
-                <p>Candy → Dark chocolate (70%+) 🍫</p>
-                
-                <h4>🥗 Micronutrients (Vitamins & Minerals)</h4>
-                <p>Vitamin C 🍊 – Immunity & skin</p>
-                <p>Vitamin D ☀️ – Bone health</p>
-                <p>Iron 🥩 – Oxygen transport (spinach, red meat)</p>
-                <p>Calcium 🥛 – Strong bones</p>
-                <p>Magnesium 🌰 – Muscle relaxation</p>
-                
-                <h4>💡 Pro Tips</h4>
-                <p>✔ 80/20 Rule – 80% healthy, 20% flexible</p>
-                <p>✔ Eat the Rainbow 🌈 – More colorful veggies = more nutrients</p>
-                <p>✔ Listen to Your Body 🧠 – Hunger ≠ cravings</p>
-                
-                <p>💧 Hydration: 3-4L water + Nimbu Pani 🍋 or Coconut Water 🥥</p>
-                
-                <h3>📅 7-Day Plan</h3>
-                <h4>Day 1 🏋️‍♂️ (Strength Training - High Protein)</h4>
-                <p>🌅 Pre-Workout: Banana 🍌 + Peanut Butter 🥜 + Milk 🥛</p>
-                <p>🏋️‍♂️ Post-Workout: Roti 🫓 + Chicken Curry 🍗 + Dal 🌱 + Cucumber Salad 🥒</p>
-                <p>☕ Snack: Sprout Chaat 🌱 + Almonds 🥜</p>
-                <p>🌙 Dinner: Brown Rice 🍚 + Fish Curry 🐟 + Bhindi Sabzi 🥗</p>
-                
-                <h4>Day 2 🏃‍♂️ (HIIT - Moderate Carb)</h4>
-                <p>🌅 Pre-Workout: Poha 🍚 + Boiled Egg 🥚</p>
-                <p>🏃‍♂️ Post-Workout: Quinoa 🍛 + Moong Dal 🌱 + Curd 🥄</p>
-                <p>☕ Snack: Greek Yogurt 🥣 + Chia Seeds ✨</p>
-                <p>🌙 Dinner: Jowar Roti 🫓 + Palak Paneer 🧀 + Sprouts 🌱</p>
-                
-                <h4>Day 3 🦵 (Leg Day - High Energy)</h4>
-                <p>🌅 Pre-Workout: Oats 🥣 + Whey 💊 + Dates 🍇</p>
-                <p>🦵 Post-Workout: Rice 🍚 + Mutton Curry 🍖 + Beetroot Salad 🥗</p>
-                <p>☕ Snack: Chana Chaat 🌱 + Green Chutney 🍃</p>
-                <p>🌙 Dinner: Bajra Roti 🫓 + Dal Tadka 🌱 + Mushrooms 🍄</p>
-                
-                <h4>Day 4 💪 (Upper Body - Balanced)</h4>
-                <p>🌅 Pre-Workout: Upma 🍛 + Buttermilk 🥛</p>
-                <p>💪 Post-Workout: Roti 🫓 + Egg Bhurji 🍳 + Curd 🥄</p>
-                <p>☕ Snack: Makhana 🍿 + Ghee 🧈</p>
-                <p>🌙 Dinner: Khichdi 🍚 + Kadhi 🥣</p>
-                
-                <h4>Day 5 🚴 (Endurance - Carb Cycling)</h4>
-                <p>🌅 Pre-Workout: Idli 🍘 + Sambar 🍛</p>
-                <p>🚴 Post-Workout: Brown Rice 🍚 + Grilled Fish 🐟 + Lauki Sabzi 🥗</p>
-                <p>☕ Snack: Fruit Salad 🍉 + Walnuts 🥜</p>
-                <p>🌙 Dinner: Missi Roti 🫓 + Dal 🌱 + Bhindi Sabzi 🥗</p>
-                
-                <h4>Day 6 🧘 (Active Recovery - Low Carb)</h4>
-                <p>🌅 Breakfast: Egg Whites 🥚 + Spinach Omelet 🍳</p>
-                <p>🍽️ Lunch: Quinoa 🍛 + Chana Masala 🌱 + Cucumber Raita 🥒</p>
-                <p>☕ Snack: Coconut Water 🥥 + Pumpkin Seeds 🎃</p>
-                <p>🌙 Dinner: Tofu 🧈 + Mushroom Soup 🍄</p>
-                
-                <h4>Day 7 🛌 (Rest Day - Flexible)</h4>
-                <p>🍳 Brunch: Dosa 🍘 + Sambar 🍛 + Flaxseed Chutney ✨</p>
-                <p>☕ Snack: Lassi 🥛 + Sunflower Seeds 🌻</p>
-                <p>Muscle Gain 💪: Add ghee 🧈 or extra eggs 🥚.</p>
-            </div>
-        </div>
-    </div>
-
-    <!-- Gym Workout Modal -->
-    <div class="modal" id="gym-workout-modal">
-        <div class="modal-content">
-            <span class="modal-close" onclick="closeModal('gym-workout-modal')">&times;</span>
-            <div class="modal-header">
-                <h2>6-Day Gym Workout Split</h2>
-            </div>
-            <div class="modal-body" style="background-image: url('https://i.pinimg.com/474x/65/1f/00/651f00fd2fdf4d3774ce93711ae8b866.jpg'); background-size: cover; background-position: center; background-repeat: no-repeat; padding: 20px; color: white; text-shadow: 1px 1px 3px rgba(0, 0, 0, 0.8);">
-                <h3>🏋️‍♂️ 6-Day Gym Workout Split</h3>
-                <p>Goal: Build muscle 💪, strength 🔥 & endurance 🏃‍♂️</p>
-                <p>Rest Day: Sunday 🧘 (active recovery: yoga/walking)</p>
-                
-                <h4>🏋️‍♂️ Gym Essentials</h4>
-                <p>Dumbbells 🏋️‍♂️💪 – Versatile for strength training.</p>
-                <p>Barbell �♂️🔥 – For squats, deadlifts, and bench press.</p>
-                <p>Treadmill 🏃‍♂️🌀 – Cardio king.</p>
-                <p>Resistance Bands 🎗️💥 – Portable strength & mobility.</p>
-                <p>Gym Mat 🧘‍♂️🟢 – Stretching & core workouts.</p>
-                
-                <h4>💪 Popular Workouts</h4>
-                <p>Chest Day 🏋️‍♂️❤️ – Bench press, flys, push-ups.</p>
-                <p>Leg Day 🦵🔥 – Squats, lunges, deadlifts.</p>
-                <p>Arm Day 💪🎯 – Bicep curls, tricep dips.</p>
-                <p>HIIT ⚡⏱️ – High-intensity interval training.</p>
-                <p>Yoga 🧘‍♀️☮️ – Flexibility & mindfulness.</p>
-                
-                <h4>🍏 Gym Nutrition</h4>
-                <p>Pre-Workout ⚡🥤 – Energy boost.</p>
-                <p>Protein Shake 🥛💪 – Muscle recovery.</p>
-                <p>Healthy Meal Prep 🥗🍗 – Chicken, rice, veggies.</p>
-                <p>Hydration 💧🚰 – Water is a must!</p>
-                
-                <h4>🏆 Gym Culture</h4>
-                <p>Gym Bros 💪🤝 – Spotting & motivation.</p>
-                <p>Gym Selfies 🤳🔥 – Progress pics.</p>
-                <p>New Year Rush 🎉📅 – January crowds.</p>
-                <p>Gym Fail Memes 😂🚷 – Dropping weights, awkward faces.</p>
-                
-                <h4>🚨 Gym Etiquette</h4>
-                <p>Rerack Weights 🔄🏋️‍♂️ – Don't leave a mess!</p>
-                <p>Wipe Equipment 🧼🧴 – Hygiene first.</p>
-                <p>Don't Hog Machines ⏳🙅‍♂️ – Share the gains.</p>
-                <p>Headphones Rule 🎧🔇 – No loud grunting.</p>
-                
-                <h4>💡 Gym Motivation</h4>
-                <p>"No Pain, No Gain" 💥🏆</p>
-                <p>"Sweat Now, Shine Later" ✨💦</p>
-                <p>"Beast Mode ON" 🦍🔥</p>
-                
-                <h3>Detailed Workout Plan</h3>
-                <h4>Day 1️⃣ (Monday): Chest & Triceps</h4>
-                <p>Flat Bench Press – 4x6-8 🏋️‍♂️</p>
-                <p>Incline Dumbbell Press – 3x8-10 🏋️‍♀️</p>
-                <p>Cable Flys – 3x12 ✨</p>
-                <p>Triceps Dips – 3xMAX 💪</p>
-                <p>Skull Crushers – 3x10-12 🦾</p>
-                <p>(Finish: 10 min incline treadmill walk 🚶‍♂️)</p>
-                
-                <h4>Day 2️⃣ (Tuesday): Back & Biceps</h4>
-                <p>Pull-Ups – 4x6-8 (add weight if advanced) �♂️</p>
-                <p>Barbell Rows – 3x8-10 🏋️‍♀️</p>
-                <p>Lat Pulldown – 3x10-12 🔄</p>
-                <p>Deadlifts – 3x5 (heavy!) ⚡</p>
-                <p>Hammer Curls – 3x12 💥</p>
-                <p>(Stretch: 5 min lats/biceps 🧘)</p>
-                
-                <h4>Day 3️⃣ (Wednesday): Legs (Quads Focus)</h4>
-                <p>Squats – 4x6-8 🦵</p>
-                <p>Bulgarian Split Squats – 3x8/leg 🏋️‍♀️</p>
-                <p>Leg Press – 3x10-12 🚂</p>
-                <p>Leg Extensions – 3x15 (slow!) 🐢</p>
-                <p>Calf Raises – 4x15 👟</p>
-                <p>(Cool down: 5 min bike 🚴‍♂️)</p>
-                
-                <h4>Day 4️⃣ (Thursday): Shoulders & Abs</h4>
-                <p>Overhead Press – 4x6-8 🏋️‍♂️</p>
-                <p>Lateral Raises – 3x12-15 ✈️</p>
-                <p>Face Pulls – 3x15 🔄</p>
-                <p>Hanging Leg Raises – 3x12-15 🦵</p>
-                <p>Russian Twists – 3x20/side 🔄</p>
-                <p>(Finish: 10 min rowing 🚣‍♂️)</p>
-                
-                <h4>Day 5️⃣ (Friday): Arms (Hypertrophy)</h4>
-                <p>Close-Grip Bench – 3x10-12 🏋️‍♂️</p>
-                <p>EZ Bar Curls – 3x10-12 💪</p>
-                <p>Triceps Rope Pushdown – 3x12-15 🦾</p>
-                <p>Preacher Curls – 3x12 🔥</p>
-                <p>(Superset biceps/triceps for pump! 💥)</p>
-                
-                <h4>Day 6️⃣ (Saturday): Legs (Hamstrings/Glutes) + HIIT</h4>
-                <p>Romanian Deadlifts – 4x8 🏋️‍♀️</p>
-                <p>Hip Thrusts – 3x10-12 🍑</p>
-                <p>Leg Curls – 3x12-15 🦵</p>
-                <p>Farmer's Walk – 3x30 sec 🚶‍♂️</p>
-                <p>HIIT Finisher:</p>
-                <p>30 sec Sprint / 30 sec Walk – 8 rounds ⚡</p>
-            </div>
-        </div>
-    </div>
-
-    <!-- Calisthenics Workout Modal -->
-    <div class="modal" id="calisthenics-workout-modal">
-        <div class="modal-content">
-            <span class="modal-close" onclick="closeModal('calisthenics-workout-modal')">&times;</span>
-            <div class="modal-header">
-                <h2>6-Day Calisthenics Plan</h2>
-            </div>
-            <div class="modal-body" style="background-image: url('https://i.pinimg.com/474x/65/1f/00/651f00fd2fdf4d3774ce93711ae8b866.jpg'); background-size: cover; background-position: center; background-repeat: no-repeat; padding: 20px; color: white; text-shadow: 1px 1px 3px rgba(0, 0, 0, 0.8);">
-                <h3>🏋️‍♂️ 6-Day Calisthenics Plan</h3>
-                <p>Goal: Build strength 💪, muscle 🏋️‍♂️, and mobility 🧘‍♂️</p>
-                <p>Rest Day: Sunday (active recovery: yoga/stretching) 🧘‍♀️</p>
-                
-                <h4>🤸‍♂️ Skill-Based Moves (Advanced)</h4>
-                <p>Muscle-Up (Pull-Up + Dip Combo) 🚪💥⬆️</p>
-                <p>Front Lever (Core & Back Strength) 🏋️‍♂️🌍</p>
-                <p>Planche (Shoulder & Core Mastery) �🔥</p>
-                <p>Human Flag (Full-Body Power) 🚩💪</p>
-                
-                <h4>🧘‍♂️ Cool Down</h4>
-                <p>Static Stretching 🧘‍♂️</p>
-                <p>Deep Breathing 🌬️</p>
-                <p>Hydration 💧</p>
-                
-                <h4>💡 Pro Tips:</h4>
-                <p>✔️ Consistency > Intensity – Progress gradually!</p>
-                <p>✔️ Form First – Avoid injuries.</p>
-                <p>✔️ Rest & Recovery – Muscles grow during rest! 💤</p>
-                
-                <h3>Detailed Workout Plan</h3>
-                <h4>Day 1️⃣ (Monday): Upper Body Push</h4>
-                <p>Push-Ups – 4x12-15 🏋️‍♂️ (slow, full range)</p>
-                <p>Pike Push-Ups – 3x8-10 ✋ (shoulder focus)</p>
-                <p>Dips (Parallel Bars/Chair) – 3x8-10 🔄</p>
-                <p>Handstand Holds – 3x20-30 sec ⏳ (against wall)</p>
-                <p>Triceps Extensions – 3x10-12 🦾</p>
-                <p>(Finish: 5 min wrist mobility drills ✋)</p>
-                
-                <h4>Day 2️⃣ (Tuesday): Upper Body Pull</h4>
-                <p>Pull-Ups – 4x6-8 🏋️‍♂️ (strict form)</p>
-                <p>Bodyweight Rows (Table/TRX) – 3x10-12 🔄</p>
-                <p>Archer Rows – 3x6/side 🎯 (scaled: feet on ground)</p>
-                <p>Hanging Leg Raises – 3x12-15 🦵</p>
-                <p>Plank to Failure – 3xMAX ⏳</p>
-                <p>(Stretch: 5 min lats & biceps 🧘‍♂️)</p>
-                
-                <h4>Day 3️⃣ (Wednesday): Legs & Core</h4>
-                <p>Pistol Squats – 3x5/side 🦵 (assisted if needed)</p>
-                <p>Jump Squats – 3x12-15 ⚡</p>
-                <p>Nordic Hamstring Curls – 3x6-8 🏋️‍♀️ (slow negatives)</p>
-                <p>L-Sit Holds – 3x15-20 sec ⏳ (tucked if advanced)</p>
-                <p>Dragon Flags – 3x6-8 🐉 (scaled: negatives)</p>
-                <p>(Cool down: 5 min hip stretches 🧘‍♀️)</p>
-                
-                <h4>Day 4️⃣ (Thursday): Skill & Mobility</h4>
-                <p>Handstand Practice – 10 min ✋ (wall holds/kicks)</p>
-                <p>Front Lever Progressions – 3x8-10 sec 🏋️‍♂️ (tuck/adv. tuck)</p>
-                <p>Planche Lean Holds – 3x20-30 sec ⏳</p>
-                <p>Skin the Cat – 3x5 🔄 (shoulder mobility)</p>
-                <p>Bridge Holds – 3x20 sec 🌉</p>
-                <p>(Focus: Form over reps! 👀)</p>
-                
-                <h4>Day 5️⃣ (Friday): Full Body HIIT</h4>
-                <p>Burpees – 4x10 ⚡</p>
-                <p>Mountain Climbers – 3x20/side 🏔️</p>
-                <p>Explosive Push-Ups – 3x8 💥</p>
-                <p>Jump Lunges – 3x12/side 🦵</p>
-                <p>Plank Jacks – 3x30 sec ⏳</p>
-                <p>(Finisher: 5 min jump rope 🏃‍♂️)</p>
-                
-                <h4>Day 6️⃣ (Saturday): Freestyle & Play</h4>
-                <p>Muscle-Up Progressions – 10 min 🏋️‍♂️</p>
-                <p>Human Flag Practice – 3x5 sec/side 🚩</p>
-                <p>Handstand Walks – 3x10 steps 🚶‍♂️</p>
-                <p>Parkour Basics – Vaults/Rolling 🏃‍♂️</p>
-                <p>(Have fun! 😄)</p>
-            </div>
-        </div>
-    </div>
-
+    <!-- JavaScript -->
     <script>
-        // Header scroll effect
-        window.addEventListener('scroll', function() {
-            const header = document.getElementById('header');
-            if (window.scrollY > 50) {
-                header.classList.add('scrolled');
-            } else {
-                header.classList.remove('scrolled');
-            }
+        // Mobile Menu Toggle
+        const mobileMenuBtn = document.getElementById('mobile-menu');
+        const mobileNav = document.getElementById('mobile-nav');
+        
+        mobileMenuBtn.addEventListener('click', () => {
+            mobileNav.classList.toggle('active');
         });
-
-        // Mobile menu toggle
-        const hamburger = document.getElementById('hamburger');
-        const navLinks = document.getElementById('navLinks');
-
-        hamburger.addEventListener('click', function() {
-            navLinks.classList.toggle('active');
-            hamburger.classList.toggle('active');
-        });
-
+        
         // Close mobile menu when clicking on a link
-        document.querySelectorAll('.nav-links a').forEach(link => {
-            link.addEventListener('click', function() {
-                navLinks.classList.remove('active');
-                hamburger.classList.remove('active');
+        const mobileNavLinks = document.querySelectorAll('.mobile-nav a');
+        mobileNavLinks.forEach(link => {
+            link.addEventListener('click', () => {
+                mobileNav.classList.remove('active');
             });
         });
-
-        // Modal functions
-        function openModal(modalId) {
-            document.getElementById(modalId).style.display = 'block';
-            document.body.style.overflow = 'hidden';
-        }
-
-        function closeModal(modalId) {
-            document.getElementById(modalId).style.display = 'none';
-            document.body.style.overflow = 'auto';
-        }
-
-        // Close modal when clicking outside
-        window.addEventListener('click', function(event) {
-            if (event.target.classList.contains('modal')) {
-                event.target.style.display = 'none';
-                document.body.style.overflow = 'auto';
-            }
-        });
-
-        // Smooth scrolling for anchor links
+        
+        // Smooth scrolling for all links
         document.querySelectorAll('a[href^="#"]').forEach(anchor => {
             anchor.addEventListener('click', function(e) {
                 e.preventDefault();
@@ -1692,79 +1691,90 @@
                 }
             });
         });
-
-        // Form submission
-        const contactForm = document.getElementById('contactForm');
-        if (contactForm) {
-            contactForm.addEventListener('submit', function(e) {
-                e.preventDefault();
-                
-                const formData = new FormData(this);
-                const action = this.getAttribute('action');
-                
-                fetch(action, {
-                    method: 'POST',
-                    body: formData,
-                    headers: {
-                        'Accept': 'application/json'
-                    }
-                })
-                .then(response => {
-                    if (response.ok) {
-                        alert('Message sent successfully!');
-                        contactForm.reset();
-                    } else {
-                        throw new Error('Network response was not ok');
-                    }
-                })
-                .catch(error => {
-                    alert('There was a problem sending your message. Please try again later.');
-                    console.error('Error:', error);
-                });
+        
+        // Header scroll effect
+        const header = document.getElementById('header');
+        window.addEventListener('scroll', () => {
+            if (window.scrollY > 50) {
+                header.classList.add('scrolled');
+            } else {
+                header.classList.remove('scrolled');
+            }
+        });
+        
+        // Back to top button
+        const backToTopBtn = document.getElementById('back-to-top');
+        window.addEventListener('scroll', () => {
+            if (window.scrollY > 300) {
+                backToTopBtn.classList.add('active');
+            } else {
+                backToTopBtn.classList.remove('active');
+            }
+        });
+        
+        backToTopBtn.addEventListener('click', () => {
+            window.scrollTo({
+                top: 0,
+                behavior: 'smooth'
             });
-        }
-
+        });
+        
+        // Certificate modal
+        const modal = document.getElementById('certificate-modal');
+        const modalImg = document.getElementById('modal-image');
+        const modalClose = document.getElementById('modal-close');
+        const viewCertificateBtns = document.querySelectorAll('.certificate-actions .btn:first-child');
+        
+        viewCertificateBtns.forEach(btn => {
+            btn.addEventListener('click', function(e) {
+                if (!this.classList.contains('btn-gold') && !this.classList.contains('btn-silver')) {
+                    return;
+                }
+                
+                e.preventDefault();
+                const imgSrc = this.getAttribute('href');
+                modalImg.src = imgSrc;
+                modal.classList.add('active');
+                document.body.style.overflow = 'hidden';
+            });
+        });
+        
+        modalClose.addEventListener('click', () => {
+            modal.classList.remove('active');
+            document.body.style.overflow = 'auto';
+        });
+        
+        modal.addEventListener('click', (e) => {
+            if (e.target === modal) {
+                modal.classList.remove('active');
+                document.body.style.overflow = 'auto';
+            }
+        });
+        
         // Animation on scroll
-        function animateOnScroll() {
-            const elements = document.querySelectorAll('.animate-slideUp, .animate-fadeIn');
+        const animateOnScroll = () => {
+            const elements = document.querySelectorAll('.about-content, .resume-item, .certificate-item, .project-card');
             
             elements.forEach(element => {
                 const elementPosition = element.getBoundingClientRect().top;
-                const screenPosition = window.innerHeight / 1.3;
+                const windowHeight = window.innerHeight;
                 
-                if (elementPosition < screenPosition) {
+                if (elementPosition < windowHeight - 100) {
                     element.style.opacity = '1';
                     element.style.transform = 'translateY(0)';
                 }
             });
-        }
-
-        // Initialize animations
-        window.addEventListener('load', function() {
-            animateOnScroll();
+        };
+        
+        // Set initial state for animated elements
+        document.querySelectorAll('.about-content, .resume-item, .certificate-item, .project-card').forEach(element => {
+            element.style.opacity = '0';
+            element.style.transform = 'translateY(30px)';
+            element.style.transition = 'opacity 0.5s ease, transform 0.5s ease';
         });
-
-        window.addEventListener('scroll', function() {
-            animateOnScroll();
-        });
-
-        // 3D hover effects
-        document.querySelectorAll('.transform-3d').forEach(element => {
-            element.addEventListener('mousemove', function(e) {
-                const xAxis = (window.innerWidth / 2 - e.pageX) / 25;
-                const yAxis = (window.innerHeight / 2 - e.pageY) / 25;
-                this.style.transform = `rotateY(${xAxis}deg) rotateX(${yAxis}deg)`;
-            });
-
-            element.addEventListener('mouseenter', function() {
-                this.style.transition = 'all 0.1s ease';
-            });
-
-            element.addEventListener('mouseleave', function() {
-                this.style.transition = 'all 0.5s ease';
-                this.style.transform = 'rotateY(0deg) rotateX(0deg)';
-            });
-        });
+        
+        window.addEventListener('scroll', animateOnScroll);
+        window.addEventListener('load', animateOnScroll);
     </script>
 </body>
 </html>
